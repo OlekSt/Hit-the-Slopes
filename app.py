@@ -13,11 +13,11 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
 
+
 @app.route('/')
-def hello():
-    return ' test Hello World ...again'
-
-
+@app.route('/see_index')
+def see_index():
+    return render_template("index.html")
 
 
 
