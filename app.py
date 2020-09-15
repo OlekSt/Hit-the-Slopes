@@ -13,7 +13,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 @app.route('/')
 def hello():
-    return 'Let's test Hello World ...again'
+    return ' test Hello World ...again'
 
 
 
