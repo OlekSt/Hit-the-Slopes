@@ -11,9 +11,13 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'hit_the_slopes'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
+mongo = PyMongo(app)
+
 @app.route('/')
 def hello():
     return ' test Hello World ...again'
+
+
 
 
 

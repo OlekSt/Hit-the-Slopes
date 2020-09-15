@@ -1,0 +1,19 @@
+/*----  General styles ---*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;  
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;   
+    background-image: url("../static/img/hero_img_md.jpg");    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; 
+}
