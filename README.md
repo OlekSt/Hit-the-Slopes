@@ -262,7 +262,7 @@ Female | female | checkbox | boolean
 32 to 40 years | age33to40 | choice | boolean
 41 to 48 years | age41to48 | choice | boolean
 49 years and up | age49up | choice | boolean
-From | from | text, `maxlength="40"` | boolean
+From | from | text, `maxlength="40"` | string
 **Avatar Choice** | avatar | | **object**
 Avatar01 | avatar01 | text | string
 Avatar02 | avatar02 | text | string
