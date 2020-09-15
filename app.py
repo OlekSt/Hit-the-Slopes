@@ -11,6 +11,11 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'hit_the_slopes'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
+@app.route('/')
+def hello():
+    return 'Let's test Hello World ...again'
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
