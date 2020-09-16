@@ -1,0 +1,36 @@
+{% extends 'base.html'%} 
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <ul class="collapsible" data-collapsible="accordion">
+            {% for trip in trips %}
+            <li>
+                <div class="collapsible-header">
+                    <div class="trip_header col s9">
+                        <strong>{{trip.location_name}}</strong> 
+                    </div>
+                    <div class="trip_header col s9">
+                        <strong>Dates:</strong> 
+                        {{trip.from}}:::{{trip.to}}
+                    </div>
+                    <div class="trip_header col s9">
+                        <strong>Adults:</strong>{{trip.adults}}
+                        <strong>Kids:</strong>{{trip.kids}}
+                    </div>
+                    <div class="trip_header col s9">
+                        <strong>Add.info:</strong>{{trip.other_info}}
+                    </div>
+                </div>
+                <div class="collapsible-body">
+                    <span>
+                    {{trip.other_info}} 
+                </span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

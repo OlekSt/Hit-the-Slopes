@@ -292,7 +292,7 @@ Other info | info | text, `maxlength="200"` | string
 | Title | Key in db | form validation type | Data type |
 --- | --- | --- | --- 
 Activity ID | _id | None | ObjectId 
-Location name | locationName |text, `maxlength="45"` | string
+Location name | locationName |text, `maxlength="100"` | string
 Short description | description |text, `maxlength="80"` | string
 Website | url | url, `maxlength="100"` | string
 Map link | map | url, `maxlength="100"` | string

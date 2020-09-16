@@ -11,9 +11,37 @@ html, body {
 body{
     font-family: 'Roboto', sans-serif;
     font-size: 15px;   
-    background-image: url("../static/img/hero_img_med.jpg");    
-    background-repeat: no-repeat;
+    background-image: url("../img/hero_img_lg1.jpg");    
+    
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed; 
+    background-attachment: fixed;
+    
 }
+
+#navbar{
+    background-color: #A4352C;
+}
+
+.button{
+    background-color: #FF7967;
+ 
+    margin: auto;
+    
+}
+
+#home-logo{
+    margin-left: 10px;
+}
+
+#buttons-container{
+    position: absolute;
+    width: 80%;
+    bottom: 5%;
+    align-content: center;
+}
+
+.waves-effect{
+    background-color: rgb(236, 110, 93);
+}
+

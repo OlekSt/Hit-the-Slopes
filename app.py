@@ -19,6 +19,11 @@ mongo = PyMongo(app)
 def see_index():
     return render_template("index.html")
 
+@app.route('/get_trips')
+def get_trips():
+    return render_template("trips.html", 
+                           trips=mongo.db.trips.find())
+
 
 
 if __name__ == '__main__':
