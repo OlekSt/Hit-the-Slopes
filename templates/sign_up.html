@@ -1,0 +1,72 @@
+{% extends 'base.html'%} 
+{% block content %}
+
+<div class="container">
+<div class="card">
+<div class="card-content">
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="username" type="text" class="validate">
+                    <label for="username">Username</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock</i>
+                    <input placeholder="enter your password" id="password_one" name="password_one" type="password">
+                    <label for="password_one"><span class="red-text"><b></b></span></label>
+                        </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock</i>
+                    <input placeholder="Re-enter your password" id="password_two" name="password_two" type="password">
+                    <label for="password_two"><span class="red-text"><b></b></span></label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">wc</i>
+                    <div class="col s6">
+                            <input id="male" name="male" type="checkbox" />
+                            <label for="male"><span>Male</span>
+                        </label>
+                    </div>
+                    <div class="col s6">
+                            <input id="female" name="female" type="checkbox" />
+                            <label for="female"><span>Female</span>
+                        </label> 
+                    </div>                
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">date_range</i>
+                    <select class="icons" id="ageRange" name="ageRange" required="" aria-required="true" multiple>
+                        <option value="1" disabled selected>Choose your age</option>
+                        <option value="2">18 to 25</option>
+                        <option value="3">26 to 32</option>
+                        <option value="4">33 to 40</option>
+                        <option value="5">41 to 48</option>
+                        <option value="6">49 plus</option>
+                    </select>
+                    <label>Age Range</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">face</i>
+                    <select class="icons" id="avatar" name="avatar" required="" aria-required="true">
+                        <option value="1" disabled>Choose your Avatar</option>
+                        <option value="2" selected data-icon="/static/img/avatar/boot.png">SkiBoot</option>
+                        <option value="3" data-icon="/static/img/avatar/cabin.png">Cabin</option>
+                        <option value="4" data-icon="/static/img/avatar/coffee.png">Coffee</option>
+                        <option value="5" data-icon="/static/img/avatar/goggles.png">Goggles</option>
+                        <option value="6" data-icon="/static/img/avatar/mountain.png">Mountain</option>
+                        <option value="7" data-icon="/static/img/avatar/skier.png">Skier</option>
+                        <option value="8" data-icon="/static/img/avatar/skipass.png">SkiPass</option>
+                        <option value="9" data-icon="/static/img/avatar/snowboarder.png">Snowboarder</option>
+                    </select>
+                    <label>My Avatar</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
