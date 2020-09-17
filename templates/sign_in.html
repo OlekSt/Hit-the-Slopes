@@ -1,0 +1,31 @@
+{% extends 'base.html'%} 
+{% block content %}
+
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            <div id="signup-form" class="card-content bg-custom one-px-border">
+                <div class="card-panel">
+                    <span class="card-title">Sign In</span>
+                    <div class="row">
+                        <form action="{{ url_for('sign_in') }}" method="POST" class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input placeholder="your name" id="name" name="name" type="text" class="validate">
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input placeholder="your password" id="password" name="password" type="password">
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light right" type="submit">Sign In</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

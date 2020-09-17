@@ -6,9 +6,9 @@
         <div class="card-content">
             <div id="signup-form" class="card-content bg-custom one-px-border">
                 <div class="card-panel">
-                    <span class="card-title">Sign Up</span>
+                    <span class="card-title">Sign In</span>
                     <div class="row">
-                        <form action="{{ url_for('add_user') }}" method="POST" class="col s12">
+                        <form action="{{ url_for('sign_in') }}" method="POST" class="col s12">
                             <div class="row">
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">account_circle</i>
@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">lock</i>
-                                    <input placeholder="enter your password" id="password" name="password" type="password">
+                                    <input placeholder="your password" id="password" name="password" type="password">
                                 </div>
                                 <!--
                                 <div class="input-field col s12">

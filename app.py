@@ -27,6 +27,11 @@ def sign_up():
     return render_template("sign_up.html")
 
 
+@app.route('/sign_in')
+def sign_in():
+    return render_template("sign_in.html")
+
+
 @app.route('/add_user', methods=['GET','POST'])
 def add_user():
     users = mongo.db.users
