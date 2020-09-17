@@ -10,7 +10,7 @@ html, body {
 
 body{
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;   
+    font-size: 10px;   
     background-image: url("../img/hero_img_lg1.jpg");    
     
     background-size: cover;
@@ -45,3 +45,6 @@ body{
     background-color: rgb(236, 110, 93);
 }
 
+#signup-form{
+    font-size: 10px;
+}
