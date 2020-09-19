@@ -32,18 +32,16 @@ def sign_in():
     return render_template("sign_in.html")
 
 
-@app.route('/add_user', methods=['GET','POST'])
+@app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
     users = mongo.db.users
     users.insert_one(request.form.to_dict())
     return redirect(url_for('user_account'))
 
 
-@app.route('/user_account', methods=['GET', 'POST'])
+@app.route('/user_account', methods=['POST'])
 def user_account():
-    users = mongo.db.users
-    return render_template("user_account.html", 
-                            users=mongo.db.users.find())
+    return render_template("user_account.html", users=mongo.db.users.find())
 
 
 @app.route('/get_trips')

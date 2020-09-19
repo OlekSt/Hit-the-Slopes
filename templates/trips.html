@@ -1,35 +1,43 @@
 {% extends 'base.html'%} 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <ul class="collapsible" data-collapsible="accordion">
-            {% for trip in trips %}
-            <li>
-                <div class="collapsible-header">
-                    <div class="trip_header col s9">
-                        <strong>{{trip.location_name}}</strong> 
-                    </div>
-                    <div class="trip_header col s9">
-                        <strong>Dates:</strong> 
-                        {{trip.from}}:::{{trip.to}}
-                    </div>
-                    <div class="trip_header col s9">
+<div class="row">
+    <h5 class="center">UPCOMING TRIPS</h5> 
+    <div class="card">
+    
+        {% for trip in trips %}
+        <table class="collapsible highlight" data-collapsible="accordion">
+            <tbody>
+                <tr class="collapsible-header col s12 m6 l6 xl6">
+                    <td>
+                        <strong>{{trip.user}}</strong>
+                        <div class="avatar-image"><img src="/static/img/avatar/goggles.png" width="25" height="25"/></div>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('get_locations')}}"><strong>{{trip.location_name}}</strong></a>
+                        <div class="avatar-image"><img src="/static/img/avatar/goggles.png" width="25" height="25"/></div>
+                    </td>
+                    <td>
+                        <strong>From:  {{trip.from}}  </strong> 
+                        <strong>To: {{trip.to}}</strong>
+                    </td>  
+                </tr>
+                <tr class="collapsible-header col s12 m6 l6 xl6">
+                    <td>
                         <strong>Adults:</strong>{{trip.adults}}
                         <strong>Kids:</strong>{{trip.kids}}
-                    </div>
-                    <div class="trip_header col s9">
+                    </td>
+                    <td>
+                                <span>Ski or Snowboard</span>
+                    </td>
+                    <td>
                         <strong>Add.info:</strong>{{trip.other_info}}
-                    </div>
-                </div>
-                <div class="collapsible-body">
-                    <span>
-                    {{trip.other_info}} 
-                </span>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
+                    </td>  
+                </tr>               
+            </tbody>
+        </table>
+        {% endfor %}
+
     </div>
 </div>
 

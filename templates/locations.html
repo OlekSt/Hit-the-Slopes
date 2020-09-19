@@ -1,36 +1,47 @@
 {% extends 'base.html'%} 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <ul class="collapsible" data-collapsible="accordion">
-            {% for location in locations %}
-            <li>
-                <div class="collapsible-header">
-                    <div class="trip_header col s9">
+<div class="card valign-wrapper">
+        
+            
+                <div id="signup-form" class="card-panel grey lighten-5">
+                    <span class="card-title">SKI RESORTS</span>
+                    
+<div class="row">
+    
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for location in locations %}
+        <li>
+                <div class="col s12 m12 l6">
+                
+                    <div class="collapsible-header">
                         <strong>{{location.location_name}}</strong> 
                     </div>
-                    <div class="trip_header col s9">
+                    <div class="collapsible-body">
+                    <span>
+                        <div>
                         <strong>Description:</strong> 
                         {{location.description}}
-                    </div>
-                    <div class="trip_header col s9">
+                        </div>
+                        <div class="">
                         <strong>Web:</strong>{{location.website}}
                         <strong>Map:</strong>{{location.map}}
-                    </div>
-                    <div class="trip_header col s9">
+                        </div>
+                        <div class="">
                         <strong>Add.info:</strong>{{location.other_info}}
+                        </div>
+                    </span>
                     </div>
                 </div>
-                <div class="collapsible-body">
-                    <span>
-                    
-                </span>
-                </div>
+                
             </li>
             {% endfor %}
         </ul>
-    </div>
 </div>
+</div>
+</div>
+
+
+
 
 {% endblock %}

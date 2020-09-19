@@ -26,10 +26,11 @@
 
 <body>
     <header>
+        <div class="navbar-fixed">
         <nav id="navbar">
             <div class="nav-wrapper">
                 <div id="home-logo">
-                <a href="#"  class="brand-logo">Hit the Slopes!</a>
+                <a href="#" id="navbar-logo" class="brand-logo">Hit the Slopes!</a>
                 </div>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -48,6 +49,7 @@
                 </ul>
             </div>
         </nav>
+        </div>
     </header>
 
     <div class="container">
@@ -60,6 +62,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            $('.collapsible').collapsible();
             $('.sidenav').sidenav();
             $('select').formSelect();
         });

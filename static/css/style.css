@@ -10,27 +10,18 @@ html, body {
 
 body{
     font-family: 'Roboto', sans-serif;
-    font-size: 10px;   
+    font-size: 15px;   
     background-image: url("../img/hero_img_lg1.jpg");    
-    
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    
 }
 
 #navbar{
     background-color: #A4352C;
 }
 
-.button{
-    background-color: #FF7967;
- 
-    margin: auto;
-    
-}
-
-#home-logo{
+#navbar-logo{
     margin-left: 10px;
 }
 
@@ -41,10 +32,27 @@ body{
     align-content: center;
 }
 
-.waves-effect{
-    background-color: rgb(236, 110, 93);
+#signup-form{
+    font-size: 15px;
+    background-color: #E6F4F1;
 }
 
-#signup-form{
-    font-size: 10px;
+
+.avatar-image{
+    width: 30px;
+    height: 30px;
+}
+
+@media screen and (max-width: 375px) {
+    /*small phones*/
+    #navbar-logo{
+        font-size: 1.8em;
+    }   
+}
+
+@media screen and (max-width: 325px) {
+    /*small phones*/
+    #navbar-logo{
+        font-size: 1.6em;
+    }   
 }
