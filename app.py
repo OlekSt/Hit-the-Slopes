@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, request, flash, session
+from flask import Flask, render_template, redirect, request, url_for, request, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
@@ -44,14 +44,14 @@ def user_account():
     return render_template("user_account.html", users=mongo.db.users.find())
 
 
-@app.route('/get_trips')
-def get_trips():
+@app.route('/trips')
+def trips():
     return render_template("trips.html", trips=mongo.db.trips.find())
 
 
-@app.route('/get_locations')
-def get_locations():
-    return render_template("locations.html", locations=mongo.db.locations.find())
+@app.route('/ski_resorts')
+def ski_resorts():
+    return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find())
 
 
 if __name__ == '__main__':

@@ -43,6 +43,26 @@ body{
     height: 30px;
 }
 
+.card-image{
+    width: 45px;
+    height: 45px;
+}
+
+.location-card{
+    width: 300px;
+    height: auto;
+}
+#card-div{
+    margin: auto;
+    float: left;
+}
+
+
+.card-title h5{
+    color: #0056B2;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 375px) {
     /*small phones*/
     #navbar-logo{

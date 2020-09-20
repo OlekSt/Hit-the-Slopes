@@ -1,0 +1,46 @@
+{% extends 'base.html'%} 
+{% block content %}
+
+
+                    
+
+
+    <div class="row">
+    
+    {% for skiresort in skiresorts %}
+    
+    <div class="collapsible highlight" data-collapsible="accordion">
+        <div class="collapsible-header">
+            <div class="row">
+                    <div class="card-title col s4 m4 l4">
+                        <span class="location-name teal"><h5 class="card-title">{{skiresort.location_name}}</h5></span>  
+                    </div>
+                    <div class="card-image col s4 m4 l4">
+                        <img src="/static/img/resorts_thumbs/mountain05.png" width="40" height="40">
+                    </div>
+                    <div class="card-action col s4 m4 l4">
+                        <a href="{{skiresort.website}}" target="_blank">Web</a>
+                        <a href="{{skiresort.map}}" target="_blank">Map</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="collpasible-body">
+            <div class="row">
+                <div class="card-action">
+                    <p>{{skiresort.description}}</p>
+                    <p>{{skiresort.other_info}}</p>
+                </div>
+            </div>   
+        </div> 
+    
+    {% endfor %}
+     
+  
+</div> 
+
+
+
+
+
+{% endblock %}
