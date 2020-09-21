@@ -1,0 +1,30 @@
+{% block navbar %}
+
+<header>
+    <div class="navbar-fixed">
+        <nav id="navbar">
+            <div class="nav-wrapper">
+                    <div id="home-logo">
+                        <a href="{{url_for('show_index')}}" id="navbar-logo" class="brand-logo">Hit the Slopes!</a>
+                    </div>
+                    <a href="#" data-activates="mobile-demo" class="side-nav-trigger button-collapse"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{{url_for('trips')}}">Trips</a></li>
+                        <li><a href="#">New Trip</a></li>
+                        <li><a  id="ski-resorts-link" href="{{url_for('ski_resorts')}}">Ski Resorts</a></li>
+                        <li><a href="#">New Ski Resort</a></li>
+                        <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="{{url_for('trips')}}">Trips</a></li>
+                <li><a href="#">New Trip</a></li>
+                <li><a href="{{url_for('ski_resorts')}}">Ski Resorts</a></li>
+                <li><a href="#">New Ski Resort</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+{% endblock %}

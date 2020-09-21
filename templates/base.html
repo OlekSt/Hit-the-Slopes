@@ -24,35 +24,27 @@
 </head>
 
 <body>
-    <header>
-        <div class="navbar-fixed">
-            <nav id="navbar">
-                <div class="nav-wrapper">
-                    <div id="home-logo">
-                        <a href="{{url_for('show_index')}}" id="navbar-logo" class="brand-logo">Hit the Slopes!</a>
-                    </div>
-                    <a href="#mobile-demo" data-activates="mobile-demo" class="side-nav-trigger button-collapse"><i class="material-icons">menu</i></a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="{{url_for('trips')}}">Trips</a></li>
-                        <li><a href="#">New Trip</a></li>
-                        <li><a  id="ski-resorts-link" href="{{url_for('ski_resorts')}}">Ski Resorts</a></li>
-                        <li><a href="#">New Ski Resort</a></li>
-                        <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
-                    </ul>
-                </div>
-            </nav>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="{{url_for('trips')}}">Trips</a></li>
-                <li><a href="#">New Trip</a></li>
-                <li><a href="{{url_for('ski_resorts')}}">Ski Resorts</a></li>
-                <li><a href="#">New Ski Resort</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
-            </ul>
-        </div>
-    </header>
+   <!-- Navbar -->
+    {% if active == 'signedIn' %}
+    {% include 'nav.html' %}
+    {% else %}
+    {% include 'index_nav.html' %}
+    {% endif %}
 
     <div class="container">
-        {% block content %} {% endblock %}   
+
+        <div class="message-board white justify-content-center">
+            <!-- Flash messages -->
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <p class="text-center blue-text">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+    {% block content %} {% endblock %}   
     </div>
     
     <!-- JQuery link -->
@@ -61,6 +53,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
     <!--Local Javascript link-->
-    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.collapsible').collapsible();
+            $('.sidenav').sidenav();
+            $('select').formSelect();
+            $('.carousel').carousel();
+        });
+    </script>
 </body>
 </html>

@@ -11,7 +11,7 @@
                 <tr class="collapsible-header col s12 m6 l6 xl6">
                     <td>
                         <strong>{{trip.user}}</strong>
-                        <div class="avatar-image"><img src="/static/img/avatar/goggles.png" width="25" height="25"/></div>
+                        <div class="avatar-image"><img src="{{trip.user.avatar}}" width="25" height="25"/></div>
                     </td>
                     <td>
                         <a href="{{ url_for('ski_resorts')}}"><strong>{{trip.location_name}}</strong></a>

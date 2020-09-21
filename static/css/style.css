@@ -57,6 +57,12 @@ body{
     float: left;
 }
 
+.message-board{
+    justify-content: center;
+    background-color: white;
+    width: 200px;
+    
+}
 
 .card-title h5{
     color: #0056B2;
