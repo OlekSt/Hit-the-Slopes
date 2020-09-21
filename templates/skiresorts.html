@@ -1,46 +1,73 @@
 {% extends 'base.html'%} 
 {% block content %}
 
-
-                    
-
-
-    <div class="row">
-    
+<table>
+    <tbody>
     {% for skiresort in skiresorts %}
-    
-    <div class="collapsible highlight" data-collapsible="accordion">
-        <div class="collapsible-header">
-            <div class="row">
-                    <div class="card-title col s4 m4 l4">
-                        <span class="location-name teal"><h5 class="card-title">{{skiresort.location_name}}</h5></span>  
-                    </div>
-                    <div class="card-image col s4 m4 l4">
-                        <img src="/static/img/resorts_thumbs/mountain05.png" width="40" height="40">
-                    </div>
-                    <div class="card-action col s4 m4 l4">
-                        <a href="{{skiresort.website}}" target="_blank">Web</a>
-                        <a href="{{skiresort.map}}" target="_blank">Map</a>
-                    </div>
-                </div>  
-            </div>
-        </div>
-        <div class="collpasible-body">
-            <div class="row">
-                <div class="card-action">
-                    <p>{{skiresort.description}}</p>
-                    <p>{{skiresort.other_info}}</p>
+        <tr>
+            <td>
+                <div class="card">
+                <div class="card-content row">
+                        <div class="col s4 m4 l4">
+                            <div class="row">
+                            <span class="location-name teal"><h5 class="card-title">{{skiresort.location_name}}</h5></span>  
+                            </div>
+                            <div id="thumbnail-div" class="row">
+                                <img src="{{skiresort.thumbnail}}" width="40" height="40"/>
+                            </div>
+                            <div class="row">
+                                <p>{{skiresort.description}}</p>
+                            </div>
+                        </div>
+                        <div class="card-title col s4 m4 l4">
+                            <div class="">
+                                <form action="#">
+                                    <div class="col s6 m6 l6">
+                                        <p><label>
+                                            <input type="checkbox" checked="checked"/>
+                                            <span>Spring</span>
+                                        </label></p>
+                                        <p>
+                                        <label>
+                                            <input type="checkbox" checked="checked"/>
+                                            <span>Autumn</span>
+                                        </label>
+                                        </p>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <p>
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span>Glacier</span>
+                                        </label>
+                                        </p>
+                                        <p>
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span>Night</span>
+                                        </label>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="">
+                                <a href="{{skiresort.website}}" target="_blank">Web</a>
+                                <a href="{{skiresort.map}}" target="_blank">Map</a>
+                            </div>
+                        </div>
+                        <div class="card-title col s4 m4 l4">
+                            <div class="">
+                                <p>Additional info:</p>
+                            </div>
+                            <div class="">
+                                <p>{{skiresort.other_info}}</p>
+                            </div>
+                        </div>
                 </div>
-            </div>   
-        </div> 
-    
+            </td>
+        <tr>
     {% endfor %}
-     
-  
-</div> 
-
-
-
-
+    </tbody>
+</table>
 
 {% endblock %}

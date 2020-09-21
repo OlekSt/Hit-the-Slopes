@@ -1,8 +1,9 @@
-import os
-from flask import Flask, render_template, redirect, request, url_for, request, session
+import os, json
+from flask import Flask, flash, render_template, jsonify, redirect, request, url_for, request, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
+from bson.json_util import dumps
 
 from os import path
 if path.exists("env.py"):
@@ -46,13 +47,13 @@ def user_account():
 
 @app.route('/trips')
 def trips():
+    
     return render_template("trips.html", trips=mongo.db.trips.find())
 
 
 @app.route('/ski_resorts')
 def ski_resorts():
     return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find())
-
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

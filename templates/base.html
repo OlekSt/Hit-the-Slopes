@@ -20,7 +20,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
-
     
 </head>
 
@@ -36,7 +35,7 @@
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="{{url_for('trips')}}">Trips</a></li>
                         <li><a href="#">New Trip</a></li>
-                        <li><a href="{{url_for('ski_resorts')}}">Ski Resorts</a></li>
+                        <li><a  id="ski-resorts-link" href="{{url_for('ski_resorts')}}">Ski Resorts</a></li>
                         <li><a href="#">New Ski Resort</a></li>
                         <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
                     </ul>
@@ -60,12 +59,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.collapsible').collapsible();
-            $('sidenav').sidenav();
-            $('select').formSelect();
-        });
-    </script>
+    
+    <!--Local Javascript link-->
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
 </body>
 </html>
