@@ -49,26 +49,29 @@ def add_user():
         else:
             flash("This username already exists, please choose another one")
             return redirect(url_for('sign_up_page'))
-    return render_template('trips.html')
+    return render_template('trips.html', active='signed')
 
 
-@app.route('/sign_in', methods=['GET', 'POST'])
+@app.route('/sign_in')
 def sign_in():
     if request.method == "POST":
         users = mongo.db.users
-        matched_user = users.find_one({'name': request.form["name"]})
-        if matched_user:
-            if check_password_hash(matched_user["password"], request.form["password"]):
-                flash("Welcome back, " + matched_user["name"])
-                session["name"] = matched_user["name"]
+        existing_user = users.find_one({'name': request.form["name"]})
+        if existing_user:
+            if check_password_hash(existing_user["password"], 
+                                    request.form["password"]):
+                flash("Welcome back, " + existing_user["name"])
+                session["name"] = existing_user["name"] 
                 return redirect(url_for('trips'))
+            '''
             else:
                 flash("Wrong password. Try again.")
                 return redirect(url_for('sign_in'))
         else:
             flash("Wrong name. Try again.")
             return redirect(url_for('sign_in'))
-    return render_template('/sign_in.html', active='signedIn')    
+    '''
+    return redirect(url_for('trips'))
 
 
 @app.route('/user_account', methods=['POST'])
@@ -84,6 +87,7 @@ def trips():
 @app.route('/ski_resorts')
 def ski_resorts():
     return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find())
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

@@ -24,15 +24,14 @@
 </head>
 
 <body>
-   <!-- Navbar -->
-    {% if active == 'signedIn' %}
+    <!-- Navbar -->
+    {% if active == 'signed' %} 
     {% include 'nav.html' %}
     {% else %}
     {% include 'index_nav.html' %}
     {% endif %}
 
     <div class="container">
-
         <div class="message-board white justify-content-center">
             <!-- Flash messages -->
                 {% with messages = get_flashed_messages() %}
