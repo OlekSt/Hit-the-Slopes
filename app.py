@@ -30,7 +30,7 @@ def sign_up_page():
     return render_template("sign_up.html")
 
 
-@app.route('/sign_in', methods=['GET', 'POST'])
+@app.route('/sign_in_page', methods=['GET', 'POST'])
 def sign_in_page():
     return render_template("sign_in.html")
 
@@ -49,11 +49,13 @@ def add_user():
         else:
             flash("This username already exists, please choose another one")
             return redirect(url_for('sign_up_page'))
-    return render_template('trips.html', active='signed')
+    return render_template('trips.html', active='signedIn')
 
 
-@app.route('/sign_in')
+@app.route('/sign_in', methods=['GET', 'POST'])
 def sign_in():
+    loggedIn = True if 'user' in session else False
+
     if request.method == "POST":
         users = mongo.db.users
         existing_user = users.find_one({'name': request.form["name"]})
@@ -63,15 +65,15 @@ def sign_in():
                 flash("Welcome back, " + existing_user["name"])
                 session["name"] = existing_user["name"] 
                 return redirect(url_for('trips'))
-            '''
+            
             else:
                 flash("Wrong password. Try again.")
                 return redirect(url_for('sign_in'))
         else:
             flash("Wrong name. Try again.")
             return redirect(url_for('sign_in'))
-    '''
-    return redirect(url_for('trips'))
+
+    return render_template('trips.html', active='signedIn')
 
 
 @app.route('/user_account', methods=['POST'])
@@ -87,6 +89,12 @@ def trips():
 @app.route('/ski_resorts')
 def ski_resorts():
     return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find())
+
+
+@app.route('/sign_out')
+def sign_out():
+    session.clear()
+    return redirect(url_for('show_index'))
 
 
 if __name__ == '__main__':
