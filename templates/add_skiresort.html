@@ -3,12 +3,11 @@
 
 <div class="container">
     <div class="card valign-wrapper">
-        
             <div class="card-content grey lighten-4">
-                <div id="signup-form" class="card-panel grey lighten-5">
-                    <span class="card-title">ADD a NEW SKI RESORT</span>
+                <div id="new_skiresort" class="card-panel grey lighten-5">
+                    <span class="card-title">NEW SKI RESORT</span>
                     <div class="row">
-                        <form action="{{ url_for('add_skiresort') }}" method="POST" class="col s12">
+                        <form action="{{ url_for('insert_skiresort') }}" method="POST" class="col s12">
                             <div class="row">
                                 <div class="input-field col s12 m12 l6">
                                     <i class="small material-icons prefix">account_circle</i>
@@ -24,19 +23,47 @@
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">map</i>
-                                    <select class="icons dropdown-content" id="ageRange" name="ageRange" required="" aria-required="true">
-                                        <option value="1" selected>Your age</option>
-                                        <option value="18-25">18 to 25</option>
-                                        <option value="26-32">26 to 32</option>
-                                        <option value="33-40">33 to 40</option>
-                                        <option value="41-48">41 to 48</option>
-                                        <option value="49+">49 plus</option>
-                                    </select>
+                                    <input placeholder="map link" id="map" name="map" type="url" class="validate" required>
+                                </div>
+                                <div class="input-field col s12 m12 l12">
+                                    <div class="row">
+                                        <div class="input-field col s6 m6 l6">
+                                            
+                                                <label for="spring"><span>Spring</span>
+                                                    <input type="checkbox" id="spring" name="spring" />
+                                                </label>
+                                            
+                                        </div>    
+                                        <div class="input-field col s6 m6 l6">
+                                            
+                                                <label for="autumn"><span>Autumn</span>
+                                                    <input type="radio" id="autumn" name="autumn" />
+                                                </label>
+                                            
+                                        </div>    
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6 m6 l6">
+                                            <p>
+                                                <label for="night"><span>Night</span>
+                                                    <input type="checkbox" id="night" name="night"/>
+                                                </label>
+                                            </p>
+                                        </div> 
+                                        <div class="input-field col s6 m6 l6">
+                                            <p>
+                                                <label for="glacier"><span>Glacier</span>
+                                                    <input type="checkbox" id="glacier" name="glacier"/>
+                                                </label>
+                                            </p>
+                                        </div> 
+                                    </div>
                                 </div>
                                 <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">location_city</i>
-                                    <input placeholder="you are from:" id="from" name="from" type="text" class="validate">
+                                    <i class="small material-icons prefix">comment</i>
+                                    <input placeholder="additional info" id="other_info" name="other_info" type="text" class="validate" required>
                                 </div>
+                                <label class="checkbox-inline">
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">face</i>
                                     <select class="icons dropdown-content" id="avatar" name="avatar" required="" aria-required="true">

@@ -96,8 +96,13 @@ def ski_resorts():
         return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
 
-@app.route('/add_skiresort', methods=['POST'])
+@app.route('/add_skiresort')
 def add_skiresort():
+    return render_template('add_skiresort.html', active='signedIn')
+
+
+@app.route('/insert_skiresort', methods=['POST'])
+def insert_skiresort():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else: 
@@ -121,7 +126,7 @@ def add_skiresort():
                 })
                 flash("We've added your ski resort!")
                 return redirect(url_for('ski_resorts'))
-            return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+            return render_template("askiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
 
 @app.route('/sign_out')
