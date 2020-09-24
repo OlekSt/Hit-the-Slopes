@@ -1,0 +1,66 @@
+{% extends 'base.html'%} 
+{% block content %}
+
+<div class="container">
+    <div class="card valign-wrapper">
+        
+            <div class="card-content grey lighten-4">
+                <div id="signup-form" class="card-panel grey lighten-5">
+                    <span class="card-title">ADD a NEW SKI RESORT</span>
+                    <div class="row">
+                        <form action="{{ url_for('add_skiresort') }}" method="POST" class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="small material-icons prefix">account_circle</i>
+                                    <input placeholder="Ski resort name" id="location_name" name="location_name" type="text" class="validate" required>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="small material-icons prefix">description</i>
+                                    <input placeholder="Short description" id="description" name="description" type="text" class="validate" required>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">web</i>
+                                    <input placeholder="website" id="website" name="website" type="url" class="validate" required>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">map</i>
+                                    <select class="icons dropdown-content" id="ageRange" name="ageRange" required="" aria-required="true">
+                                        <option value="1" selected>Your age</option>
+                                        <option value="18-25">18 to 25</option>
+                                        <option value="26-32">26 to 32</option>
+                                        <option value="33-40">33 to 40</option>
+                                        <option value="41-48">41 to 48</option>
+                                        <option value="49+">49 plus</option>
+                                    </select>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">location_city</i>
+                                    <input placeholder="you are from:" id="from" name="from" type="text" class="validate">
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">face</i>
+                                    <select class="icons dropdown-content" id="avatar" name="avatar" required="" aria-required="true">
+                                        <option value="1" selected>Choose a Thumbnail</option>
+                                        <option value="/static/img/resorts_thumbs/mountain01.png" data-icon="/static/img/resorts_thumbs/mountain01.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain02.png" data-icon="/static/img/resorts_thumbs/mountain02.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain03.png" data-icon="/static/img/resorts_thumbs/mountain03.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain04.png" data-icon="/static/img/resorts_thumbs/mountain04.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain05.png" data-icon="/static/img/resorts_thumbs/mountain05.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain06.png" data-icon="/static/img/resorts_thumbs/mountain06.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain07.png" data-icon="/static/img/resorts_thumbs/mountain07.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain08.png" data-icon="/static/img/resorts_thumbs/mountain08.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain09.png" data-icon="/static/img/resorts_thumbs/mountain09.png"></option>
+                                        <option value="/static/img/resorts_thumbs/mountain10.png" data-icon="/static/img/resorts_thumbs/mountain10.png"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-red right" type="submit">Add Ski Resort</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -54,40 +54,6 @@ def add_user():
             return redirect(url_for('sign_up_page'))
     return render_template('trips.html', active='signedIn', password=password)
 
-'''
-@app.route('/sign_in', methods=['GET', 'POST'])
-def sign_in():
-	if 'user' in session:
-		user_in_db = users.find_one({"name": session['user']})
-		if user_in_db:
-			# If so redirect user to his profile
-			flash("You are logged in already!")
-			return redirect(url_for('trips', user=user_in_db['name']))
-	else:
-		# Render the page for user to be able to log in
-		return render_template("sign_in.html")
-    
-
-@app.route('/user_auth', methods=['GET', 'POST'])
-def user_auth():
-    form = request.form.to_dict()
-    users = mongo.db.users.find()
-    user_in_db = users.find_one({"name": form["name"]})
-	if user_in_db:
-		if check_password_hash(user_in_db['password'], form['password']):
-			session['user'] = form['name']
-			
-			flash("You were logged in!")
-			return redirect(url_for('sign_in', user=user_in_db['name']))
-			
-		else:
-			flash("Wrong password or user name!")
-			return redirect(url_for('sign_in_page'))
-	else:
-		flash("You must be registered!")
-		return redirect(url_for('sign_up_page'))
-'''
-
 
 @app.route('/sign_in', methods=['GET', 'POST'])
 def sign_in():
@@ -130,6 +96,34 @@ def ski_resorts():
         return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
 
+@app.route('/add_skiresort', methods=['POST'])
+def add_skiresort():
+    if "user" not in session:
+        return redirect(url_for('sign_in_page'))
+    else: 
+         if request.method == "POST":
+            skiresorts = mongo.db.skiresorts
+            skiresort_in_db = skiresorts.find_one({'location_name': request.form["location_name"]})
+            if skiresort_in_db:
+                flash("Ski resort is already registered.")
+                return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+            else:
+                skiresorts.insert_one({
+                    'location_name': request.form['location_name'],
+                    'description': request.form['description'],
+                    'website': request.form['website'],
+                    'spring': request.form['spring'],
+                    'autumn': request.form['autumn'],
+                    'night': request.form['night'],
+                    'glacier': request.form['glacier'],
+                    'thumbnail': request.form['thumbnail'],
+                    'other_info': request.form['other_info'],
+                })
+                flash("We've added your ski resort!")
+                return redirect(url_for('ski_resorts'))
+            return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+
+
 @app.route('/sign_out')
 def sign_out():
     [session.pop(key) for key in list(session.keys())]
@@ -139,4 +133,4 @@ def sign_out():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)
