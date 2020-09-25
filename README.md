@@ -6,7 +6,7 @@ Website for people interested in skiing/snowboarding for planning their trips an
 
 <img src="assets/images/readme/title_image.jpg" alt="Title image" style="margin: 0 10px;" width="100%"/>
 
-[Hit the Slopes - Heroku link](link to be added)
+[Hit the Slopes - Heroku link](https://hit-the-slopes.herokuapp.com/)
 
 ************************************************************
 
