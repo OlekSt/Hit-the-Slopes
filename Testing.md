@@ -59,9 +59,13 @@ New user registration:
 
 Trips.html:
     -  User's avatar image per trip record is not visible. 
+    - User's name is not visible
 
 Add_skiresort.html, skiresorts.html:
     - Issues with Materialize checkboxes for "spring/autumn/night skiing/glacier" info. Deleted the checkboxes for now. Using strings with "yes/no". If timing will allow, will add checkboxes at the end of the project.
+    - Date field don't trigger calendar view date choice.
+    
+
 
 
 
