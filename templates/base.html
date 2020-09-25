@@ -29,7 +29,7 @@
 <body>
     <!-- Navbar -->
     {% if active == 'signedIn' %} 
-    {% include 'nav.html' %}
+    {% include 'nav.html' %} <!-- To show full meny only to logged in users -->
     {% else %}
     {% include 'index_nav.html' %}
     {% endif %}

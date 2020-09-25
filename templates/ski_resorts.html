@@ -7,7 +7,7 @@
         <tr>
             <td>
                 <div class="card">
-                <div class="card-content row">
+                    <div class="card-content row">
                         <div class="col s4 m4 l4">
                             <div class="row">
                             <span class="location-name teal"><h5 class="card-title">{{skiresort.location_name}}</h5></span>  
@@ -21,34 +21,12 @@
                         </div>
                         <div class="card-title col s4 m4 l4">
                             <div class="">
-                                <form action="#">
-                                    <div class="col s6 m6 l6">
-                                        <p><label>
-                                            <input type="checkbox" checked="checked"/>
-                                            <span>Spring</span>
-                                        </label></p>
-                                        <p>
-                                        <label>
-                                            <input type="checkbox" checked="checked"/>
-                                            <span>Autumn</span>
-                                        </label>
-                                        </p>
-                                    </div>
-                                    <div class="col s6 m6 l6">
-                                        <p>
-                                        <label>
-                                            <input type="checkbox" />
-                                            <span>Glacier</span>
-                                        </label>
-                                        </p>
-                                        <p>
-                                        <label>
-                                            <input type="checkbox" />
-                                            <span>Night</span>
-                                        </label>
-                                        </p>
-                                    </div>
-                                </form>
+                                <div class="row">
+                                <p>Night skiing: {{skiresort.night}}</p>
+                            </div>
+                            <div class="row">
+                                <p>Glacier: {{skiresort.glacier}}</p>
+                            </div>
                             </div>
                             <div class="">
                                 <a href="{{skiresort.website}}" target="_blank">Web</a>
@@ -63,9 +41,19 @@
                                 <p>{{skiresort.other_info}}</p>
                             </div>
                         </div>
+                        <div class="row">
+                            <a href="{{url_for('edit_skiresort', skiresort_id=skiresort._id)}}" class="waves-effect waves-light btn-small">
+                                <i class="material-icons right">playlist_add</i>Edit
+                            </a>
+                            <a href="{{url_for('delete_skiresort', skiresort_id=skiresort._id)}}" class="waves-effect waves-light btn-small">
+                                <i class="material-icons right">delete_forever</i>Delete
+                            </a>
+                        </div>
+                    </div> 
+
                 </div>
             </td>
-        <tr>
+        </tr>
     {% endfor %}
     </tbody>
 </table>

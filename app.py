@@ -93,7 +93,7 @@ def ski_resorts():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else: 
-        return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+        return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
 
 @app.route('/add_skiresort')
@@ -106,12 +106,12 @@ def insert_skiresort():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else: 
-         if request.method == "POST":
+        if request.method == "POST":
             skiresorts = mongo.db.skiresorts
             skiresort_in_db = skiresorts.find_one({'location_name': request.form["location_name"]})
             if skiresort_in_db:
                 flash("Ski resort is already registered.")
-                return render_template("skiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+                return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
             else:
                 skiresorts.insert_one({
                     'location_name': request.form['location_name'],
@@ -124,7 +124,34 @@ def insert_skiresort():
                 })
                 flash("We've added your ski resort!")
                 return redirect(url_for('ski_resorts'))
-            return render_template("askiresorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+            return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+
+
+@app.route('/edit_skiresort/<skiresort_id>', methods=['GET','POST'])
+def edit_skiresort(skiresort_id):
+    return render_template('edit_skiresort.html', skiresort=mongo.db.skiresorts.find_one({'_id': ObjectId(skiresort_id)}))
+
+
+@app.route('/update_skiresort/<skiresort_id>', methods=['GET','POST'])
+def update_skiresort(skiresort_id):
+    mongo.db.skiresorts.update(
+        {'_id': ObjectId(skiresort_id)},
+        {'location_name': request.form.get('location_name'), 
+        'description': request.form.get('description'),
+        'website': request.form.get('website'),
+        'night': request.form.get('night'),
+        'glacier': request.form.get('glacier'),
+        'thumbnail': request.form.get('thumbnail'),
+        'other_info': request.form.get('other_info')})
+    return redirect(url_for('ski_resorts'))
+
+
+@app.route('/delete_skiresort/<skiresort_id>')
+def delete_skiresort(skiresort_id):
+    mongo.db.skiresorts.remove({'_id': ObjectId(skiresort_id)})
+    return redirect(url_for('ski_resorts'))
+
+
 
 
 @app.route('/sign_out')
