@@ -117,8 +117,6 @@ def insert_skiresort():
                     'location_name': request.form['location_name'],
                     'description': request.form['description'],
                     'website': request.form['website'],
-                    'spring': request.form['spring'],
-                    'autumn': request.form['autumn'],
                     'night': request.form['night'],
                     'glacier': request.form['glacier'],
                     'thumbnail': request.form['thumbnail'],
