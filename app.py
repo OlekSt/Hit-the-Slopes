@@ -85,7 +85,18 @@ def trips():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        return render_template("trips.html", trips=mongo.db.trips.find(), active='signedIn')
+        return render_template("trips.html", trips=mongo.db.trips.find(), users=mongo.db.users.find(),active='signedIn')
+
+
+@app.route('/add_trip')
+def add_trip():
+    return render_template('add_trip.html', skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+
+
+@app.route('/delete_trip/<trip_id>')
+def delete_trip(trip_id):
+    mongo.db.trips.remove({'_id': ObjectId(trip_id)})
+    return redirect(url_for('trips'))
 
 
 @app.route('/ski_resorts')

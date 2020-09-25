@@ -3,67 +3,72 @@
 
 <div class="container">
     <div class="card valign-wrapper">
-        
-            <div class="card-content grey lighten-4">
-                <div id="signup-form" class="card-panel grey lighten-5">
-                    <span class="card-title">SIGN UP</span>
-                    <div class="row">
-                        <form action="{{ url_for('sign_up') }}" method="POST" class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12 m12 l6">
-                                    <i class="small material-icons prefix">account_circle</i>
-                                    <input placeholder="your name" id="name" name="name" type="text" class="validate">
-                                </div>
-                                <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">lock</i>
-                                    <input placeholder="your password" id="password" name="password" type="password">
-                                </div>
-                                <!--
-                                <div class="input-field col s12">
-                                    <i class="material-icons prefix">lock</i>
-                                    <input placeholder="Re-enter your password" id="password_two" name="password_two" type="password">
-                                    <label for="password_two"><span class="red-text"><b></b></span></label>
-                                </div> -->
-                                <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">wc</i>
-                                    <input placeholder="male or female" id="gender" name="gender" type="text" class="validate">
-                                </div>
-                                <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">date_range</i>
-                                    <select class="icons dropdown-content" id="ageRange" name="ageRange" required="" aria-required="true">
-                                        <option value="1" selected>Your age</option>
-                                        <option value="18-25">18 to 25</option>
-                                        <option value="26-32">26 to 32</option>
-                                        <option value="33-40">33 to 40</option>
-                                        <option value="41-48">41 to 48</option>
-                                        <option value="49+">49 plus</option>
-                                    </select>
-                                </div>
-                                <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">location_city</i>
-                                    <input placeholder="you are from:" id="from" name="from" type="text" class="validate">
-                                </div>
-                                <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">face</i>
-                                    <select class="icons dropdown-content" id="avatar" name="avatar" required="" aria-required="true">
-                                        <option value="1" selected>Choose your Avatar</option>
-                                        <option value="skiboot" data-icon="/static/img/avatar/boot.png">SkiBoot</option>
-                                        <option value="cabin" data-icon="/static/img/avatar/cabin.png">Cabin</option>
-                                        <option value="coffee" data-icon="/static/img/avatar/coffee.png">Coffee</option>
-                                        <option value="goggles" data-icon="/static/img/avatar/goggles.png">Goggles</option>
-                                        <option value="peak" data-icon="/static/img/avatar/peak.png">Peak</option>
-                                        <option value="skis" data-icon="/static/img/avatar/skier.png">Skis</option>
-                                        <option value="skipass" data-icon="/static/img/avatar/skipass.png">SkiPass</option>
-                                        <option value="snowboard" data-icon="/static/img/avatar/snowboarder.png">Snowboard</option>
-                                    </select>
-                                </div>
+        <div class="card-content grey lighten-4">
+            <div id="new_skiresort" class="card-panel grey lighten-5">
+                <span class="card-title">NEW TRIP</span>
+                <div class="row">
+                    <form action="{{ url_for('insert_trip') }}" method="POST" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">poll</i>
+                                <select id="skiresort" name="skiresort_name">
+                            <option value="" disabled selected>Choose Ski Resort</option>
+                            {% for skiresort in skiresorts %}
+                                <option value="{{skiresort.loacation_name}}">{{skiresort.location_name}}</option>
+                            {% endfor %}
+                            </select>
+                                <label>Ski Resort</label>
                             </div>
-                            <button class="btn waves-effect waves-red right" type="submit">Sign Up</button>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="input-field col s12 m12 l6">
+                            <i class="small material-icons prefix">account_circle</i>
+                            <input placeholder="ski resort name" id="location_name" name="location_name" type="text" class="validate" required>
+                        </div>
+                        <div class="input-field col s12 m12 l6">
+                            <i class="small material-icons prefix">description</i>
+                            <input placeholder="short description" id="description" name="description" type="text" class="validate" required>
+                        </div>
+                        <div class="input-field col s12 m12 l6">
+                            <i class="material-icons prefix">web</i>
+                                <input placeholder="website" id="website" name="website" type="url" class="validate" required>
+                        </div>
+                        <div class="input-field col s12 m12 l6">
+                            <i class="material-icons prefix">map</i>
+                            <input placeholder="map link" id="map" name="map" type="url" class="validate" required>
+                        </div>
+                        <div class="input-field col s12 m12 l6">
+                            <i class="material-icons prefix">terrain</i>
+                            <input placeholder="glacier: yes/no?" id="glacier" name="glacier" type="text" class="validate" required>
+                        </div>
+                        <div class="input-field col s12 m12 l6">
+                            <i class="material-icons prefix">brightness_3</i>
+                            <input placeholder="night skiing: yes-no?" id="night" name="night" type="text" class="validate" required>
+                        </div>
+                        <div class="input-field col s12 m12 l12">
+                            <i class="small material-icons prefix">comment</i>
+                            <input placeholder="additional info" id="other_info" name="other_info" type="text" class="validate" required>
+                        </div>
+                        <div class="input-field col s12 m12 l6">
+                            <i class="material-icons prefix">face</i>
+                            <select class="icons dropdown-content" id="thumbnail" name="thumbnail" required="" aria-required="true">
+                            <option value="1" selected>Choose a Thumbnail</option>
+                            <option value="/static/img/resorts_thumbs/mountain01.png" data-icon="/static/img/resorts_thumbs/mountain01.png">Peak</option>
+                            <option value="/static/img/resorts_thumbs/mountain02.png" data-icon="/static/img/resorts_thumbs/mountain02.png">Glacier</option>
+                            <option value="/static/img/resorts_thumbs/mountain03.png" data-icon="/static/img/resorts_thumbs/mountain03.png">Map</option>
+                            <option value="/static/img/resorts_thumbs/mountain04.png" data-icon="/static/img/resorts_thumbs/mountain04.png">Slopes</option>
+                            <option value="/static/img/resorts_thumbs/mountain05.png" data-icon="/static/img/resorts_thumbs/mountain05.png">Forest</option>
+                            <option value="/static/img/resorts_thumbs/mountain06.png" data-icon="/static/img/resorts_thumbs/mountain06.png">Skilift</option>
+                            <option value="/static/img/resorts_thumbs/mountain07.png" data-icon="/static/img/resorts_thumbs/mountain07.png">Hut</option>
+                            <option value="/static/img/resorts_thumbs/mountain08.png" data-icon="/static/img/resorts_thumbs/mountain08.png">Cottage</option>
+                            <option value="/static/img/resorts_thumbs/mountain09.png" data-icon="/static/img/resorts_thumbs/mountain09.png">Race</option>
+                            <option value="/static/img/resorts_thumbs/mountain10.png" data-icon="/static/img/resorts_thumbs/mountain10.png">Sunrise</option>
+                            </select>
+                        </div>                            
+                        <button class="btn waves-effect waves-red right" type="submit">Add Ski Resort</button>
+                    </form>
                 </div>
             </div>
-        
+        </div>
     </div>
 </div>
 
