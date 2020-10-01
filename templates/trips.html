@@ -8,10 +8,11 @@
         <tbody>
         
         {% for trip in trips %}
+
         <tr class="collapsible-header col s12 m6 l6 xl6">
             <td>
                 <strong>{{trip.user}}</strong>
-                <div class="avatar-image"><img src="" width="25" height="25"/></div>
+                <div class="avatar-image"></div>
             </td>
             <td>
                 <a href="{{ url_for('ski_resorts')}}"><strong>{{trip.location_name}}</strong></a>

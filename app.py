@@ -4,7 +4,7 @@ from flask import url_for, request, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
-from bson.json_util import dumps
+
 
 from os import path
 if path.exists("env.py"):
@@ -22,10 +22,10 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/show_index')
 def show_index():
-    if "user" not in session:
+    if "user" in session:
+        return render_template("trips.html", trips=mongo.db.trips.find(),                                active='signedIn')
+    else:
         return render_template("index.html")
-    else: 
-        return render_template("trips.html", trips=mongo.db.trips.find(), active='signedIn')
 
 
 @app.route('/sign_up_page', methods=['GET', 'POST'])
@@ -44,15 +44,15 @@ def add_user():
         users = mongo.db.users
         name = users.find_one({'name': request.form["name"]})
         if name is None:
-            password = request.form["password"]
+            password = generate_password_hash(request.form["password"])
             users.insert_one(request.form.to_dict())
-            session['name'] = request.form["name"]
+            session['user'] = request.form["name"]
             flash("Welcome, " + session['name'] + "!")
             return redirect(url_for('trips'))
         else:
             flash("This username already exists, please choose another one")
             return redirect(url_for('sign_up_page'))
-    return render_template('trips.html', active='signedIn')
+    return render_template('trips.html', active='signedIn', password=password, user=session['user'])
 
 
 @app.route('/sign_in', methods=['GET', 'POST'])
@@ -60,7 +60,6 @@ def sign_in():
     if request.method == "POST":
         users = mongo.db.users
         existing_user = users.find_one({'name': request.form["name"]})
-        
         if existing_user:
             if existing_user['password'] == request.form["password"]:
                 session["user"] = existing_user["name"]
@@ -72,7 +71,7 @@ def sign_in():
         else:
             flash("Wrong name. Try again.")
             return redirect(url_for('sign_in_page'))
-    return render_template('trips.html', active='signedIn')
+    return render_template('trips.html', active='signedIn', user=session["user"])
 
 
 @app.route('/user_account', methods=['POST'])
@@ -92,7 +91,9 @@ def trips():
         user_in_trip = mongo.db.users.find({'name': user_name})
         avatar = user_in_trip['avatar']
         '''
-    return render_template("trips.html", trips=mongo.db.trips.find(), active='signedIn')
+        return render_template("trips.html",
+                                trips=mongo.db.trips.find(),
+                                active='signedIn')
 
 
 @app.route('/add_trip')
@@ -100,13 +101,12 @@ def add_trip():
     return render_template('add_trip.html', skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
 
-@app.route('/insert_trip', methods=['GET','POST'])
+@app.route('/insert_trip', methods=['GET', 'POST'])
 def insert_trip():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
-    else: 
+    else:
         if request.method == "POST":
-            users=mongo.db.users
             trips = mongo.db.trips
             trips.insert_one({
                     'user': session['user'],
@@ -115,10 +115,11 @@ def insert_trip():
                     'to': request.form['to'],
                     'adults': request.form['adults'],
                     'kids': request.form['kids'],
+                    'ski_snowboard': request.form['ski_snowboard'],
                     'other_info': request.form['other_info'],
                 })
             flash("We've added your trip!")
-        return render_template('trips.html', trips=trips, skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+        return render_template('trips.html', trips=mongo.db.trips.find(), active='signedIn')
 
 
 @app.route('/delete_trip/<trip_id>')
