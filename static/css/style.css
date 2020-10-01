@@ -37,6 +37,15 @@ body{
     background-color: #E6F4F1;
 }
 
+.material-icons{
+    color: #336C8F;
+}
+
+.btn{
+    background-color: #336C8F;
+}
+
+
 
 .avatar-image{
     width: 30px;
