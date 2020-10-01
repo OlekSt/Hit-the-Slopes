@@ -52,7 +52,7 @@ def add_user():
         else:
             flash("This username already exists, please choose another one")
             return redirect(url_for('sign_up_page'))
-    return render_template('trips.html', active='signedIn', password=password)
+    return render_template('trips.html', active='signedIn')
 
 
 @app.route('/sign_in', methods=['GET', 'POST'])
@@ -80,20 +80,24 @@ def user_account():
     return render_template("user_account.html", users=mongo.db.users.find())
 
 
-@app.route('/trips')
+@app.route('/trips', methods=['GET', 'POST'])
 def trips():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        name=session["user"]
-        flash(name)
-        return render_template("trips.html", name=name, trips=mongo.db.trips.find(), users=mongo.db.users.find(), active='signedIn')
+        '''
+        trips=mongo.db.trips
+        user_name = mongo.db.trips.find('user')
+        users=mongo.db.users
+        user_in_trip = mongo.db.users.find({'name': user_name})
+        avatar = user_in_trip['avatar']
+        '''
+        return render_template("trips.html", trips=mongo.db.trips.find(), active='signedIn')
 
 
 @app.route('/add_trip')
 def add_trip():
     return render_template('add_trip.html', skiresorts=mongo.db.skiresorts.find(), active='signedIn')
-
 
 
 @app.route('/insert_trip', methods=['GET','POST'])
@@ -103,18 +107,18 @@ def insert_trip():
     else: 
         if request.method == "POST":
             users=mongo.db.users
-            skiresorts = mongo.db.skiresorts
-            skiresorts.insert_one({
+            trips = mongo.db.trips
+            trips.insert_one({
                     'user': session['user'],
-                    'location_name': request.form.get['location_name'],
-                    'from': request.form.get['from'],
-                    'to': request.form.get['to'],
-                    'adults': request.form.get['adults'],
-                    'kids': request.form.get['kids'],
-                    'other_info': request.form.get['other_info'],
+                    'location_name': request.form['skiresort'],
+                    'from': request.form['from'],
+                    'to': request.form['to'],
+                    'adults': request.form['adults'],
+                    'kids': request.form['kids'],
+                    'other_info': request.form['other_info'],
                 })
             flash("We've added your trip!")
-            return render_template("trips.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+        return render_template('trips.html', trips=trips, skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
 
 @app.route('/delete_trip/<trip_id>')

@@ -11,12 +11,12 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">terrain</i>
-                                <select id="skiresort" name="skiresort_name">
-                            <option value="" disabled selected>Choose Ski Resort</option>
-                            {% for skiresort in skiresorts %}
-                                <option value="{{skiresort.loacation_name}}">{{skiresort.location_name}}</option>
-                            {% endfor %}
-                            </select>
+                                <select id="skiresort" name="skiresort">
+                                    <option value="" disabled selected>Choose Ski Resort</option>
+                                    {% for skiresort in skiresorts %}
+                                        <option value="{{skiresort.location_name}}">{{skiresort.location_name}}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
                         <div class="input-field col s12 m12 l6">
@@ -45,7 +45,7 @@
                             <i class="small material-icons prefix">comment</i>
                             <input placeholder="additional info" id="other_info" name="other_info" type="text" class="validate" required>
                         </div>                   
-                        <button class="btn waves-effect waves-red right" type="submit">Add Ski Resort</button>
+                        <button class="btn waves-effect waves-red right" type="submit">Save Trip</button>
                     </form>
                 </div>
             </div>

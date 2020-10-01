@@ -4,52 +4,50 @@
 <div class="row">
     <h5 class="center">UPCOMING TRIPS</h5> 
     <div class="card">
-    
+    <table class="collapsible highlight" data-collapsible="accordion">
+        <tbody>
+        
         {% for trip in trips %}
-        <table class="collapsible highlight" data-collapsible="accordion">
-            <tbody>
-                <tr class="collapsible-header col s12 m6 l6 xl6">
-                    <td>
-                    {% for user in users %}
-                        <strong>{{user.name}}</strong>
-                        <div class="avatar-image"><img src="{{user.avatar}}" width="25" height="25"/></div>
-                    {% endfor %}
-                    </td>
-                    <td>
-                        <a href="{{ url_for('ski_resorts')}}"><strong>{{trip.location_name}}</strong></a>
-                        <div class="avatar-image"><img src="/static/img/resorts_thumbs/mountain05.png" width="25" height="25"/></div>
-                    </td>
-                    <td>
-                        <strong>From:  {{trip.from}}  </strong> 
-                        <strong>To: {{trip.to}}</strong>
-                    </td>  
-                </tr>
-                <tr class="collapsible-header col s12 m6 l6 xl6">
-                    <td>
-                        <strong>Adults:</strong>{{trip.adults}}
-                        <strong>Kids:</strong>{{trip.kids}}
-                    </td>
-                    <td>
-                                <span>{{trip.ski_snowboard}}</span>
-                    </td>
-                    <td>
-                        <strong>Add.info:</strong>{{trip.other_info}}
-                    </td>  
-                    <td>          
-                        <div class="row">
-                                    <a href="" class="waves-effect waves-light btn-small">
-                                        <i class="material-icons right">playlist_add</i>Edit
-                                    </a>
-                                    <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="waves-effect waves-light btn-small">
-                                        <i class="material-icons right">delete_forever</i>Delete
-                                    </a>
-                        </div>
-                    </td>
-                </tr>         
-            </tbody>
-        </table>
+        <tr class="collapsible-header col s12 m6 l6 xl6">
+            <td>
+                <strong>{{trip.user}}</strong>
+                <div class="avatar-image"><img src="" width="25" height="25"/></div>
+            </td>
+            <td>
+                <a href="{{ url_for('ski_resorts')}}"><strong>{{trip.location_name}}</strong></a>
+                <div class="avatar-image"><img src="/static/img/resorts_thumbs/mountain05.png" width="25" height="25"/></div>
+            </td>
+            <td>
+                <strong>From:  {{trip.from}}  </strong> 
+                <strong>To: {{trip.to}}</strong>
+            </td>  
+        </tr>
+        <tr class="collapsible-header col s12 m6 l6 xl6">
+            <td>
+                <strong>Adults:</strong>{{trip.adults}}
+                <strong>Kids:</strong>{{trip.kids}}
+            </td>
+            <td>
+                <span>{{trip.ski_snowboard}}</span>
+            </td>
+            <td>
+                <strong>Add.info:</strong>{{trip.other_info}}
+            </td>  
+            <td>          
+                <div class="row">
+                    <a href="" class="waves-effect waves-light btn-small">
+                        <i class="material-icons right">playlist_add</i>Edit
+                    </a>
+                    <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="waves-effect waves-light btn-small">
+                        <i class="material-icons right">delete_forever</i>Delete
+                    </a>
+                </div>
+            </td>
+        </tr>         
         {% endfor %}
-
+        
+        </tbody>
+    </table>
     </div>
 </div>
 

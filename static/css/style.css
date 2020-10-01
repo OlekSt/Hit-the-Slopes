@@ -69,6 +69,25 @@ body{
     font-weight: bold;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#intro-cont{
+    display: flex;
+}
+
+#intro{
+    margin: auto;
+}
+
+#intro-title{
+    align-self: center;
+    
+}
+
 @media screen and (max-width: 375px) {
     /*small phones*/
     #navbar-logo{

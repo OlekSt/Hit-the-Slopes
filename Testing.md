@@ -60,10 +60,17 @@ New user registration:
 Trips.html:
     -  User's avatar image per trip record is not visible. 
     - User's name is not visible
+    - Deleting a trip triggers view distortion. Line of trips become blocks. 
 
 Add_skiresort.html, skiresorts.html:
     - Issues with Materialize checkboxes for "spring/autumn/night skiing/glacier" info. Deleted the checkboxes for now. Using strings with "yes/no". If timing will allow, will add checkboxes at the end of the project.
     - Date field don't trigger calendar view date choice.
+
+Signing In:
+    - Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
+
+Add_trip:
+    - Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
     
 
 
