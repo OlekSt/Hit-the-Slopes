@@ -31,7 +31,7 @@
 <body>
     <!-- Navbar -->
     {% if active == 'signedIn' %} 
-    {% include 'nav.html' %} <!-- To show full meny only to logged in users -->
+    {% include 'nav.html' %} <!-- To show full menu only to logged in users -->
     {% else %}
     {% include 'index_nav.html' %}
     {% endif %}
@@ -64,7 +64,6 @@
             $('.collapsible').collapsible();
             $('.sidenav').sidenav();
             $('select').formSelect();
-            $('.carousel').carousel();
             $('.datepicker').datepicker();
         });
 

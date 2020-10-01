@@ -88,8 +88,13 @@ body{
     
 }
 
+/* Color or the intro card */
 .blue.darken-2{
     background-color: #336C8F !important;
+}
+
+.blue.lighten-5{
+    background-color: #A0ACBD !important;
 }
 
 @media screen and (max-width: 375px) {

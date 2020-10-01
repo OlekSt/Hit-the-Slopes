@@ -36,12 +36,8 @@
             </td>  
             <td>          
                 <div class="row">
-                    <a href="" class="waves-effect waves-light btn-small">
-                        <i class="material-icons right">playlist_add</i>Edit
-                    </a>
-                    <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="waves-effect waves-light btn-small">
-                        <i class="material-icons right">delete_forever</i>Delete
-                    </a>
+                    <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="btn-small btn-flat">Edit</a>
+                    <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="waves-effect waves-light btn-small btn-flat">Delete</a>
                 </div>
             </td>
         </tr>         

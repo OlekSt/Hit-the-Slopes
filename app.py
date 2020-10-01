@@ -101,6 +101,27 @@ def add_trip():
     return render_template('add_trip.html', skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
 
+@app.route('/edit_trip/<trip_id>', methods=['GET', 'POST'])
+def edit_trip(trip_id):
+    return render_template('edit_trip.html', skiresorts=mongo.db.skiresorts.find(), trip=mongo.db.trips.find_one({'_id': ObjectId(trip_id)}), active='signedIn')
+
+
+@app.route('/update_trip/<trip_id>', methods=['GET','POST'])
+def update_trip(trip_id):
+    mongo.db.trips.update(
+        {'_id': ObjectId(trip_id)},
+        {'user': session['user'],
+        'location_name': request.form.get('skiresort'),
+        'from': request.form.get('from'),
+        'to': request.form.get('to'),
+        'adults': request.form.get('adults'),
+        'kids': request.form.get('kids'),
+        'ski_snowboard': request.form.get('ski_snowboard'),
+        'other_info': request.form('other_info')})
+    flash("We've added your trip!")
+    return redirect(url_for('trips'))
+
+
 @app.route('/insert_trip', methods=['GET', 'POST'])
 def insert_trip():
     if "user" not in session:
@@ -168,7 +189,7 @@ def insert_skiresort():
             return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
 
-@app.route('/edit_skiresort/<skiresort_id>', methods=['GET','POST'])
+@app.route('/edit_skiresort/<skiresort_id>', methods=['GET', 'POST'])
 def edit_skiresort(skiresort_id):
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
