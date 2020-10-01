@@ -71,14 +71,18 @@ Signing In:
 
 Add_trip:
     - Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
-    
+
+Edit_skiresort.html:
+    - Thumbnail info is lost on opening a specific ski resort to be updated.
 
 
 
 
 #### Solved bugs:
-...............
-!!! TO BE ADDED
+
+Edit_skiresort.html:
+    - Google maps info is lost on opening a specific ski resort to be updated. 
+    - Does not show logged-in navbar.
 
 #### Unsolved bugs:
 ...............

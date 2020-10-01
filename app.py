@@ -38,13 +38,13 @@ def sign_in_page():
     return render_template("sign_in.html")
 
 
-@app.route('/add_user', methods=['GET', 'POST'])
+@app.route('/add_user', methods=['POST'])
 def add_user():
     if request.method == "POST":
         users = mongo.db.users
         name = users.find_one({'name': request.form["name"]})
         if name is None:
-            password = generate_password_hash(request.form["password"])
+            password = request.form["password"]
             users.insert_one(request.form.to_dict())
             session['name'] = request.form["name"]
             flash("Welcome, " + session['name'] + "!")
@@ -68,10 +68,10 @@ def sign_in():
                 return redirect(url_for('trips'))
             else:
                 flash("Wrong password. Try again.")
-                return redirect(url_for('sign_in'))
+                return redirect(url_for('sign_in_page'))
         else:
             flash("Wrong name. Try again.")
-            return redirect(url_for('sign_in'))
+            return redirect(url_for('sign_in_page'))
     return render_template('trips.html', active='signedIn')
 
 
@@ -92,7 +92,7 @@ def trips():
         user_in_trip = mongo.db.users.find({'name': user_name})
         avatar = user_in_trip['avatar']
         '''
-        return render_template("trips.html", trips=mongo.db.trips.find(), active='signedIn')
+    return render_template("trips.html", trips=mongo.db.trips.find(), active='signedIn')
 
 
 @app.route('/add_trip')
@@ -156,6 +156,7 @@ def insert_skiresort():
                     'location_name': request.form['location_name'],
                     'description': request.form['description'],
                     'website': request.form['website'],
+                    'map': request.form['map'],
                     'night': request.form['night'],
                     'glacier': request.form['glacier'],
                     'thumbnail': request.form['thumbnail'],
@@ -168,7 +169,10 @@ def insert_skiresort():
 
 @app.route('/edit_skiresort/<skiresort_id>', methods=['GET','POST'])
 def edit_skiresort(skiresort_id):
-    return render_template('edit_skiresort.html', skiresort=mongo.db.skiresorts.find_one({'_id': ObjectId(skiresort_id)}))
+    if "user" not in session:
+        return redirect(url_for('sign_in_page'))
+    else: 
+        return render_template('edit_skiresort.html', skiresort=mongo.db.skiresorts.find_one({'_id': ObjectId(skiresort_id)}), active='signedIn')
 
 
 @app.route('/update_skiresort/<skiresort_id>', methods=['GET','POST'])
@@ -178,6 +182,7 @@ def update_skiresort(skiresort_id):
         {'location_name': request.form.get('location_name'), 
         'description': request.form.get('description'),
         'website': request.form.get('website'),
+        'map': request.form.get('map'),
         'night': request.form.get('night'),
         'glacier': request.form.get('glacier'),
         'thumbnail': request.form.get('thumbnail'),
