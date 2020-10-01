@@ -40,14 +40,14 @@ def sign_in_page():
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
+    users=mongo.db.users
     if request.method == "POST":
-        users = mongo.db.users
-        name = users.find_one({'name': request.form["name"]})
+        name=users.find_one({'name': request.form["name"]})
         if name is None:
             password = generate_password_hash(request.form["password"])
             users.insert_one(request.form.to_dict())
             session['user'] = request.form["name"]
-            flash("Welcome, " + session['name'] + "!")
+            flash("Welcome, " + session['user'] + "!")
             return redirect(url_for('trips'))
         else:
             flash("This username already exists, please choose another one")
