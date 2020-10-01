@@ -3,7 +3,7 @@
 
 <table>
     <tbody>
-    {% for skiresort in skiresorts %}
+    {% for skiresort in skiresorts|sort(attribute="location_name") %}
         <tr>
             <td>
                 <div class="card">
