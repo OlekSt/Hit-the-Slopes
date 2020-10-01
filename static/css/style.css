@@ -88,6 +88,10 @@ body{
     
 }
 
+.blue.darken-2{
+    background-color: #336C8F !important;
+}
+
 @media screen and (max-width: 375px) {
     /*small phones*/
     #navbar-logo{
