@@ -96,6 +96,13 @@ def trips():
                                 active='signedIn')
 
 
+@app.route('/search_trips', methods=['GET', 'POST'])
+def search_trips():
+    query=request.form.get("query")
+    trips=list(mongo.db.trips.find({"$text": {"$search": query}}))
+    return render_template("trips.html", trips=trips, active='signedIn')
+
+
 @app.route('/add_trip')
 def add_trip():
     return render_template('add_trip.html', skiresorts=mongo.db.skiresorts.find(), active='signedIn')
@@ -155,6 +162,13 @@ def ski_resorts():
         return redirect(url_for('sign_in_page'))
     else: 
         return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+
+
+@app.route('/search_ski_resorts', methods=['GET', 'POST'])
+def search_ski_resorts():
+    query=request.form.get("query")
+    skiresorts=list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
+    return render_template("ski_resorts.html", skiresorts=skiresorts, active='signedIn')
 
 
 @app.route('/add_skiresort')
