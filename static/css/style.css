@@ -45,7 +45,9 @@ body{
     background-color: #336C8F;
 }
 
-
+.btn.waves-effect{
+    background-color: #6B9FC5;
+}
 
 .avatar-image{
     width: 30px;

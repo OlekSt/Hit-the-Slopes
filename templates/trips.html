@@ -1,8 +1,25 @@
 {% extends 'base.html'%} 
 {% block content %}
 
+
+<div class="row card-panel grey lighten-5">
+    <h5 class="center">SEARCH UPCOMING TRIPS</h5> 
+    <form  method="post" class="col s12">
+        <div class="row valign-wrapper center-align">
+            <div class="input-field col s12 m6">
+                <i class="small material-icons prefix">search</i>
+                <input type="text" name="query" id="query" class="validate" required>
+            </div>
+            <div class="row col s12 m4">
+                <a href="{{ url_for('trips') }}" class="red btn text-shadow">Reset</a>
+                <button type="submit" class="light-blue btn text-shadow">
+                <i class="small material-icons prefix">search</i>Search
+            </div>
+        </div>
+    </form>
+</div>
+
 <div class="row">
-    <h5 class="center">UPCOMING TRIPS</h5> 
     <div class="card">
     <table class="collapsible highlight" data-collapsible="accordion">
         <tbody>
@@ -46,6 +63,6 @@
         </tbody>
     </table>
     </div>
-</div>
+ </div>
 
 {% endblock %}
