@@ -51,9 +51,6 @@ Navbar:
     -	Active menu item: shows all of them as active
     -	Mobile menu: Is not visible, and pressing on menu sandwich does not open menu in mobile view.
 
-Edit_skiresort.html:
-    -	Thumbnail (stored in DB) is not visible on the edit page. If not chosen upon updating, the initially save one is deleted, when saved after editing. 
-
 New user registration:
     - Google message: Passwords are not safe....
 
@@ -85,6 +82,10 @@ Sign Up & Sign In on Heroku app:
 Edit_skiresort.html:
     - Google maps info is lost on opening a specific ski resort to be updated. 
     - Does not show logged-in navbar.
+
+Edit_trip.html:
+    - Name of the stored resort is not posted to the form.
+    
 
 #### Unsolved bugs:
 ...............

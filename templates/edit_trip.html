@@ -12,7 +12,7 @@
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">terrain</i>
                                 <select id="skiresort" name="skiresort">
-                                    <option value="{{trip.location_name}}" disabled selected>Choose Ski Resort</option>
+                                    <option value="{{trip.location_name}}" disabled selected>{{trip.location_name}}</option>
                                     {% for skiresort in skiresorts %}
                                         <option value="{{skiresort.location_name}}">{{skiresort.location_name}}</option>
                                     {% endfor %}

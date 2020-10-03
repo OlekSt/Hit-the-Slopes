@@ -8,7 +8,15 @@
         <div class="row valign-wrapper center-align">
             <div class="input-field col s12 m6">
                 <i class="small material-icons prefix">search</i>
-                <input type="text" name="query" id="query" class="validate" required>
+                <input placeholder="ski resort" type="text" name="query" id="query" class="validate">
+            </div>
+            <div class="input-field col s6 m6">
+                <i class="small material-icons prefix">today</i>
+                <input placeholder="from" type="text" name="query" id="query" class="validate datepicker">
+            </div>
+            <div class="input-field col s6 m6">
+                <i class="small material-icons prefix">today</i>
+                <input placeholder="to" type="text" name="query" id="query" class="validate datepicker">
             </div>
             <div class="row col s12 m4">
                 <a href="{{ url_for('trips') }}" class="red btn text-shadow">Reset</a>
@@ -24,7 +32,7 @@
     <table class="collapsible highlight" data-collapsible="accordion">
         <tbody>
         
-        {% for trip in trips|sort(reverse=true,attribute="from") %}
+        {% for trip in trips|sort(attribute="from") %}
 
         <tr class="collapsible-header col s12 m6 l6 xl6">
             <td>
