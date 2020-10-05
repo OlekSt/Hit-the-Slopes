@@ -4,6 +4,7 @@ from flask import url_for, request, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
+from datetime import timedelta, date, datetime
 
 
 from os import path
@@ -42,9 +43,9 @@ def sign_in_page():
 def add_user():
     users=mongo.db.users
     if request.method == "POST":
-        name=users.find_one({'name': request.form["name"]})
+        name=users.find_one({'name': request.form.get("name")})
         if name is None:
-            password = generate_password_hash(request.form["password"])
+            password = generate_password_hash(request.form.get("password"))
             users.insert_one(request.form.to_dict())
             session['user'] = request.form["name"]
             flash("Welcome, " + session['user'] + "!")
@@ -84,23 +85,30 @@ def trips():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        '''
-        trips=mongo.db.trips
-        user_name = mongo.db.trips.find('user')
-        users=mongo.db.users
-        user_in_trip = mongo.db.users.find({'name': user_name})
-        avatar = user_in_trip['avatar']
-        '''
+        skiresorts=mongo.db.skiresorts.find()
         return render_template("trips.html",
+                                skiresorts=skiresorts,
                                 trips=mongo.db.trips.find(),
                                 active='signedIn')
 
 
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
-    query=request.form.get("query")
+    query = request.form.get("query")
+    startdate = datetime.strptime(request.form.get("query_from"))
+    endate = datetime.strptime(request.form.get("query_to"))
     trips=list(mongo.db.trips.find({"$text": {"$search": query}}))
-    return render_template("trips.html", trips=trips, active='signedIn')
+    return render_template("trips.html", trips=trips, active='signedIn', startdate=startdate, endate=endate)
+
+
+def daterange(startdate, enddate):
+    for n in range(int ((enddate - startdate).days)+1):
+        yield startdate + timedelta(n)
+    
+    for dt in daterange(startdate, enddate):
+        dates = [dt.strftime("%Y-%m-%d")]
+        return dates
+        print (dates)
 
 
 @app.route('/add_trip')
@@ -230,8 +238,6 @@ def update_skiresort(skiresort_id):
 def delete_skiresort(skiresort_id):
     mongo.db.skiresorts.remove({'_id': ObjectId(skiresort_id)})
     return redirect(url_for('ski_resorts'))
-
-
 
 
 @app.route('/sign_out')

@@ -12,11 +12,11 @@
             </div>
             <div class="input-field col s6 m6">
                 <i class="small material-icons prefix">today</i>
-                <input placeholder="from" type="text" name="query" id="query" class="validate datepicker">
+                <input placeholder="from" type="text" name="query_to" id="query_from" class="validate datepicker">
             </div>
             <div class="input-field col s6 m6">
                 <i class="small material-icons prefix">today</i>
-                <input placeholder="to" type="text" name="query" id="query" class="validate datepicker">
+                <input placeholder="to" type="text" name="query_to" id="query_to" class="validate datepicker">
             </div>
             <div class="row col s12 m4">
                 <a href="{{ url_for('trips') }}" class="red btn text-shadow">Reset</a>
@@ -32,8 +32,8 @@
     <table class="collapsible highlight" data-collapsible="accordion">
         <tbody>
         
-        {% for trip in trips|sort(attribute="from") %}
-
+        {% for trip in trips|sort(attribute="from") %} 
+                
         <tr class="collapsible-header col s12 m6 l6 xl6">
             <td>
                 <strong>{{trip.user}}</strong>
@@ -41,7 +41,17 @@
             </td>
             <td>
                 <a href="{{ url_for('ski_resorts')}}"><strong>{{trip.location_name}}</strong></a>
-                <div class="avatar-image"><img src="/static/img/resorts_thumbs/mountain05.png" width="25" height="25"/></div>
+                
+                   
+                <div class="avatar-image">
+                    {% for skiresort in skiresorts %}
+                    {% if trip.location_name == skiresort.location_name %}
+                    <img src="{{skiresort.thumbnail}}" width="25" height="25"/>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                
+                
             </td>
             <td>
                 <strong>From:  {{trip.from}}  </strong> 
@@ -66,11 +76,13 @@
                 </div>
             </td>
         </tr>         
+   
         {% endfor %}
-        
+             
         </tbody>
     </table>
     </div>
+     
  </div>
 
 {% endblock %}
