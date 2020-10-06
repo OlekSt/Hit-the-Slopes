@@ -8,15 +8,17 @@ from datetime import timedelta, date, datetime
 
 
 from os import path
+# import file where username and password of MongoDB is saved
 if path.exists("env.py"):
     import env
 
-
+# create instance of flask
 app = Flask(__name__)
-
-app.config["MONGO_URI"] = os.getenv('MONGO_URI')
+# add configuration to Flask app
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 
+# create an instance of Pymongo with app object being pushed as argument
 mongo = PyMongo(app)
 
 
