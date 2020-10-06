@@ -15,8 +15,8 @@ if path.exists("env.py"):
 # create instance of flask
 app = Flask(__name__)
 # add configuration to Flask app
-app.config["MONGO_URI"] = os.getenv.get('MONGO_URI', 'mongodb://localhost')
-app.config['SECRET_KEY'] = os.environ.get['SECRET_KEY']
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 
 # create an instance of Pymongo with app object being pushed as argument
 mongo = PyMongo(app)
