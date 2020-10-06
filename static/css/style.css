@@ -108,16 +108,52 @@ body{
     background-color: #A0ACBD !important;
 }
 
-@media screen and (max-width: 375px) {
-    /*small phones*/
-    #navbar-logo{
-        font-size: 1.8em;
-    }   
+@media screen and (max-width: 992px) {
+    /* minimize mobile sidenav menu  */
+    #mobile-demo {
+        height: 260px;
+        width: 160px;
+        padding-bottom: 0;
+    }  
 }
 
-@media screen and (max-width: 325px) {
+@media screen and (max-width: 786px) {
+    /* minimize mobile sidenav menu  */
+    #mobile-demo {
+        height: 260px;
+        width: 160px;
+        padding-bottom: 0;
+    }  
+}
+
+@media screen and (max-width: 576px) {
+    /* minimize mobile sidenav menu  */
+    #mobile-demo {
+        height: 260px;
+        width: 160px;
+        padding-bottom: 0;
+    }  
+}
+
+@media screen and (max-width: 375px) {
     /*small phones*/
+    /*  Logo size smaller */
     #navbar-logo{
         font-size: 1.6em;
+    }   
+
+    /* minimize mobile sidenav menu  */
+    #mobile-demo {
+        height: 270px;
+        width: 160px;
+        padding-bottom: 0;
+    }  
+}
+
+@media screen and (max-width: 285px) {
+    /*very small phones*/
+    /*  Logo size smaller */
+    #navbar-logo{
+        font-size: 1.3em;
     }   
 }
