@@ -17,6 +17,7 @@ app = Flask(__name__)
 # add configuration to Flask app
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
+app.jinja_env.add_extension('jinja2.ext.loopcontrols')
 
 # create an instance of Pymongo with app object being pushed as argument
 mongo = PyMongo(app)
@@ -26,7 +27,7 @@ mongo = PyMongo(app)
 @app.route('/show_index')
 def show_index():
     if "user" in session:
-        return render_template("trips.html", trips=mongo.db.trips.find(),                                active='signedIn')
+        return redirect(url_for('trips'))
     else:
         return render_template("index.html")
 
@@ -87,30 +88,42 @@ def trips():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        skiresorts=mongo.db.skiresorts.find()
+        trips = list(mongo.db.trips.find())
+        skiresorts = list(mongo.db.skiresorts.find())
         return render_template("trips.html",
                                 skiresorts=skiresorts,
-                                trips=mongo.db.trips.find(),
+                                trips=trips,
                                 active='signedIn')
 
 
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
     query = request.form.get("query")
-    startdate = datetime.strptime(request.form.get("query_from"))
-    endate = datetime.strptime(request.form.get("query_to"))
+    
+    #startdate = datetime.strptime(request.form.get("query_from"))
+    #endate = datetime.strptime(request.form.get("query_to"))
+    
     trips=list(mongo.db.trips.find({"$text": {"$search": query}}))
     return render_template("trips.html", trips=trips, active='signedIn', startdate=startdate, endate=endate)
 
 
-def daterange(startdate, enddate):
-    for n in range(int ((enddate - startdate).days)+1):
-        yield startdate + timedelta(n)
+#def daterange(startdate, enddate):
+    #for n in range(int ((enddate - startdate).days)+1):
+        #yield startdate + timedelta(n)
     
-    for dt in daterange(startdate, enddate):
-        dates = [dt.strftime("%Y-%m-%d")]
-        return dates
-        print (dates)
+    #for dt in daterange(startdate, enddate):
+        #dates = [dt.strftime("%Y-%m-%d")]
+        #return dates
+        #print (dates)
+
+
+
+#def find_thumbnail(skiresorts):
+    #skiresorts=mongo.db.skiresorts
+    #thumbnail_list=[]
+    #for x in skiresorts.find({},{ "_id": 0, "location_name": 1, "thumbnail": 1 }):
+        #print(x)
+
 
 
 @app.route('/add_trip')
