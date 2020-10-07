@@ -75,7 +75,8 @@ Edit_skiresort.html:
 Sign Up & Sign In on Heroku app:
     - Get this mistake: 'NoneType' object has no attribute 'users'.
 
-
+Ski_resorts.html:
+    - Each ski resort displayed multiple times.
 
 #### Solved bugs:
 
