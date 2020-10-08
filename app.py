@@ -90,9 +90,11 @@ def trips():
     else:
         trips = list(mongo.db.trips.find())
         skiresorts = list(mongo.db.skiresorts.find())
+        users = list(mongo.db.users.find())
         return render_template("trips.html",
                                 skiresorts=skiresorts,
                                 trips=trips,
+                                users=users,
                                 active='signedIn')
 
 
@@ -104,7 +106,7 @@ def search_trips():
     #endate = datetime.strptime(request.form.get("query_to"))
     
     trips=list(mongo.db.trips.find({"$text": {"$search": query}}))
-    return render_template("trips.html", trips=trips, active='signedIn', startdate=startdate, endate=endate)
+    return render_template("trips.html", trips=trips, active='signedIn')
 
 
 #def daterange(startdate, enddate):
@@ -170,7 +172,7 @@ def insert_trip():
                     'other_info': request.form['other_info'],
                 })
             flash("We've added your trip!")
-        return render_template('trips.html', trips=mongo.db.trips.find(), active='signedIn')
+        return redirect(url_for('trips'))
 
 
 @app.route('/delete_trip/<trip_id>')
@@ -190,7 +192,7 @@ def ski_resorts():
 @app.route('/search_ski_resorts', methods=['GET', 'POST'])
 def search_ski_resorts():
     query=request.form.get("query")
-    skiresorts=list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
+    # skiresorts=list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
     return render_template("ski_resorts.html", skiresorts=skiresorts, active='signedIn')
 
 
