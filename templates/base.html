@@ -64,17 +64,17 @@
         $('.collapsible').collapsible();
         $('.sidenav').sidenav();
         $('select').formSelect();
-        $('.datepicker').datepicker();
+        $('.datepicker').datepicker({
+            selectMonths: true,
+            selectYears: 3, 
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            format: 'yyyy-dd-mm'
+        }); 
     });
 
-    $('.datepicker').pickadate({
-        selectMonths: true,
-        selectYears: 3, 
-        today: 'Today',
-        clear: 'Clear',
-        close: 'Ok'
-    });        
-   
+       
     </script>
 </body>
 </html>
