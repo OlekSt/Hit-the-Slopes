@@ -50,13 +50,8 @@ Result below in Bugs section
 Navbar:
     -	Active menu item: shows all of them as active
 
-
 New user registration:
     - Google message: Passwords are not safe....
-
-Add_skiresort.html, skiresorts.html:
-    - Issues with Materialize checkboxes for "spring/autumn/night skiing/glacier" info. Deleted the checkboxes for now. Using strings with "yes/no". If timing will allow, will add checkboxes at the end of the project.
-    - Date field don't trigger calendar view date choice.
 
 Signing In:
     - Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
@@ -70,8 +65,6 @@ Edit_skiresort.html:
 Sign Up & Sign In on Heroku app:
     - Get this mistake: 'NoneType' object has no attribute 'users'.
 
-Ski_resorts.html:
-    - Each ski resort displayed multiple times.
 
 #### Solved bugs:
 
@@ -94,10 +87,22 @@ Trips.html - Search by ski Ski_resorts:
     - User's avatar image per trip record is not visible. 
     - Ski resorts' thumbnails are not visible
 
+Signing In:
+    - Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
+
+Add_trip:
+    - Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
+
+Ski_resorts.html:
+    - Each ski resort displayed multiple times.
+    
+
     
 #### Unsolved bugs:
-...............
-!!! TO BE ADDED
+
+Add_skiresort.html, skiresorts.html:
+    - Issues with Materialize checkboxes for "spring/autumn/night skiing/glacier" info. Deleted the checkboxes for now. Using strings with "yes/no". If timing will allow, will add checkboxes at the end of the project.
+    ** Removed functionality. 
 
 ## Further testing: 
 ...............

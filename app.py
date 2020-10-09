@@ -227,7 +227,7 @@ def insert_skiresort():
                     'thumbnail': request.form['thumbnail'],
                     'other_info': request.form['other_info'],
                 })
-                flash("We've added your ski resort!")
+                flash(session['user'] + "! We've added your ski resort!")
                 return redirect(url_for('ski_resorts'))
             return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
 
