@@ -54,10 +54,9 @@ Navbar:
 New user registration:
     - Google message: Passwords are not safe....
 
-Trips.html:
-    -  User's avatar image per trip record is not visible. 
-    - User's name is not visible
-    - Deleting a trip triggers view distortion. Line of trips become blocks. 
+Trips.html - Search by ski Ski_resorts:
+    - User's avatar image per trip record is not visible. 
+    - Ski resorts' thumbnails are not visible
 
 Add_skiresort.html, skiresorts.html:
     - Issues with Materialize checkboxes for "spring/autumn/night skiing/glacier" info. Deleted the checkboxes for now. Using strings with "yes/no". If timing will allow, will add checkboxes at the end of the project.
@@ -89,7 +88,12 @@ Edit_skiresort.html:
 
 Edit_trip.html:
     - Name of the stored resort is not posted to the form.
-    
+
+Trips.html:
+    - User's avatar image per trip record is not visible. 
+    - User's name is not visible
+    - Deleting a trip triggers view distortion. Line of trips become blocks. 
+
 
 #### Unsolved bugs:
 ...............
