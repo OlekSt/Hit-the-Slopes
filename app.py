@@ -104,9 +104,12 @@ def search_trips():
     
     #startdate = datetime.strptime(request.form.get("query_from"))
     #endate = datetime.strptime(request.form.get("query_to"))
-    
+    skiresorts = list(mongo.db.skiresorts.find())
+    users = list(mongo.db.users.find())
     trips=list(mongo.db.trips.find({"$text": {"$search": query}}))
-    return render_template("trips.html", trips=trips, active='signedIn')
+    return render_template("trips.html", skiresorts=skiresorts,
+                                trips=trips,
+                                users=users, active='signedIn')
 
 
 #def daterange(startdate, enddate):
