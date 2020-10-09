@@ -49,7 +49,7 @@ Result below in Bugs section
 
 Navbar:
     -	Active menu item: shows all of them as active
-    -	Mobile menu: Is not visible, and pressing on menu sandwich does not open menu in mobile view.
+
 
 New user registration:
     - Google message: Passwords are not safe....
@@ -79,6 +79,9 @@ Ski_resorts.html:
     - Each ski resort displayed multiple times.
 
 #### Solved bugs:
+
+Navbar:
+    -	Mobile menu: Is not visible, and pressing on menu sandwich does not open menu in mobile view.
 
 Edit_skiresort.html:
     - Google maps info is lost on opening a specific ski resort to be updated. 
