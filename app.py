@@ -101,9 +101,6 @@ def trips():
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
     query = request.form.get("query")
-    
-    #startdate = datetime.strptime(request.form.get("query_from"))
-    #endate = datetime.strptime(request.form.get("query_to"))
     skiresorts = list(mongo.db.skiresorts.find())
     users = list(mongo.db.users.find())
     trips=list(mongo.db.trips.find({"$text": {"$search": query}}))
@@ -112,22 +109,7 @@ def search_trips():
                                 users=users, active='signedIn')
 
 
-#def daterange(startdate, enddate):
-    #for n in range(int ((enddate - startdate).days)+1):
-        #yield startdate + timedelta(n)
-    
-    #for dt in daterange(startdate, enddate):
-        #dates = [dt.strftime("%Y-%m-%d")]
-        #return dates
-        #print (dates)
 
-
-
-#def find_thumbnail(skiresorts):
-    #skiresorts=mongo.db.skiresorts
-    #thumbnail_list=[]
-    #for x in skiresorts.find({},{ "_id": 0, "location_name": 1, "thumbnail": 1 }):
-        #print(x)
 
 
 
