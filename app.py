@@ -152,8 +152,9 @@ def update_trip(trip_id):
         'adults': request.form.get('adults'),
         'kids': request.form.get('kids'),
         'ski_snowboard': request.form.get('ski_snowboard'),
-        'other_info': request.form('other_info')})
-    flash("We've added your trip!")
+        'other_info': request.form.get('other_info')
+        })
+    flash(session['user'] + "! We've updated your trip!")
     return redirect(url_for('trips'))
 
 
@@ -174,7 +175,7 @@ def insert_trip():
                     'ski_snowboard': request.form['ski_snowboard'],
                     'other_info': request.form['other_info'],
                 })
-            flash("We've added your trip!")
+            flash(session['user'] + "! We've added your trip!")
         return redirect(url_for('trips'))
 
 
