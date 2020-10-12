@@ -12,7 +12,7 @@
             </div>
             <div class="input-field col s6 m6">
                 <i class="small material-icons prefix">today</i>
-                <input placeholder="from" type="text" name="query_to" id="query_from" class="validate datepicker">
+                <input placeholder="from" type="text" name="query_from" id="query_from" class="validate datepicker">
             </div>
             <div class="input-field col s6 m6">
                 <i class="small material-icons prefix">today</i>
@@ -31,7 +31,7 @@
     <div class="card">
     <table class="collapsible highlight" data-collapsible="accordion">
         <tbody>
-        {% for trip in trips|sort(attribute="from") %} 
+        {% for trip in trips %} 
         
                 
         <tr class="collapsible-header col s12 m6 l6 xl6">

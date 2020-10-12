@@ -1,4 +1,5 @@
 import os
+import pymongo
 from flask import Flask, render_template, redirect, flash
 from flask import url_for, request, session
 from flask_pymongo import PyMongo
@@ -88,7 +89,8 @@ def trips():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        trips = list(mongo.db.trips.find())
+        trips = mongo.db.trips.find().sort("from", 1)
+        trips = list(trips)
         skiresorts = list(mongo.db.skiresorts.find())
         users = list(mongo.db.users.find())
         return render_template("trips.html",
@@ -102,8 +104,10 @@ def trips():
 def search_trips():
     query = request.form.get("query")
     skiresorts = list(mongo.db.skiresorts.find())
+    query_from = request.form.get("query_from")
+    query_to = request.form.get("query_to")
     users = list(mongo.db.users.find())
-    trips=list(mongo.db.trips.find({"$text": {"$search": query}}))
+    trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
     return render_template("trips.html", skiresorts=skiresorts,
                                 trips=trips,
                                 users=users, active='signedIn')
@@ -174,7 +178,7 @@ def ski_resorts():
 @app.route('/search_ski_resorts', methods=['GET', 'POST'])
 def search_ski_resorts():
     query=request.form.get("query")
-    # skiresorts=list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
+    skiresorts=list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
     return render_template("ski_resorts.html", skiresorts=skiresorts, active='signedIn')
 
 
