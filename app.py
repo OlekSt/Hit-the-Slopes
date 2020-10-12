@@ -109,10 +109,6 @@ def search_trips():
                                 users=users, active='signedIn')
 
 
-
-
-
-
 @app.route('/add_trip')
 def add_trip():
     return render_template('add_trip.html', skiresorts=mongo.db.skiresorts.find(), active='signedIn')
