@@ -247,6 +247,7 @@ The types of data stored in MongoDB for this project are:
 
 ### Collections Data Structure
 The Family Hub website relies on the following DB collections:
+* NOTE: The Data structure has been changed slightly changed during the development of the project. 
 
 #### Users Collection
 | Title | Key in db | form validation type | Data type |
@@ -254,21 +255,23 @@ The Family Hub website relies on the following DB collections:
 Account ID | _id | None | ObjectId 
 Name | username | text, `maxlength="40"` | string
 Password | password | text, `maxlength="15"` | string
-Male| male | checkbox | boolean
-Female | female | checkbox | boolean
+Gender | male or female | text | string
 **Age Range** | ageRange | | **object**
-18 to 25 years | age18to25 | choice | boolean
-26 to 32 years | age26to32 | choice | boolean
-32 to 40 years | age33to40 | choice | boolean
-41 to 48 years | age41to48 | choice | boolean
-49 years and up | age49up | choice | boolean
+18 to 25 years | age18to25 | choice | string
+26 to 32 years | age26to32 | choice | string
+32 to 40 years | age33to40 | choice | string
+41 to 48 years | age41to48 | choice | string
+49 years and up | age49up | choice | string
 From | from | text, `maxlength="40"` | string
 **Avatar Choice** | avatar | | **object**
-Avatar01 | avatar01 | text | string
-Avatar02 | avatar02 | text | string
-Avatar03 | Avatar03 | text | string
-Avatar04 | avatar04 | text | string
-Avatar05 | avatar05 | text | string
+Avatar01 | image path | text | string
+Avatar02 | image path  | text | string
+Avatar03 | image path  | text | string
+Avatar04 | image path  | text | string
+Avatar05 | image path  | text | string
+Avatar06 | image path  | text | string
+Avatar07 | image path  | text | string
+Avatar08 | image path  | text | string
 
 
 
@@ -278,12 +281,11 @@ Avatar05 | avatar05 | text | string
 Activity ID | _id | None | ObjectId 
 Username | username |text, `maxlength="45"` | string
 Location name | title | text, `maxlength="50"` | string
-Date From | start | datepicker | datetime
-Date To | end | datepicker | datetime
+From | start | datepicker | datetime
+To | end | datepicker | datetime
 Adults| adults | text | string
 Kids| kids | text | string
-Ski | ski | checkbox | boolean
-Snowboard | snowboard | checkbox | boolean
+Ski or Snowboard | ski_snowboard| text | string
 Other info | info | text, `maxlength="200"` | string
 
 
@@ -296,18 +298,19 @@ Location name | locationName |text, `maxlength="100"` | string
 Short description | description |text, `maxlength="80"` | string
 Website | url | url, `maxlength="100"` | string
 Map link | map | url, `maxlength="100"` | string
-Spring | spring | checkbox | boolean
-Autumn | autumn | checkbox | boolean
-Night | night | checkbox | boolean
-Glacier | glacier | checkbox | boolean
+Night | night | text | string
+Glacier | glacier | text | tring
 **Thumbnail Choice** | thumbnail | | **object**
-Thumbnail01 | humbnail01 | choice | boolean
-Thumbnail02 | humbnail02 | choice | boolean
-Thumbnail03 | humbnail03 | choice | boolean
-Thumbnail04 | humbnail04 | choice | boolean
-Thumbnail05 | humbnail05 | choice | boolean
-Thumbnail06 | humbnail06 | choice | boolean
-Thumbnail07 | humbnail07 | choice | boolean
+Thumbnail01 | image path | text | string
+Thumbnail02 | image path | text | string
+Thumbnail03 | image path | text | string
+Thumbnail04 | image path | text | string
+Thumbnail05 | image path | text | string
+Thumbnail06 | image path | text | string
+Thumbnail07 | image path | text | string
+Thumbnail08 | image path | text | string
+Thumbnail09 | image path | text | string
+Thumbnail10 | image path | text | string
 Other info | info | text, `maxlength="200"` | string
 
 ##### back to [top](#table-of-contents)
