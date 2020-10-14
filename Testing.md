@@ -65,6 +65,10 @@ Edit_skiresort.html:
 Sign Up & Sign In on Heroku app:
     - Get this mistake: 'NoneType' object has no attribute 'users'.
 
+Trips.html, Search:
+    - Search does not work in combination: Ski resort name + dates (any of them(from or to) or both)
+    - Search does not work with two dates: from & to
+
 
 #### Solved bugs:
 
