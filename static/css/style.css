@@ -17,6 +17,19 @@ body{
     background-attachment: fixed;
 }
 
+.fa{
+    font-size: 24px;
+}
+
+.intro-title{
+    font-size: 27px;
+}
+
+#index-list li
+    {
+    line-height:250%
+}
+
 #navbar{
     background-color: #A4352C;
 }
