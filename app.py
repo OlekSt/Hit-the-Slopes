@@ -102,12 +102,41 @@ def trips():
 
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
+    
+    query = request.form.get("query")
+    query_from = request.form.get("query_from")
+    query_to = request.form.get("query_to")
+    
+    if query:
+        trips = mongo.db.trips.find({"$text": {"$search": query}}).sort("from", 1)
+        flash("Trips to: " + query)
+    elif query and query_from:
+        trips = mongo.db.trips.find({"$text": {"$search": query}}).find({ "from": { "$gt": query_from }}).sort("from", 1)
+        flash("Trips to: " + query + ". From: " + query_from)
+    elif query and query_from and query_to:
+        trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
+        trips = mongo.db.trips.find({ "from": { "$gt": query_from }}).sort("from", 1)
+        trips = mongo.db.trips.find({ "to": { "$lt": query_to }}).sort("from", 1)
+    elif query_from and query_to:
+        trips = mongo.db.trips.find({ "from": { "$gt": query_from }}).sort("from", 1)
+        trips = mongo.db.trips.find({ "to": { "$lt": query_to }}).sort("from", 1)
+    elif query_from:
+        trips = mongo.db.trips.find({ "from": { "$gt": query_from }}).sort("from", 1)
+        flash("Trips after: " + query_from)
+    elif query_to:
+        trips = mongo.db.trips.find({ "to": { "$lt": query_to }}).sort("from", 1)
+        flash("Trips before: " + query_to)
+    elif query and query_to:
+        trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
+        trips = mongo.db.trips.find({ "to": { "$lt": query_to }}).sort("from", 1)
+    else:
+        redirect(url_for('trips'))
+
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
-    trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
     return render_template("trips.html", skiresorts=skiresorts,
-                                trips = trips,
-                                users = users, active='signedIn')
+                                trips=trips,
+                                users=users, active='signedIn')
 
 
 @app.route('/add_trip')
