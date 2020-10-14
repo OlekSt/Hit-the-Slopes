@@ -102,15 +102,12 @@ def trips():
 
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
-    query = request.form.get("query")
-    skiresorts = list(mongo.db.skiresorts.find())
-    query_from = request.form.get("query_from")
-    query_to = request.form.get("query_to")
     users = list(mongo.db.users.find())
+    skiresorts = list(mongo.db.skiresorts.find())
     trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
     return render_template("trips.html", skiresorts=skiresorts,
-                                trips=trips,
-                                users=users, active='signedIn')
+                                trips = trips,
+                                users = users, active='signedIn')
 
 
 @app.route('/add_trip')

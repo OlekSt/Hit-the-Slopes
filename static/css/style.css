@@ -17,7 +17,8 @@ body{
     background-attachment: fixed;
 }
 
-.fa{
+/* Index page intro text with icons */
+.fa, .fas{
     font-size: 24px;
 }
 
@@ -29,7 +30,9 @@ body{
     {
     line-height:250%
 }
+/* Finish - Index page intro text with icons*/
 
+/* Navbar */
 #navbar{
     background-color: #A4352C;
 }
