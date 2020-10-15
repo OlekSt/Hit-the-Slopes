@@ -65,6 +65,8 @@ body{
 
 .btn{
     background-color: #336C8F;
+    font-size: 10px;
+    padding: 5px;
 }
 
 .btn.waves-effect{
@@ -119,6 +121,35 @@ body{
 #intro-title{
     align-self: center;
     
+}
+
+#trip-search-title{
+    padding-top: 10px;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+#search-trips-panel{
+    margin-bottom: 2px;
+}
+
+#search-skiresorts-panel{
+    padding-bottom: 0px;
+    padding-top: 5px;
+    margin: 3px 0 5px 0;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.td{
+    padding: 0px;
+}
+
+.ski-resort-card{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* Color or the intro card */

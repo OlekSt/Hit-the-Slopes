@@ -2,32 +2,34 @@
 {% block content %}
 
 
-<div class="row panel grey lighten-5">
-    <h5 class="center">SEARCH UPCOMING TRIPS</h5> 
+<div id="search-trips-panel" class="row panel grey lighten-5">
+    <h5 id="trip-search-title" class="center">SEARCH UPCOMING TRIPS</h5> 
     <form action="{{ url_for('search_trips') }}" method="post" class="col s12">
         <div class="row valign-wrapper center-align">
-            <div class="input-field col s12 m6">
-                <i class="small material-icons prefix">search</i>
-                <input placeholder="ski resort" type="text" name="query" id="query" class="validate">
+            <div class="col s9 m10">
+                <div class="input-field col s12 m4">
+                    <i class="small material-icons prefix">search</i>
+                    <input placeholder="ski resort" type="text" name="query" id="query" class="validate">
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="small material-icons prefix">today</i>
+                    <input placeholder="date from" type="text" name="query_from" id="query_from" class="validate datepicker">
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="small material-icons prefix">today</i>
+                    <input placeholder="date to" type="text" name="query_to" id="query_to" class="validate datepicker">
+                </div>
             </div>
-            <div class="input-field col s6 m6">
-                <i class="small material-icons prefix">today</i>
-                <input placeholder="date from" type="text" name="query_from" id="query_from" class="validate datepicker">
-            </div>
-            <div class="input-field col s6 m6">
-                <i class="small material-icons prefix">today</i>
-                <input placeholder="date to" type="text" name="query_to" id="query_to" class="validate datepicker">
-            </div>
-            <div class="row col s12 m4">
+            <div class="col s3 m2">
+            <div class="row">
                 <a href="{{ url_for('trips') }}" class="red btn text-shadow">Reset</a>
-                <button type="submit" class="light-blue btn text-shadow">
-                <i class="small material-icons prefix">search</i>Search</button>
-            </div>
+                <button type="submit" class="light-blue btn text-shadow">Search</button>
+            </div></div>
         </div>
     </form>
 </div>
 
-<div class="row">
+<div class="row panel">
     <div class="card">
         <table class="collapsible highlight" data-collapsible="accordion">
             <tbody>
