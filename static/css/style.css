@@ -6,6 +6,7 @@ html, body {
     padding: 0;  
     max-width: 100%;
     overflow-x: hidden;
+    height: 100%;
 }
 
 body{
@@ -16,6 +17,11 @@ body{
     background-position: center center;
     background-attachment: fixed;
 }
+
+#main-container{
+    height: 100%;
+}
+
 
 /* Index page intro text with icons */
 .fa, .fas{

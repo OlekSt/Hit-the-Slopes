@@ -1,11 +1,9 @@
 import os
-import pymongo
 from flask import Flask, render_template, redirect, flash
 from flask import url_for, request, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
-from datetime import timedelta, date, datetime
 
 
 from os import path
@@ -45,9 +43,9 @@ def sign_in_page():
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    users=mongo.db.users
+    users = mongo.db.users
     if request.method == "POST":
-        name=users.find_one({'name': request.form.get("name")})
+        name = users.find_one({'name': request.form.get("name")})
         if name is None:
             password = generate_password_hash(request.form.get("password"))
             users.insert_one(request.form.to_dict())
@@ -57,7 +55,10 @@ def add_user():
         else:
             flash("This username already exists, please choose another one")
             return redirect(url_for('sign_up_page'))
-    return render_template('trips.html', active='signedIn', password=password, user=session['user'])
+    return render_template('trips.html', 
+                            active='signedIn', 
+                            password=password, 
+                            user = session['user'])
 
 
 @app.route('/sign_in', methods=['GET', 'POST'])
@@ -76,12 +77,15 @@ def sign_in():
         else:
             flash("Wrong name. Try again.")
             return redirect(url_for('sign_in_page'))
-    return render_template('trips.html', active='signedIn', user=session["user"])
+    return render_template('trips.html', 
+                            active='signedIn', 
+                            user=session["user"])
 
 
 @app.route('/user_account', methods=['POST'])
 def user_account():
-    return render_template("user_account.html", users=mongo.db.users.find())
+    return render_template("user_account.html", 
+                            users=mongo.db.users.find())
 
 
 @app.route('/trips', methods=['GET', 'POST'])
@@ -95,9 +99,9 @@ def trips():
         users = list(mongo.db.users.find())
         return render_template("trips.html",
                                 skiresorts=skiresorts,
-                                trips=trips,
-                                users=users,
-                                active='signedIn')
+                                trips = trips,
+                                users = users,
+                                active = 'signedIn')
 
 
 @app.route('/search_trips', methods=['GET', 'POST'])
@@ -115,20 +119,20 @@ def search_trips():
         flash("Trips to: " + query + ". From: " + query_from)
     elif query and query_from and query_to:
         trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
-        trips = mongo.db.trips.find({ "from": { "$gt": query_from }}).sort("from", 1)
-        trips = mongo.db.trips.find({ "to": { "$lt": query_to }}).sort("from", 1)
+        trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from",1)
+        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from",1)
     elif query_from and query_to:
-        trips = mongo.db.trips.find({ "from": { "$gt": query_from }}).sort("from", 1)
-        trips = mongo.db.trips.find({ "to": { "$lt": query_to }}).sort("from", 1)
+        trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from", 1)
+        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
     elif query_from:
-        trips = mongo.db.trips.find({ "from": { "$gt": query_from }}).sort("from", 1)
+        trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from", 1)
         flash("Trips after: " + query_from)
     elif query_to:
-        trips = mongo.db.trips.find({ "to": { "$lt": query_to }}).sort("from", 1)
+        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
         flash("Trips before: " + query_to)
     elif query and query_to:
         trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
-        trips = mongo.db.trips.find({ "to": { "$lt": query_to }}).sort("from", 1)
+        trips = mongo.db.trips.find({"to": {"$lte": query_to }}).sort("from", 1)
     else:
         redirect(url_for('trips'))
 
@@ -161,7 +165,7 @@ def update_trip(trip_id):
         'kids': request.form.get('kids'),
         'ski_snowboard': request.form.get('ski_snowboard'),
         'other_info': request.form.get('other_info')
-        })
+    })
     flash(session['user'] + "! We've updated your trip!")
     return redirect(url_for('trips'))
 
@@ -174,15 +178,15 @@ def insert_trip():
         if request.method == "POST":
             trips = mongo.db.trips
             trips.insert_one({
-                    'user': session['user'],
-                    'location_name': request.form['skiresort'],
-                    'from': request.form['from'],
-                    'to': request.form['to'],
-                    'adults': request.form['adults'],
-                    'kids': request.form['kids'],
-                    'ski_snowboard': request.form['ski_snowboard'],
-                    'other_info': request.form['other_info'],
-                })
+                'user': session['user'],
+                'location_name': request.form['skiresort'],
+                'from': request.form['from'],
+                'to': request.form['to'],
+                'adults': request.form['adults'],
+                'kids': request.form['kids'],
+                'ski_snowboard': request.form['ski_snowboard'],
+                'other_info': request.form['other_info'],
+            })
             flash(session['user'] + "! We've added your trip!")
         return redirect(url_for('trips'))
 
@@ -197,20 +201,25 @@ def delete_trip(trip_id):
 def ski_resorts():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
-    else: 
-        return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+    else:
+        return render_template("ski_resorts.html", 
+                                skiresorts=mongo.db.skiresorts.find(), 
+                                active='signedIn')
 
 
 @app.route('/search_ski_resorts', methods=['GET', 'POST'])
 def search_ski_resorts():
-    query=request.form.get("query")
-    skiresorts=list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
-    return render_template("ski_resorts.html", skiresorts=skiresorts, active='signedIn')
+    query = request.form.get("query")
+    skiresorts = list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
+    return render_template("ski_resorts.html", 
+                            skiresorts=skiresorts, 
+                            active='signedIn')
 
 
 @app.route('/add_skiresort')
 def add_skiresort():
-    return render_template('add_skiresort.html', active='signedIn')
+    return render_template('add_skiresort.html', 
+                            active='signedIn')
 
 
 @app.route('/insert_skiresort', methods=['POST'])
@@ -223,7 +232,9 @@ def insert_skiresort():
             skiresort_in_db = skiresorts.find_one({'location_name': request.form["location_name"]})
             if skiresort_in_db:
                 flash("Ski resort is already registered.")
-                return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+                return render_template("ski_resorts.html", 
+                                        skiresorts=mongo.db.skiresorts.find(), 
+                                        active='signedIn')
             else:
                 skiresorts.insert_one({
                     'location_name': request.form['location_name'],
@@ -237,7 +248,9 @@ def insert_skiresort():
                 })
                 flash(session['user'] + "! We've added your ski resort!")
                 return redirect(url_for('ski_resorts'))
-            return render_template("ski_resorts.html", skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+            return render_template("ski_resorts.html", 
+                                    skiresorts=mongo.db.skiresorts.find(), 
+                                    active='signedIn')
 
 
 @app.route('/edit_skiresort/<skiresort_id>', methods=['GET', 'POST'])
@@ -245,7 +258,8 @@ def edit_skiresort(skiresort_id):
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else: 
-        return render_template('edit_skiresort.html', skiresort=mongo.db.skiresorts.find_one({'_id': ObjectId(skiresort_id)}), active='signedIn')
+        return render_template('edit_skiresort.html', 
+                                skiresort=mongo.db.skiresorts.find_one({'_id': ObjectId(skiresort_id)}), active='signedIn')
 
 
 @app.route('/update_skiresort/<skiresort_id>', methods=['GET','POST'])

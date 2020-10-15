@@ -37,8 +37,7 @@
     {% include 'index_nav.html' %}
     {% endif %}
 
-    <div class="container">
-        
+    <div id="main-container" class="container">        
         <div class="message-board white justify-content-center">
             <!-- Flash messages -->
             {% with messages = get_flashed_messages() %}
@@ -51,7 +50,6 @@
         </div>
  
     {% block content %} {% endblock %} 
-     
     </div>
     
     <!-- JQuery link -->
