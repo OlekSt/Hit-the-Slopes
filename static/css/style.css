@@ -139,7 +139,7 @@ a[data-tool-tip]::after {
     content: attr(data-tool-tip);
     display: block;
     position: absolute;
-    background-color: #A4352C;
+    background-color: #A4352C; 
     padding: 0.8em;
     color: white;
     border-radius: 10px;
