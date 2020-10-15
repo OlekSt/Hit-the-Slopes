@@ -106,33 +106,35 @@ def trips():
 
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
-    
     query = request.form.get("query")
     query_from = request.form.get("query_from")
     query_to = request.form.get("query_to")
-    
     if query:
-        trips = mongo.db.trips.find({"$text": {"$search": query}}).sort("from", 1)
+        trips = mongo.db.trips.find({"$text": {"$search": query}}).sort("from",1)
         flash("Trips to: " + query)
-    elif query and query_from:
-        trips = mongo.db.trips.find({"$text": {"$search": query}}).find({ "from": { "$gt": query_from }}).sort("from", 1)
-        flash("Trips to: " + query + ". From: " + query_from)
-    elif query and query_from and query_to:
-        trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
-        trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from",1)
-        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from",1)
-    elif query_from and query_to:
-        trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from", 1)
-        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
     elif query_from:
-        trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from", 1)
-        flash("Trips after: " + query_from)
+        trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from",1) 
+        flash("Trips starting: " + query_from)
     elif query_to:
         trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
-        flash("Trips before: " + query_to)
+        flash("Trips till: " + query_to)
+    elif query and query_from:
+        trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
+        trips = trips.find({ "from": {"$gte": query_from}}).sort("from", 1)
+        flash("Trips to: " + query + ". Starting: " + query_from)
     elif query and query_to:
         trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
-        trips = mongo.db.trips.find({"to": {"$lte": query_to }}).sort("from", 1)
+        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
+        flash("Trips to: " + query + ". From: " + query_to)
+    elif query and query_from and query_to:
+        trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
+        trips = mongo.db.trips.find({"from": {"$gte": query_from}})
+        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from",1)
+        flash("Trips to: " + query + ". Between: " + query_from + " & " + query_to)
+    elif query_from and query_to:
+        trips = mongo.db.trips.find({"from": {"$gte": query_from}})
+        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
+        flash("Trips between: " + query_from + " & " + query_to)
     else:
         redirect(url_for('trips'))
 
