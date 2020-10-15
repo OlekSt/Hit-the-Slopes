@@ -48,7 +48,7 @@
                 {% endif %}
             {% endwith %}
         </div>
- 
+
     {% block content %} {% endblock %} 
     </div>
     
@@ -63,6 +63,7 @@
         $('.collapsible').collapsible();
         $('.sidenav').sidenav();
         $('select').formSelect();
+        $('.modal').modal();
         $('.datepicker').datepicker({
             selectMonths: true,
             selectYears: 3, 

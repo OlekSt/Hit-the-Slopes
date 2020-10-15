@@ -29,64 +29,80 @@
 
 <div class="row">
     <div class="card">
-    <table class="collapsible highlight" data-collapsible="accordion">
-        <tbody>
-        {% for trip in trips %}                
-        <tr class="collapsible-header col s12 m6 l6 xl6">
-            <td>
-                <a href="#" data-tool-tip="See profile"><strong>{{trip.user}}</strong>
-                <div class="avatar-image">
-                    {% for user in users %}
-                        {% if trip.user|lower == user.name|lower %}
-                            <img src="{{user.avatar}}" width="25" height="25"/>
-                            {% break %}
-                        {% endif %}
-                    {% endfor %} 
-                </div>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong>
-                <div class="avatar-image">
-                    {% for skiresort in skiresorts %}
-                        {% if trip.location_name|lower == skiresort.location_name|lower %}
-                            <img src="{{skiresort.thumbnail}}" width="25" height="25"/>
-                            {% break %}
-                        {% endif %}
-                    {% endfor %} 
-                </div>
-                </a>
-            </td>
-            <td>
-                <strong>From:  {{trip.from}}  </strong> 
-                <strong>To: {{trip.to}}</strong>
-            </td>  
-        </tr>
-       
-        <tr class="collapsible-header col s12 m6 l6 xl6">
-            <td>
-                <strong>Adults:</strong>{{trip.adults}}
-                <strong>Kids:</strong>{{trip.kids}}
-            </td>
-            <td>
-                <span>{{trip.ski_snowboard}}</span>
-            </td>
-            <td>
-                <strong>Add.info:</strong>{{trip.other_info}}
-            </td>  
-            <td>          
-                <div class="row">
-                    <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="blue accent-2 btn-small waves-effect ">Edit</a>
-                    <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="red lighten-3 btn-small waves-effect waves-light">Delete</a>
-                </div>
-            </td>
-        </tr>         
-   
-        {% endfor %}   
-        </tbody>
-    </table>
+        <table class="collapsible highlight" data-collapsible="accordion">
+            <tbody>
+            {% for trip in trips %}                
+            <tr class="collapsible-header col s12 m6 l6 xl6">
+                <td>
+                    <a href="#user-profile" data-target="user-profile" data-tool-tip="See profile" class="modal-trigger"><strong>{{trip.user}}</strong></a>
+                        <div class="avatar-image">
+                            {% for user in users %}
+                                {% if trip.user|lower == user.name|lower %}
+                                    <img src="{{user.avatar}}" width="30" height="30"/>
+                                    {% break %}
+                                {% endif %}
+                            {% endfor %} 
+                        </div>
+                            
+                    
+                </td>
+                <td>
+                    <a href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong>
+                    <div class="avatar-image">
+                        {% for skiresort in skiresorts %}
+                            {% if trip.location_name|lower == skiresort.location_name|lower %}
+                                <img src="{{skiresort.thumbnail}}" width="30" height="30"/>
+                                {% break %}
+                            {% endif %}
+                        {% endfor %} 
+                    </div>
+                    </a>
+                </td>
+                <td>
+                    <strong>From:  {{trip.from}}  </strong> 
+                    <strong>To: {{trip.to}}</strong>
+                </td>  
+            </tr>
+            <tr class="collapsible-header col s12 m6 l6 xl6">
+                <td>
+                    <strong>Adults:</strong>{{trip.adults}}
+                    <strong>Kids:</strong>{{trip.kids}}
+                </td>
+                <td>
+                    <span>{{trip.ski_snowboard}}</span>
+                </td>
+                <td>
+                    <strong>Add.info:</strong>{{trip.other_info}}
+                </td>  
+                <td>          
+                    <div class="row">
+                        <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="blue accent-2 btn-small waves-effect ">Edit</a>
+                        <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="red lighten-3 btn-small waves-effect waves-light">Delete</a>
+                    </div>
+                </td>
+            </tr>         
+            
+            {% endfor %}   
+            </tbody>
+        </table>
+        {% for trip in trips %}
+            {% for user in users %}
+                    {% if trip.user|lower == user.name|lower %}
+                                <!-- Modal Structure -->
+                                    <div id="user-profile" class="modal">
+                                        <div class="modal-content">
+                                        <h4>{{user.name}}</h4>
+                                        <p>A bunch of text</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <a href="#!" class="modal-close btn"><i class="far fa-times-circle"></i></a>
+                                        </div>
+                                    </div>
+                                    {% break %}
+                                {% endif %}
+                            {% endfor %} 
+                            {% endfor %} 
     </div>
-     
- </div>
+</div>
 
 {% endblock %}
