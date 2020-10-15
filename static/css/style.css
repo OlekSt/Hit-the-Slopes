@@ -130,6 +130,35 @@ body{
     background-color: #A0ACBD !important;
 }
 
+/* Float bubble to open a user's profile and all ski resorts */
+a[data-tool-tip] {
+    position: relative;
+}
+
+a[data-tool-tip]::after {
+    content: attr(data-tool-tip);
+    display: block;
+    position: absolute;
+    background-color: #A4352C;
+    padding: 0.8em;
+    color: white;
+    border-radius: 10px;
+    font-size: 0.8em;
+    bottom: 0;
+    left: -2em;
+    white-space: nowrap;
+    transform: scale(0);
+    transition:
+        transform ease-out 150ms,
+        bottom ease-out 150ms;
+}
+
+a[data-tool-tip]:hover::after {
+    transform: scale(1);
+    bottom: 100%;
+}
+/* End - Float bubble to open a user's profile */
+
 @media screen and (max-width: 992px) {
     /* minimize mobile sidenav menu  */
     #mobile-demo {

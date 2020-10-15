@@ -31,12 +31,10 @@
     <div class="card">
     <table class="collapsible highlight" data-collapsible="accordion">
         <tbody>
-        {% for trip in trips %} 
-        
-                
+        {% for trip in trips %}                
         <tr class="collapsible-header col s12 m6 l6 xl6">
             <td>
-                <strong>{{trip.user}}</strong>
+                <a href="#" data-tool-tip="See profile"><strong>{{trip.user}}</strong>
                 <div class="avatar-image">
                     {% for user in users %}
                         {% if trip.user|lower == user.name|lower %}
@@ -45,9 +43,10 @@
                         {% endif %}
                     {% endfor %} 
                 </div>
+                </a>
             </td>
             <td>
-                <a href="{{ url_for('ski_resorts')}}"><strong>{{trip.location_name}}</strong></a>
+                <a href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong>
                 <div class="avatar-image">
                     {% for skiresort in skiresorts %}
                         {% if trip.location_name|lower == skiresort.location_name|lower %}
@@ -56,6 +55,7 @@
                         {% endif %}
                     {% endfor %} 
                 </div>
+                </a>
             </td>
             <td>
                 <strong>From:  {{trip.from}}  </strong> 

@@ -120,7 +120,7 @@ def search_trips():
         flash("Trips till: " + query_to)
     elif query and query_from:
         trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
-        trips = trips.find({ "from": {"$gte": query_from}}).sort("from", 1)
+        trips = trips.find({"from": {"$gte": query_from}}).sort("from", 1)
         flash("Trips to: " + query + ". Starting: " + query_from)
     elif query and query_to:
         trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
