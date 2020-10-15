@@ -118,6 +118,10 @@ def search_trips():
     elif query_to:
         trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
         flash("Trips till: " + query_to)
+    elif query_from and query_to:
+        trips = mongo.db.trips.find({"from": {"$gte": query_from}})
+        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
+        flash("Trips between: " + query_from + " & " + query_to)
     elif query and query_from:
         trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
         trips = trips.find({"from": {"$gte": query_from}}).sort("from", 1)
@@ -131,10 +135,7 @@ def search_trips():
         trips = mongo.db.trips.find({"from": {"$gte": query_from}})
         trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from",1)
         flash("Trips to: " + query + ". Between: " + query_from + " & " + query_to)
-    elif query_from and query_to:
-        trips = mongo.db.trips.find({"from": {"$gte": query_from}})
-        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
-        flash("Trips between: " + query_from + " & " + query_to)
+    
     else:
         redirect(url_for('trips'))
 
