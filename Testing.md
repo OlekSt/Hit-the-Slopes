@@ -68,6 +68,11 @@ Sign Up & Sign In on Heroku app:
 Trips.html, Search:
     - Search does not work in combination: Ski resort name + dates (any of them(from or to) or both)
     - Search does not work with two dates: from & to
+    - Dates search fields poorly visible on mobile
+
+Trips.html, user's profile:
+    - User's profile modal brings info of only one user, no matter if a different user's name clicked
+
 
 
 #### Solved bugs:
