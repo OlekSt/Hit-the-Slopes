@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">terrain</i>
-                                <select id="skiresort" name="skiresort">
+                                <select id="skiresort" name="skiresort" class="validate" required>
                                     <option value="" disabled selected>Choose Ski Resort</option>
                                     {% for skiresort in skiresorts %}
                                         <option value="{{skiresort.location_name}}">{{skiresort.location_name}}</option>
@@ -21,12 +21,12 @@
                         </div>
                         <div class="input-field col s12 m6 l6">
                                 <i class="material-icons prefix">today</i>
-                                <input id="from" name="from" type="text" class="datepicker">
+                                <input id="from" name="from" type="text" class="datepicker" required>
                                 <label for="icon_prefix">From:</label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                                 <i class="material-icons prefix">today</i>
-                                <input id="to" name="to" type="text" class="datepicker">
+                                <input id="to" name="to" type="text" class="datepicker" required>
                                 <label for="icon_prefix">To:</label>
                         </div>
                         <div class="input-field col s12 m6 l6">
