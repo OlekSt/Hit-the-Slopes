@@ -23,7 +23,8 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/show_index')
+# redirect if the logo is clicked either to index.html if not logged, or to trips.hmtl if logged in
+@app.route('/show_index')  
 def show_index():
     if "user" in session:
         return redirect(url_for('trips'))
@@ -69,7 +70,7 @@ def sign_in():
         if existing_user:
             if existing_user['password'] == request.form["password"]:
                 session["user"] = existing_user["name"]
-                flash("Welcome back, " + existing_user["name"])
+                flash("Welcome back, " + session["user"])
                 return redirect(url_for('trips'))
             else:
                 flash("Wrong password. Try again.")
@@ -78,8 +79,9 @@ def sign_in():
             flash("Wrong name. Try again.")
             return redirect(url_for('sign_in_page'))
     return render_template('trips.html', 
-                            active='signedIn', 
-                            user=session["user"])
+                            active = 'signedIn', 
+                            user = session["user"])
+                       
 
 
 @app.route('/user_account', methods=['POST'])
@@ -141,7 +143,6 @@ def search_trips():
         flash("Trips till: " + query_to)
     else:
         redirect(url_for('trips'))
-
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
     return render_template("trips.html", 
@@ -202,11 +203,16 @@ def insert_trip():
             flash(session['user'] + "! We've added your trip!")
         return redirect(url_for('trips'))
 
-
+#to prevent a user from deleting trips created by other users
 @app.route('/delete_trip/<trip_id>')
 def delete_trip(trip_id):
-    mongo.db.trips.remove({'_id': ObjectId(trip_id)})
-    return redirect(url_for('trips'))
+    trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
+    trip_owner = trip['user']
+    if session['user'] == trip_owner:
+        mongo.db.trips.remove({'_id': ObjectId(trip_id)})
+        return redirect(url_for('trips'))
+    else:
+        return redirect(url_for('no_permission'))
 
 
 @app.route('/ski_resorts')
@@ -218,7 +224,7 @@ def ski_resorts():
                                 skiresorts=mongo.db.skiresorts.find(), 
                                 active='signedIn')
 
-
+# search through ski resorts
 @app.route('/search_ski_resorts', methods=['GET', 'POST'])
 def search_ski_resorts():
     query = request.form.get("query")
@@ -291,6 +297,7 @@ def update_skiresort(skiresort_id):
 
 @app.route('/delete_skiresort/<skiresort_id>')
 def delete_skiresort(skiresort_id):
+    
     mongo.db.skiresorts.remove({'_id': ObjectId(skiresort_id)})
     return redirect(url_for('ski_resorts'))
 
@@ -300,6 +307,11 @@ def sign_out():
     [session.pop(key) for key in list(session.keys())]
     return redirect(url_for('show_index'))
 
+# No permission page
+@app.route('/no_permission')
+def no_permission():
+    return render_template("no_permission.html", 
+                            active='signedIn')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
