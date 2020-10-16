@@ -103,57 +103,66 @@ def trips():
                                 users = users,
                                 active = 'signedIn')
 
-
+# for searching through trips by ski resorts' names, and dates of trips starting and finishing at
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
     query = request.form.get("query")
     query_from = request.form.get("query_from")
     query_to = request.form.get("query_to")
-    if query:
+    if query and query_from and query_to:        # search by place, & dates from & to
+        trips = mongo.db.trips.find({"$text": {"$search": query}, 
+                                    "from": {"$gte": query_from}, 
+                                    "to": {"$lte": query_to}}
+                                    ).sort("from",1)  # to sort in chronological order from a date into the future
+        flash("Trips to: " + query + ". Between: " + query_from + " & " + query_to)
+    elif query_from and query_to:               # search by starting & ending dates of trips
+        trips = mongo.db.trips.find({"from": {"$gte": query_from},
+                                    "to": {"$lte": query_to}}
+                                    ).sort("from",1)
+        flash("Trips between: " + query_from + " & " + query_to)
+    elif query and query_from:                 # search by a place and a starting date
+        trips = mongo.db.trips.find({"$text": {"$search": query},
+                                    "from": {"$gte": query_from}}
+                                    ).sort("from", 1)
+        flash("Trips to: " + query + ". Starting: " + query_from)
+    elif query and query_to:                   # search by a place & an ending date
+        trips = mongo.db.trips.find({"$text": {"$search": query},
+                                    "to": {"$lte": query_to}}
+                                    ).sort("from", 1)
+        flash("Trips to: " + query + ". From: " + query_to)
+    elif query:                                 # search by a place
         trips = mongo.db.trips.find({"$text": {"$search": query}}).sort("from",1)
         flash("Trips to: " + query)
-    elif query_from:
+    elif query_from:                            # search by a starting date
         trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from",1) 
         flash("Trips starting: " + query_from)
-    elif query_to:
+    elif query_to:                              # search by a ending date
         trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
         flash("Trips till: " + query_to)
-    elif query_from and query_to:
-        trips = mongo.db.trips.find({"from": {"$gte": query_from}})
-        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
-        flash("Trips between: " + query_from + " & " + query_to)
-    elif query and query_from:
-        trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
-        trips = trips.find({"from": {"$gte": query_from}}).sort("from", 1)
-        flash("Trips to: " + query + ". Starting: " + query_from)
-    elif query and query_to:
-        trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
-        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
-        flash("Trips to: " + query + ". From: " + query_to)
-    elif query and query_from and query_to:
-        trips = list(mongo.db.trips.find({"$text": {"$search": query}}))
-        trips = mongo.db.trips.find({"from": {"$gte": query_from}})
-        trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from",1)
-        flash("Trips to: " + query + ". Between: " + query_from + " & " + query_to)
-    
     else:
         redirect(url_for('trips'))
 
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
-    return render_template("trips.html", skiresorts=skiresorts,
-                                trips=trips,
-                                users=users, active='signedIn')
+    return render_template("trips.html", 
+                            skiresorts=skiresorts,
+                            trips=trips,
+                            users=users, active='signedIn')
 
 
 @app.route('/add_trip')
 def add_trip():
-    return render_template('add_trip.html', skiresorts=mongo.db.skiresorts.find(), active='signedIn')
+    return render_template('add_trip.html', 
+                            skiresorts=mongo.db.skiresorts.find(), 
+                            active='signedIn')
 
 
 @app.route('/edit_trip/<trip_id>', methods=['GET', 'POST'])
 def edit_trip(trip_id):
-    return render_template('edit_trip.html', skiresorts=mongo.db.skiresorts.find(), trip=mongo.db.trips.find_one({'_id': ObjectId(trip_id)}), active='signedIn')
+    return render_template('edit_trip.html', 
+                            skiresorts=mongo.db.skiresorts.find(), 
+                            trip=mongo.db.trips.find_one({'_id': ObjectId(trip_id)}), 
+                            active='signedIn')
 
 
 @app.route('/update_trip/<trip_id>', methods=['GET','POST'])
