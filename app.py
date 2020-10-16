@@ -217,14 +217,17 @@ def insert_trip():
             flash(session['user'] + "! We've added your trip!")
         return redirect(url_for('trips'))
 
-#to prevent a user from deleting trips created by other users
+
+# to prevent a user from deleting trips created by other users
 @app.route('/delete_trip/<trip_id>')
 def delete_trip(trip_id):
     trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
     trip_owner = trip['user']
     if session['user'] == trip_owner:
         mongo.db.trips.remove({'_id': ObjectId(trip_id)})
+        flash(trip_owner + ", we've deleted your trip!")
         return redirect(url_for('trips'))
+        
     else:
         return redirect(url_for('no_permission'))
 
@@ -294,13 +297,12 @@ def edit_skiresort(skiresort_id):
                                 skiresort=mongo.db.skiresorts.find_one({'_id': ObjectId(skiresort_id)}), active='signedIn')
 
 
-@app.route('/update_skiresort/<skiresort_id>', methods=['GET','POST'])
+@app.route('/update_skiresort/<skiresort_id>', methods=['GET', 'POST'])
 def update_skiresort(skiresort_id):
-    mongo.db.skiresorts.update(
-        {'_id': ObjectId(skiresort_id)},
-        {'location_name': request.form.get('location_name'), 
-        'description': request.form.get('description'),
-        'website': request.form.get('website'),
+    mongo.db.skiresorts.update({'_id': ObjectId(skiresort_id)},{
+                            'location_name': request.form.get('location_name'),
+    'description': request.form.get('description'),
+    'website': request.form.get('website'),
         'map': request.form.get('map'),
         'night': request.form.get('night'),
         'glacier': request.form.get('glacier'),
@@ -311,7 +313,6 @@ def update_skiresort(skiresort_id):
 
 @app.route('/delete_skiresort/<skiresort_id>')
 def delete_skiresort(skiresort_id):
-    
     mongo.db.skiresorts.remove({'_id': ObjectId(skiresort_id)})
     return redirect(url_for('ski_resorts'))
 
@@ -321,11 +322,13 @@ def sign_out():
     [session.pop(key) for key in list(session.keys())]
     return redirect(url_for('show_index'))
 
+
 # No permission page
 @app.route('/no_permission')
 def no_permission():
-    return render_template("no_permission.html", 
-                            active='signedIn')
+    return render_template(
+            "no_permission.html",
+            active='signedIn')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
