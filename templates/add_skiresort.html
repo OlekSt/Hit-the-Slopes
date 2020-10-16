@@ -26,11 +26,19 @@
                         </div>
                         <div class="input-field col s12 m12 l6">
                             <i class="material-icons prefix">terrain</i>
-                            <input placeholder="glacier: yes/no?" id="glacier" name="glacier" type="text" class="validate" required>
+                            <select class="icons dropdown-content validate" id="glacier" name="glacier" required aria-required="true">
+                                <option value="1" selected>Glacier</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
                         </div>
                         <div class="input-field col s12 m12 l6">
                             <i class="material-icons prefix">brightness_3</i>
-                            <input placeholder="night skiing: yes/no?" id="night" name="night" type="text" class="validate" required>
+                            <select class="icons dropdown-content validate" id="night" name="night" required aria-required="true">
+                                <option value="1" selected>Night skiing</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
                         </div>
                         <div class="input-field col s12 m12 l12">
                             <i class="small material-icons prefix">comment</i>
