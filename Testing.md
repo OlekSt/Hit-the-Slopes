@@ -61,6 +61,8 @@ Add_trip:
 
 Edit_skiresort.html:
     - Thumbnail info is lost on opening a specific ski resort to be updated.
+    - Skiresort choice is lost on saving, if not chosen again.
+
 
 Sign Up & Sign In on Heroku app:
     - Get this mistake: 'NoneType' object has no attribute 'users'.
