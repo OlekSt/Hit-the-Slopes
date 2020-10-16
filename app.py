@@ -160,10 +160,15 @@ def add_trip():
 
 @app.route('/edit_trip/<trip_id>', methods=['GET', 'POST'])
 def edit_trip(trip_id):
-    return render_template('edit_trip.html', 
+    trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
+    trip_owner = trip['user']
+    if session['user'] == trip_owner:
+        return render_template('edit_trip.html', 
                             skiresorts=mongo.db.skiresorts.find(), 
                             trip=mongo.db.trips.find_one({'_id': ObjectId(trip_id)}), 
                             active='signedIn')
+    else:
+        return redirect(url_for('no_permission'))
 
 
 @app.route('/update_trip/<trip_id>', methods=['GET','POST'])
