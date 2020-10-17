@@ -192,6 +192,10 @@ User Stories:
 
 * [All screens - Mobile phone view](static/readme/wireframes/mobile_view_wireframes.pdf)
 
+![](static/readme/wireframes/mobile_view_wireframes.pdf)
+</details>
+<br>
+<details><summary>All screens - Mobile phone view</summary>
 
 ### SURFACE 
 

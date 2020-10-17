@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-# redirect if the logo is clicked either to index.html
+# redirect if the logo is clicked either to index.html 
 # if not logged, or to trips.hmtl if logged in
 @app.route('/show_index')
 def show_index():
