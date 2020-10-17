@@ -82,6 +82,7 @@ body{
     width: 300px;
     height: auto;
 }
+
 #card-div{
     margin: auto;
     float: left;
@@ -91,7 +92,6 @@ body{
     justify-content: center;
     background-color: white;
     width: 200px;
-    
 }
 
 .card-title h5{
@@ -184,6 +184,24 @@ a[data-tool-tip]:hover::after {
     bottom: 100%;
 }
 /* End - Float bubble to open a user's profile */
+
+/* Modal for users' profiles */
+.modal {
+    left: 0;
+    right: 0;
+    background-color: #fafafa;
+    padding: 0;
+    max-height: 40%;
+    width: 35%;
+    will-change: top, opacity;
+}
+
+.user-profile h4, p{
+    color:  #336C8F;
+}
+
+/* End - Modal for users' profiles */
+
 
 @media screen and (max-width: 992px) {
     /* minimize mobile sidenav menu  */

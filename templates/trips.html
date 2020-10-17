@@ -36,17 +36,29 @@
             {% for trip in trips %}                
             <tr class="collapsible-header col s12 m6 l6 xl6">
                 <td>
-                    <a href="#user-profile" data-target="user-profile" data-tool-tip="See profile" class="modal-trigger"><strong>{{trip.user}}</strong></a>
-                        <div class="avatar-image">
-                            {% for user in users %}
-                                {% if trip.user|lower == user.name|lower %}
-                                    <img src="{{user.avatar}}" width="30" height="30"/>
-                                    {% break %}
-                                {% endif %}
-                            {% endfor %} 
-                        </div>
-                            
                     
+                {% for user in users %}
+                    {% if trip.user|lower == user.name|lower %}
+                    <a href="#{{user.name}}" data-target="#{{user.name}}" data-tool-tip="See profile" class="modal-trigger"><strong>{{user.name}}</strong></a>
+                    <div class="avatar-image">
+                        <img src="{{user.avatar}}" width="30" height="30"/>
+                    </div>
+                    <!-- Modal structure for users' profiles -->
+                    <div id="#{{user.name}}" class="modal user-profile">
+                        <div class="modal-content">
+                            <h4>{{user.name}}</h4>
+                            <p>{{user.gender}}</p>
+                            <p>{{user.ageRange}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close btn"><i class="far fa-times-circle"></i></a>
+                        </div>                    
+                    </div>
+                    <!-- End - Modal structure for users' profiles -->
+                    {% break %}
+                    {% endif %}
+                {% endfor %} 
+                                            
                 </td>
                 <td>
                     <a href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong>
@@ -86,24 +98,7 @@
             
             {% endfor %}   
             </tbody>
-        </table>
-        {% for trip in trips %}
-            {% for user in users %}
-                    {% if trip.user|lower == user.name|lower %}
-                                <!-- Modal Structure -->
-                                    <div id="user-profile" class="modal">
-                                        <div class="modal-content">
-                                        <h4>{{user.name}}</h4>
-                                        <p>A bunch of text</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                        <a href="#!" class="modal-close btn"><i class="far fa-times-circle"></i></a>
-                                        </div>
-                                    </div>
-                                    {% break %}
-                                {% endif %}
-                            {% endfor %} 
-                            {% endfor %} 
+        </table>                              
     </div>
 </div>
 
