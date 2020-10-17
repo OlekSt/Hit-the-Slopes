@@ -49,8 +49,15 @@ def add_user():
     if request.method == "POST":
         name = users.find_one({'name': request.form.get("name")})
         if name is None:
-            password = generate_password_hash(request.form.get("password"))
-            users.insert_one(request.form.to_dict())
+            user = {
+                "name": request.form.get("name"),
+                "password": generate_password_hash(request.form.get("password")),
+                "gender": request.form.get("gender"),
+                "ageRange": request.form.get("ageRange"),
+                "from": request.form.get("from"),
+                "avatar": request.form.get("avatar")
+            }
+            mongo.db.users.insert_one(user)
             session['user'] = request.form["name"]
             flash("Welcome, " + session['user'] + "!")
             return redirect(url_for('trips'))
@@ -60,8 +67,7 @@ def add_user():
     return render_template(
             'trips.html',
             active='signedIn',
-            password=password,
-            user=session['user'])
+            user=user)
 
 
 @app.route('/sign_in', methods=['GET', 'POST'])
@@ -70,8 +76,9 @@ def sign_in():
         users = mongo.db.users
         existing_user = users.find_one({'name': request.form["name"]})
         if existing_user:
-            if existing_user['password'] == request.form["password"]:
-                session["user"] = existing_user["name"]
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("name")
                 flash("Welcome back, " + session["user"])
                 return redirect(url_for('trips'))
             else:
