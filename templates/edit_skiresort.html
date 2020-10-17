@@ -33,13 +33,13 @@
                                     <input value="{{skiresort.night}}" id="night" name="night" type="text" class="validate" required>
                                 </div>
                                 <div class="input-field col s12 m12 l12">
-                                    <i class="small material-icons prefix">comment</i>
+                                    <i class="material-icons prefix">comment</i>
                                     <input value="{{skiresort.other_info}}" id="other_info" name="other_info" type="text" class="validate" required>
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">face</i>
-                                    <select value="{{skiresort.thumbnail}}" class="icons dropdown-content" id="thumbnail" name="thumbnail" required="" aria-required="true">
-                                        <option value="1" selected>Choose a Thumbnail</option>
+                                    <select value="{{skiresort.thumbnail}}" class="validate" id="thumbnail" name="thumbnail" required aria-required="true">
+                                        <option value="" disabled selected>Choose a Thumbnail</option>
                                         <option value="/static/img/resorts_thumbs/mountain01.png" data-icon="/static/img/resorts_thumbs/mountain01.png">Peak</option>
                                         <option value="/static/img/resorts_thumbs/mountain02.png" data-icon="/static/img/resorts_thumbs/mountain02.png">Glacier</option>
                                         <option value="/static/img/resorts_thumbs/mountain03.png" data-icon="/static/img/resorts_thumbs/mountain03.png">Map</option>
