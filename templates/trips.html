@@ -46,13 +46,20 @@
                     <!-- Modal structure for users' profiles -->
                     <div id="#{{user.name}}" class="modal user-profile">
                         <div class="modal-content">
-                            <h4>{{user.name}}</h4>
-                            <p>{{user.gender}}</p>
-                            <p>{{user.ageRange}}</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close btn"><i class="far fa-times-circle"></i></a>
-                        </div>                    
+                            <div class="col s12 m4 l4 xl4">
+                                <h4>{{user.name}}</h4>
+                                <img src="{{user.avatar}}" width="50" height="50"/>
+                            </div>
+                            <div class="col s12 m4 l4 xl4">
+                                <p>{{user.gender}}</p>
+                                <p>{{user.ageRange}}</p>
+                                <p>{{user.from}}</p>
+                            </div>
+                            <div class="col s12 m4 l4 xl4">
+                                <p><a href="#">Contact Me</a></p>
+                                <a href="#!" class="modal-close btn-small"><i class="far fa-times-circle"></i></a>
+                            </div> 
+                        </div>                   
                     </div>
                     <!-- End - Modal structure for users' profiles -->
                     {% break %}

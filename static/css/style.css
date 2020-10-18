@@ -58,6 +58,10 @@ body{
     color: #336C8F;
 }
 
+#menu-burger{
+    color: white;
+}
+
 .btn{
     background-color: #336C8F;
     font-size: 12px;
@@ -191,14 +195,20 @@ a[data-tool-tip]:hover::after {
     right: 0;
     background-color: #fafafa;
     padding: 0;
-    max-height: 40%;
-    width: 35%;
+    max-height: 60%;
+    width: 40%;
     will-change: top, opacity;
 }
 
-.user-profile h4, p{
+.user-profile h4{
+    color:  #A4352C;
+}
+
+.user-profile p{
     color:  #336C8F;
 }
+
+A4352C
 
 /* End - Modal for users' profiles */
 
