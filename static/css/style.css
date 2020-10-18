@@ -62,13 +62,18 @@ body{
     color: white;
 }
 
-.btn{
+.btn-small{
     background-color: #336C8F;
     font-size: 12px;
     margin: 3px 2px 3px 0;
 }
 
-.btn.waves-effect{
+bnts{
+    margin-right: 1px;
+}
+
+.btn-small .waves-effect{
+    color: #6B9FC5;
     background-color: #6B9FC5;
 }
 

@@ -404,7 +404,7 @@ def update_skiresort(skiresort_id):
                 'thumbnail': skiresort['thumbnail'],
                 'other_info': request.form.get('other_info')}
             )
-    elif request.form.get('thumnail'):
+    elif request.form.get('thumbnail'):
         mongo.db.skiresorts.update(
             {'_id': ObjectId(skiresort_id)},
             {'location_name': request.form.get('location_name'),
@@ -415,7 +415,7 @@ def update_skiresort(skiresort_id):
                 'glacier': skiresort['glacier'],
                 'thumbnail': request.form.get('thumbnail'),
                 'other_info': request.form.get('other_info')}
-            )       
+            )      
     return redirect(url_for('ski_resorts'))
 
 
