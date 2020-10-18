@@ -39,7 +39,11 @@
                         </div>
                         <div class="input-field col s12 m12 l6">
                             <i class="material-icons prefix">ac_unit</i>
-                            <input value="{{trip.ski_snowboard}}" id="ski_snowboard" name="ski_snowboard" type="text" class="validate" required>
+                            <select class="validate" id="ski_snowboard" name="ski_snowboard" required aria-required="true">
+                                <option value="{{trip.ski_snowboard}}" disabled selected>{{trip.ski_snowboard}}</option>
+                                <option value="Ski">Ski</option>
+                                <option value="Snowboard">Snowboard</option>
+                            </select>
                         </div>
                         <div class="input-field col s12 m12 l12">
                             <i class="small material-icons prefix">comment</i>
