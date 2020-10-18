@@ -187,19 +187,33 @@ def edit_trip(trip_id):
         return redirect(url_for('no_permission'))
 
 
-@app.route('/update_trip/<trip_id>', methods=['GET','POST'])
+@app.route('/update_trip/<trip_id>', methods=['GET', 'POST'])
 def update_trip(trip_id):
-    mongo.db.trips.update(
-        {'_id': ObjectId(trip_id)},
-        {'user': session['user'],
-        'location_name': request.form.get('skiresort'),
-        'from': request.form.get('from'),
-        'to': request.form.get('to'),
-        'adults': request.form.get('adults'),
-        'kids': request.form.get('kids'),
-        'ski_snowboard': request.form.get('ski_snowboard'),
-        'other_info': request.form.get('other_info')
-    })
+    trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
+    if request.form.get('skiresort'):
+        mongo.db.trips.update(
+            {'_id': ObjectId(trip_id)},
+            {'user': session['user'],
+            'location_name': request.form.get('skiresort'),
+            'from': request.form.get('from'),
+            'to': request.form.get('to'),
+            'adults': request.form.get('adults'),
+            'kids': request.form.get('kids'),
+            'ski_snowboard': request.form.get('ski_snowboard'),
+            'other_info': request.form.get('other_info')}
+        )
+    else:
+        mongo.db.trips.update(
+            {'_id': ObjectId(trip_id)},
+            {'user': session['user'],
+            'location_name': trip['location_name'],
+            'from': request.form.get('from'),
+            'to': request.form.get('to'),
+            'adults': request.form.get('adults'),
+            'kids': request.form.get('kids'),
+            'ski_snowboard': request.form.get('ski_snowboard'),
+            'other_info': request.form.get('other_info')}
+        )  
     flash(session['user'] + "! We've updated your trip!")
     return redirect(url_for('trips'))
 
