@@ -26,20 +26,29 @@
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">terrain</i>
-                                    <input value="{{skiresort.glacier}}" id="glacier" name="glacier" type="text" class="validate" required>
+                                    <select class="icons dropdown-content" id="glacier" name="glacier" required aria-required="true">
+                                        <option value="{{skiresort.glacier}}" disabled selected>Glacier: {{skiresort.glacier}}</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                            </select>
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">brightness_3</i>
-                                    <input value="{{skiresort.night}}" id="night" name="night" type="text" class="validate" required>
+                                    <select class="icons dropdown-content" id="night" name="night" required aria-required="true">
+                                        <option value="{{skiresort.night}}" disabled selected>Night skiing: {{skiresort.night}}</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                            </select>
                                 </div>
                                 <div class="input-field col s12 m12 l12">
                                     <i class="material-icons prefix">comment</i>
                                     <input value="{{skiresort.other_info}}" id="other_info" name="other_info" type="text" class="validate" required>
                                 </div>
                                 <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">face</i>
+                                    <img class="center" src="{{skiresort.thumbnail}}" width="30" height="30"/>
+                                    <!--<i class="material-icons prefix">face</i>--> 
                                     <select value="{{skiresort.thumbnail}}" class="validate" id="thumbnail" name="thumbnail" required aria-required="true">
-                                        <option value="{{skiresort.thumbnail}}" disabled selected>{{skiresort.thumbnail}}</option>
+                                        <option value="{{skiresort.thumbnail}}" disabled selected>Update thumbnail</option>
                                         <option value="/static/img/resorts_thumbs/mountain01.png" data-icon="/static/img/resorts_thumbs/mountain01.png">Peak</option>
                                         <option value="/static/img/resorts_thumbs/mountain02.png" data-icon="/static/img/resorts_thumbs/mountain02.png">Glacier</option>
                                         <option value="/static/img/resorts_thumbs/mountain03.png" data-icon="/static/img/resorts_thumbs/mountain03.png">Map</option>
@@ -51,8 +60,9 @@
                                         <option value="/static/img/resorts_thumbs/mountain09.png" data-icon="/static/img/resorts_thumbs/mountain09.png">Race</option>
                                         <option value="/static/img/resorts_thumbs/mountain10.png" data-icon="/static/img/resorts_thumbs/mountain10.png">Sunrise</option>
                                     </select>
+                                    
                                 </div>                            
-                            <button class="btn waves-effect right" type="submit">Save Changes</button>
+                            <button class="btn-small waves-effect right" type="submit">Save</button>
                             <a href="{{ url_for('ski_resorts') }}" class="btn-small waves-effect right">Cancel</a>
                         </form>
                     </div>
