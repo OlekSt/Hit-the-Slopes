@@ -77,6 +77,10 @@ bnts{
     background-color: #6B9FC5;
 }
 
+#footer-btn{
+    bottom: 0;
+}
+
 .avatar-image{
     width: 30px;
     height: 30px;
@@ -211,6 +215,10 @@ a[data-tool-tip]:hover::after {
     max-height: 60%;
     width: 40%;
     will-change: top, opacity;
+}
+
+.user-profile{
+    width: max-content;
 }
 
 .user-profile h4{

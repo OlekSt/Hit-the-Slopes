@@ -1,7 +1,6 @@
 {% extends 'base.html'%} 
 {% block content %}
 
-
 <div id="search-trips-panel" class="row panel grey lighten-5">
     <h5 id="trip-search-title" class="center">SEARCH UPCOMING TRIPS</h5> 
     <form action="{{ url_for('search_trips') }}" method="post" class="col s12">
@@ -28,7 +27,6 @@
         </div>
     </form>
 </div>
-
 <div class="row panel">
     <div class="card">
         <table class="collapsible highlight" data-collapsible="accordion">
@@ -36,7 +34,6 @@
             {% for trip in trips %}                
             <tr class="collapsible-header col s12 m6 l6 xl6">
                 <td>
-                    
                 {% for user in users %}
                     {% if trip.user|lower == user.name|lower %}
                     <a href="#{{user.name}}" data-target="#{{user.name}}" data-tool-tip="See profile" class="modal-trigger"><strong>{{user.name}}</strong></a>
@@ -45,7 +42,7 @@
                     </div>
                     <!-- Modal structure for users' profiles -->
                     <div id="#{{user.name}}" class="modal user-profile">
-                        <div class="modal-content">
+                        <div class="modal-content center">
                             <div class="col s12 m4 l4 xl4">
                                 <h4>{{user.name}}</h4>
                                 <img src="{{user.avatar}}" width="50" height="50"/>
@@ -55,9 +52,8 @@
                                 <p>{{user.ageRange}}</p>
                                 <p>{{user.from}}</p>
                             </div>
-                            <div class="col s12 m4 l4 xl4">
+                            <div class="col s12 m4 l4 xl4 center">
                                 <p><a href="#">Contact Me</a></p>
-                                <a href="#!" class="modal-close btn-small"><i class="far fa-times-circle"></i></a>
                             </div> 
                         </div>                   
                     </div>
