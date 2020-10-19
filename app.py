@@ -330,92 +330,65 @@ def edit_skiresort(skiresort_id):
 @app.route('/update_skiresort/<skiresort_id>', methods=['GET', 'POST'])
 def update_skiresort(skiresort_id):
     skiresort = mongo.db.skiresorts.find_one({'_id': ObjectId(skiresort_id)})
+    mongo.db.skiresorts.update(
+            {'_id': ObjectId(skiresort_id)},
+            {'location_name': request.form.get('location_name'),
+                'description': request.form.get('description'),
+                'website': request.form.get('website'),
+                'map': request.form.get('map'),
+                'other_info': request.form.get('other_info')}
+            )
     if (request.form.get('night') and
             request.form.get('glacier') and
             request.form.get('thumbnail')):
         mongo.db.skiresorts.update(
             {'_id': ObjectId(skiresort_id)},
-            {'location_name': request.form.get('location_name'),
-                'description': request.form.get('description'),
-                'website': request.form.get('website'),
-                'map': request.form.get('map'),
-                'night': request.form.get('night'),
-                'glacier': request.form.get('glacier'),
-                'thumbnail': request.form.get('thumbnail'),
-                'other_info': request.form.get('other_info')}
+            {'night': request.form.get('night'),
+            'glacier': request.form.get('glacier'),
+            'thumbnail': request.form.get('thumbnail')}
             )
     elif (request.form.get('glacier') and request.form.get('thumbnail')):
         mongo.db.skiresorts.update(
             {'_id': ObjectId(skiresort_id)},
-            {'location_name': request.form.get('location_name'),
-                'description': request.form.get('description'),
-                'website': request.form.get('website'),
-                'map': request.form.get('map'),
-                'night': skiresort['night'],
-                'glacier': request.form.get('glacier'),
-                'thumbnail': request.form.get('thumbnail'),
-                'other_info': request.form.get('other_info')}
+            {'night': skiresort['night'],
+            'glacier': request.form.get('glacier'),
+            'thumbnail': request.form.get('thumbnail')}
             )
     elif (request.form.get('night') and request.form.get('thumbnail')):
         mongo.db.skiresorts.update(
             {'_id': ObjectId(skiresort_id)},
-            {'location_name': request.form.get('location_name'),
-                'description': request.form.get('description'),
-                'website': request.form.get('website'),
-                'map': request.form.get('map'),
-                'night': request.form.get('night'),
-                'glacier': skiresort['glacier'],
-                'thumbnail': request.form.get('thumbnail'),
-                'other_info': request.form.get('other_info')}
+            {'night': request.form.get('night'),
+            'glacier': skiresort['glacier'],
+            'thumbnail': request.form.get('thumbnail')}
             )
     elif (request.form.get('night') and request.form.get('glacier')):
         mongo.db.skiresorts.update(
             {'_id': ObjectId(skiresort_id)},
-            {'location_name': request.form.get('location_name'),
-                'description': request.form.get('description'),
-                'website': request.form.get('website'),
-                'map': request.form.get('map'),
-                'night': request.form.get('night'),
-                'glacier': request.form.get('glacier'),
-                'thumbnail': skiresort['thumbnail'],
-                'other_info': request.form.get('other_info')}
+            {'night': request.form.get('night'),
+            'glacier': request.form.get('glacier'),
+            'thumbnail': skiresort['thumbnail']}
             )
     elif request.form.get('night'):
         mongo.db.skiresorts.update(
             {'_id': ObjectId(skiresort_id)},
-            {'location_name': request.form.get('location_name'),
-                'description': request.form.get('description'),
-                'website': request.form.get('website'),
-                'map': request.form.get('map'),
-                'night': request.form.get('night'),
-                'glacier': skiresort['glacier'],
-                'thumbnail': skiresort['thumbnail'],
-                'other_info': request.form.get('other_info')}
+            {'night': request.form.get('night'),
+            'glacier': skiresort['glacier'],
+            'thumbnail': skiresort['thumbnail']}
             )
     elif request.form.get('glacier'):
         mongo.db.skiresorts.update(
             {'_id': ObjectId(skiresort_id)},
-            {'location_name': request.form.get('location_name'),
-                'description': request.form.get('description'),
-                'website': request.form.get('website'),
-                'map': request.form.get('map'),
-                'night': skiresort['night'],
+            {'night': skiresort['night'],
                 'glacier': request.form.get('glacier'),
-                'thumbnail': skiresort['thumbnail'],
-                'other_info': request.form.get('other_info')}
+                'thumbnail': skiresort['thumbnail']}
             )
     elif request.form.get('thumbnail'):
         mongo.db.skiresorts.update(
             {'_id': ObjectId(skiresort_id)},
-            {'location_name': request.form.get('location_name'),
-                'description': request.form.get('description'),
-                'website': request.form.get('website'),
-                'map': request.form.get('map'),
-                'night': skiresort['night'],
-                'glacier': skiresort['glacier'],
-                'thumbnail': request.form.get('thumbnail'),
-                'other_info': request.form.get('other_info')}
-            )      
+            {'night': skiresort['night'],
+            'glacier': skiresort['glacier'],
+            'thumbnail': request.form.get('thumbnail')}
+            )
     return redirect(url_for('ski_resorts'))
 
 
