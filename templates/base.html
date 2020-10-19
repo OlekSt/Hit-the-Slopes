@@ -51,36 +51,31 @@
 
     {% block content %} {% endblock %} 
     </div>
-    <!-- FOOTER -->
-    <div class="col-auto">
-        <button id="btn-footer" type="button" class="btn sticky pull-right" data-toggle="modal" data-target="#footer"><i class="fa fa-copyright"></i></button>
-    </div>
-
-    <!-- FOOTER Modal -->
-    <div id="footer" class="container-fluid modal fade justify-content-center" role="dialog" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog info-modal-bgr">
-            <div class="row text-center">
-                <div class="footer-box col-lg-2 col-md-2">
-                    <img id="rabbit-icon" class="vertical-aligned" src="assets/images/rabbit_icon.jpg" alt="Follow The White Rabbit">
+    <!-- Footer trigger button -->
+    <a href="#footer-modal" class="btn-floating btn-small waves-effect waves-light blue right modal-trigger"><i class="material-icons">copyright</i></a>
+    <!-- Footer modal -->
+    <div id="footer-modal" class="modal card">
+        <div id="footer-content" class="card-content">
+            <div id="footer-panel" class="row card-panel">
+                <div class="center">
+                    <img id="footer-img" class="vertical-aligned" src="{{url_for('static', filename='img/avatar/skier.png')}}" alt="Hit the Slopes!">
                 </div>
-                <div class="footer-box col-lg-3 col-md-4">
-                    <p class="vertical-aligned" id="copy-modal-title">Follow the White Rabbit!</p>
+                <div class="footer-box">
+                    <p id="footer-title" class="vertical-aligned center">Hit the Slopes!</p>
                 </div>
-                <div class="footer-box col-lg-3 col-md-3">
-                    <p class="vertical-aligned">Designed & Developed</p>
-                    <p id="ed-purposes">for educational purposes only</p>
+                <div class="footer-box">
+                    <p id="footer-text" class="vertical-aligned center">Designed & Developed</p>
                 </div>
-                <div class="footer-box col-lg-2 col-md-3">
-                    <a class="vertical-aligned" href="https://github.com/OlekSt?tab=repositories" target="_blank" title="My Github profile">
-            			<p>Ol.Statsenko</p>
-            		</a>
-                </div>
-                <div class="footer-box col-lg-2 col-md-12 justify-content-center">
-                    <button id="btn-close-copyright" type="button" class="btn close-modal" data-dismiss="modal"><i class="fa fa-check-circle"></i></button>   
+                <div class="footer-box">
+                    <a class="vertical-aligned center" href="https://github.com/OlekSt?tab=repositories" target="_blank" title="My Github profile">
+                        <p>Ol.Statsenko</p>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <!-- JQuery link -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

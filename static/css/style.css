@@ -62,13 +62,18 @@ body{
     color: white;
 }
 
-.btn{
+.btn-small{
     background-color: #336C8F;
     font-size: 12px;
     margin: 3px 2px 3px 0;
 }
 
-.btn.waves-effect{
+bnts{
+    margin-right: 1px;
+}
+
+.btn-small .waves-effect{
+    color: #6B9FC5;
     background-color: #6B9FC5;
 }
 
@@ -208,10 +213,48 @@ a[data-tool-tip]:hover::after {
     color:  #336C8F;
 }
 
-A4352C
-
 /* End - Modal for users' profiles */
 
+/* Footer */
+#footer-img{
+    width: 5em;
+    height: 5em;
+}
+
+#footer-modal{
+    width: 200px;
+    height: 200px;
+    bottom: 0;
+}
+
+#footer-content{
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+#footer-panel{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+#footer-title{
+    color:#336C8F;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 0.15em;
+}
+
+#footer-text{
+    font-size: 0.7em;
+    color: #336C8F;
+    margin-bottom: 0.1em;
+}
 
 @media screen and (max-width: 992px) {
     /* minimize mobile sidenav menu  */
