@@ -38,12 +38,12 @@
     {% endif %}
 
     <div class="container">        
-        <div class="message-board white justify-content-center">
+        <div class="message-board center">
             <!-- Flash messages -->
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
-                    <p class="text-center blue-text">{{ message }}</p>
+                    <p class="center">{{ message }}</p>
                     {% endfor %}
                 {% endif %}
             {% endwith %}

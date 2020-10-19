@@ -98,9 +98,17 @@ bnts{
 }
 
 .message-board{
-    justify-content: center;
-    background-color: white;
-    width: 200px;
+    display: flex;
+    justify-content: center; 
+    background-color: #6B9FC5;   
+    margin-top: 0.2em;
+}
+
+.message-board p{
+    margin: 0;
+    max-width: 100%;
+    font-size: 1.2em;
+    color: white;
 }
 
 .card-title h5{
