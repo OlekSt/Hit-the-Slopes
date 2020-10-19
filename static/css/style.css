@@ -67,14 +67,19 @@ body{
     font-size: 12px;
     margin: 3px 2px 3px 0;
 }
-
-bnts{
+.bnts{
     margin-right: 1px;
 }
 
 .btn-small .waves-effect{
     color: #6B9FC5;
     background-color: #6B9FC5;
+}
+
+.search-btn{
+    margin-top: 0.15em;
+    margin-bottom: 0.15em; 
+    margin-right: 0.15em; 
 }
 
 #footer-btn{

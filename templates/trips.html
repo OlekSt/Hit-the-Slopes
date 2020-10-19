@@ -21,8 +21,8 @@
             </div>
             <div class="col s3 m2">
             <div class="row">
-                <a href="{{ url_for('trips') }}" class="red btn text-shadow">Reset</a>
-                <button type="submit" class="light-blue btn text-shadow">Search</button>
+                <a href="{{ url_for('trips') }}" class="search-btn red btn text-shadow">Reset</a>
+                <button type="submit" class="search-btn light-blue btn text-shadow">Search</button>
             </div></div>
         </div>
     </form>
@@ -61,15 +61,14 @@
                     <!-- End - Modal structure for users' profiles -->
                     {% break %}
                     {% endif %}
-                {% endfor %} 
-                                            
+                {% endfor %}          
                 </td>
                 <td>
                     <a href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong>
-                    <div class="avatar-image">
+                    <div class="avatar-image center">
                         {% for skiresort in skiresorts %}
                             {% if trip.location_name|lower == skiresort.location_name|lower %}
-                                <img src="{{skiresort.thumbnail}}" width="30" height="30"/>
+                                <img class="center" src="{{skiresort.thumbnail}}" width="30" height="30"/>
                                 {% break %}
                             {% endif %}
                         {% endfor %} 
@@ -77,8 +76,8 @@
                     </a>
                 </td>
                 <td>
-                    <strong>From:  {{trip.from}}  </strong> 
-                    <strong>To: {{trip.to}}</strong>
+                    <p class="center">From: <strong> {{trip.from}}</strong></p>
+                    <p class="center">To: <strong> {{trip.to}}</strong></p>
                 </td>  
             </tr>
             <tr class="collapsible-header col s12 m6 l6 xl6">
