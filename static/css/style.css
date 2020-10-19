@@ -229,6 +229,10 @@ a[data-tool-tip]:hover::after {
 /* End - Modal for users' profiles */
 
 /* Footer */
+#footer-btn{
+    background-color: #336C8F !important;
+}
+
 #footer-img{
     width: 5em;
     height: 5em;
