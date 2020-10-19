@@ -206,8 +206,8 @@ a[data-tool-tip]:hover::after {
 }
 /* End - Float bubble to open a user's profile */
 
-/* Modal for users' profiles */
-.modal {
+/*  Modal for users' profiles */
+.user-profile{
     left: 0;
     right: 0;
     background-color: #fafafa;
@@ -215,9 +215,6 @@ a[data-tool-tip]:hover::after {
     max-height: 60%;
     width: 40%;
     will-change: top, opacity;
-}
-
-.user-profile{
     width: max-content;
 }
 
