@@ -344,6 +344,7 @@ def update_skiresort(skiresort_id):
     flash(session['user'] + "! We've updated your ski resort!")
     return redirect(url_for('ski_resorts'))
 
+
 @app.route('/delete_skiresort/<skiresort_id>')
 def delete_skiresort(skiresort_id):
     mongo.db.skiresorts.remove({'_id': ObjectId(skiresort_id)})

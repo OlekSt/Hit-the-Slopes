@@ -114,6 +114,7 @@ body{
     justify-content: center; 
     background-color: #6B9FC5;   
     margin-top: 0.2em;
+    border:0.5px solid #fafafa;
 }
 
 .message-board p{
@@ -149,6 +150,12 @@ body{
 
 #search-trips-panel{
     margin-bottom: 2px;
+}
+
+#search-btn-box{
+    padding-left: 0px;
+    margin-right: 10px;
+    padding-right: 0px;
 }
 
 #search-skiresorts-panel{
@@ -244,7 +251,6 @@ a[data-tool-tip]:hover::after {
     background-color: #fafafa;
     padding: 0;
     max-height: 60%;
-    width: 40%;
     will-change: top, opacity;
     width: max-content;
 }
@@ -320,6 +326,11 @@ a[data-tool-tip]:hover::after {
         width: 160px;
         padding-bottom: 0;
     }  
+
+    /*  Logo size smaller */
+    #navbar-logo{
+        font-size: 2.5em;
+    }   
 }
 
 @media screen and (max-width: 576px) {
@@ -329,13 +340,17 @@ a[data-tool-tip]:hover::after {
         width: 160px;
         padding-bottom: 0;
     }  
+    /*  Logo size smaller */
+    #navbar-logo{
+        font-size: 1.8em;
+    }   
 }
 
 @media screen and (max-width: 375px) {
     /*small phones*/
     /*  Logo size smaller */
     #navbar-logo{
-        font-size: 1.6em;
+        font-size: 1.5em;
     }   
 
     /* minimize mobile sidenav menu  */
@@ -352,4 +367,9 @@ a[data-tool-tip]:hover::after {
     #navbar-logo{
         font-size: 1.3em;
     }   
+    #search-btn-box{
+    padding-left: 0px;
+    margin-right: 15px;
+    padding-right: 0px;
+}
 }
