@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-# redirect if the logo is clicked either to index.html 
+# redirect if the logo is clicked either to index.html
 # if not logged, or to trips.hmtl if logged in
 @app.route('/show_index')
 def show_index():
@@ -116,6 +116,7 @@ def trips():
                 users=users,
                 active='signedIn')
 
+
 # for searching through trips by ski resorts' names,
 # and dates of trips starting and finishing at
 @app.route('/search_trips', methods=['GET', 'POST'])
@@ -149,10 +150,12 @@ def search_trips():
                 }).sort("from", 1)
         flash("Trips to: " + query + ". From: " + query_to)
     elif query:                                 # search by a place
-        trips = mongo.db.trips.find({"$text": {"$search": query}}).sort("from",1)
+        trips = mongo.db.trips.find({"$text":
+                                    {"$search": query}}).sort("from", 1)
         flash("Trips to: " + query)
     elif query_from:                            # search by a starting date
-        trips = mongo.db.trips.find({"from": {"$gte": query_from}}).sort("from",1) 
+        trips = mongo.db.trips.find({"from":
+                                    {"$gte": query_from}}).sort("from", 1)
         flash("Trips starting: " + query_from)
     elif query_to:                              # search by a ending date
         trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
@@ -161,17 +164,19 @@ def search_trips():
         redirect(url_for('trips'))
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
-    return render_template("trips.html", 
-                            skiresorts=skiresorts,
-                            trips=trips,
-                            users=users, active='signedIn')
+    return render_template(
+        "trips.html",
+        skiresorts=skiresorts,
+        trips=trips,
+        users=users, active='signedIn')
 
 
 @app.route('/add_trip')
 def add_trip():
-    return render_template('add_trip.html',
-                            skiresorts=mongo.db.skiresorts.find(), 
-                            active='signedIn')
+    return render_template(
+        'add_trip.html',
+        skiresorts=mongo.db.skiresorts.find(),
+        active='signedIn')
 
 
 @app.route('/edit_trip/<trip_id>', methods=['GET', 'POST'])
@@ -179,10 +184,11 @@ def edit_trip(trip_id):
     trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
     trip_owner = trip['user']
     if session['user'] == trip_owner:
-        return render_template('edit_trip.html',
-                                skiresorts=mongo.db.skiresorts.find(),
-                                trip=mongo.db.trips.find_one({'_id': ObjectId(trip_id)}),
-                                active='signedIn')
+        return render_template(
+            'edit_trip.html',
+            skiresorts=mongo.db.skiresorts.find(),
+            trip=mongo.db.trips.find_one({'_id': ObjectId(trip_id)}),
+            active='signedIn')
     else:
         return redirect(url_for('no_permission'))
 
@@ -194,25 +200,25 @@ def update_trip(trip_id):
         mongo.db.trips.update(
             {'_id': ObjectId(trip_id)},
             {'user': session['user'],
-            'location_name': request.form.get('skiresort'),
-            'from': request.form.get('from'),
-            'to': request.form.get('to'),
-            'adults': request.form.get('adults'),
-            'kids': request.form.get('kids'),
-            'ski_snowboard': request.form.get('ski_snowboard'),
-            'other_info': request.form.get('other_info')}
+                'location_name': request.form.get('skiresort'),
+                'from': request.form.get('from'),
+                'to': request.form.get('to'),
+                'adults': request.form.get('adults'),
+                'kids': request.form.get('kids'),
+                'ski_snowboard': request.form.get('ski_snowboard'),
+                'other_info': request.form.get('other_info')}
         )
     else:
         mongo.db.trips.update(
             {'_id': ObjectId(trip_id)},
             {'user': session['user'],
-            'location_name': trip['location_name'],
-            'from': request.form.get('from'),
-            'to': request.form.get('to'),
-            'adults': request.form.get('adults'),
-            'kids': request.form.get('kids'),
-            'ski_snowboard': request.form.get('ski_snowboard'),
-            'other_info': request.form.get('other_info')}
+                'location_name': trip['location_name'],
+                'from': request.form.get('from'),
+                'to': request.form.get('to'),
+                'adults': request.form.get('adults'),
+                'kids': request.form.get('kids'),
+                'ski_snowboard': request.form.get('ski_snowboard'),
+                'other_info': request.form.get('other_info')}
         )  
     flash(session['user'] + "! We've updated your trip!")
     return redirect(url_for('trips'))
@@ -257,18 +263,21 @@ def ski_resorts():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        return render_template("ski_resorts.html", 
-                                skiresorts=mongo.db.skiresorts.find(), 
-                                active='signedIn')
+        return render_template(
+            "ski_resorts.html",
+            skiresorts=mongo.db.skiresorts.find(),
+            active='signedIn')
+
 
 # search through ski resorts
 @app.route('/search_ski_resorts', methods=['GET', 'POST'])
 def search_ski_resorts():
     query = request.form.get("query")
     skiresorts = list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
-    return render_template("ski_resorts.html", 
-                            skiresorts=skiresorts, 
-                            active='signedIn')
+    return render_template(
+        "ski_resorts.html",
+        skiresorts=skiresorts,
+        active='signedIn')
 
 
 @app.route('/add_skiresort')
@@ -363,6 +372,7 @@ def no_permission():
     return render_template(
             "no_permission.html",
             active='signedIn')
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
