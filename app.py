@@ -336,11 +336,11 @@ def update_skiresort(skiresort_id):
                 {'_id': ObjectId(skiresort_id)},
                 {"$set":
                     {item: skiresort[item]}})
-    else:
-        mongo.db.skiresorts.update_one(
-                {'_id': ObjectId(skiresort_id)},
-                {"$set":
-                    {item: request.form.get(item)}})                       
+        else:
+            mongo.db.skiresorts.update_one(
+                    {'_id': ObjectId(skiresort_id)},
+                    {"$set":
+                        {item: request.form.get(item)}})                 
     flash(session['user'] + "! We've updated your ski resort!")
     return redirect(url_for('ski_resorts'))
 
