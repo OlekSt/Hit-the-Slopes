@@ -1,5 +1,5 @@
 /*----  General styles ---*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700,800,900&display=swap');
 
 html, body {
     margin: 0;
@@ -10,8 +10,7 @@ html, body {
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;   
+    font-family: 'Roboto', sans-serif;  
     background-image: url("../img/hero_img_lg1.jpg");    
     background-size: cover;
     background-position: center center;
@@ -124,11 +123,6 @@ body{
     color: white;
 }
 
-.card-title h5{
-    color: #0056B2;
-    font-weight: bold;
-}
-
 .center {
   display: flex;
   justify-content: center;
@@ -145,7 +139,6 @@ body{
 
 #intro-title{
     align-self: center;
-    
 }
 
 #trip-search-title{
@@ -175,6 +168,35 @@ body{
     padding-bottom: 0px;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.ski-resort-content{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+.card-title{
+    color: #0056B2;
+    font-weight: 900;
+}
+
+.skiresort-description{
+    color: #0056B2;
+}
+
+.thumbnail-div{
+    padding: auto;
+    position: relative;
+}
+
+.thumbnail{
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Color or the intro card */
