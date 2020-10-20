@@ -294,7 +294,7 @@ def insert_skiresort():
                     active='signedIn')
             else:
                 skiresorts.insert_one({
-                    'location_name': request.form['location_name'],
+                    'location_name': request.form['location_name'].upper(),
                     'description': request.form['description'],
                     'website': request.form['website'],
                     'map': request.form['map'],

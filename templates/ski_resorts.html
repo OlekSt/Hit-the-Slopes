@@ -27,9 +27,9 @@
                         <div class="col s12 m5 l5">
                             <div class="row"> 
                                 <div class="col s6 m6 l6">
-                                    <span class="location-name"><h5 class="card-title">{{skiresort.location_name}}</h5></span>  
-                                    <p class="skiresort-description">{{skiresort.description}}</p>
-                                </div>
+                                    <span class="location-name card-title"><h5>{{skiresort.location_name}}</h5></span>  
+                                    <span class=""><p class="skiresort-description">{{skiresort.description}}</p>
+                                </div></span>
                                 <div class="col s6 m6 l6 thumbnail-div">
                                     <img class="thumbnail" src="{{skiresort.thumbnail}}" width="85" height="85"/>
                                 </div>
@@ -38,15 +38,19 @@
                         <div class="col s6 m3 l3">
                             <div class="row">
                                 <div class="col s12 m12 l12">
-                                    <p>Night skiing: {{skiresort.night}}</p>
+                                    <p>Night skiing:   <strong>{{skiresort.night}}</strong></p>
                                 </div>
                                 <div class="col s12 m12 l12">
-                                    <p>Glacier: {{skiresort.glacier}}</p>
+                                    <p>Glacier:   <strong>{{skiresort.glacier}}</strong></p>
                                 </div>
                             </div>
-                            <div class="">
-                                <a href="{{skiresort.website}}" target="_blank">Web</a>
-                                <a href="{{skiresort.map}}" target="_blank">Map</a>
+                            <div class="row">
+                                <div class="col s6 m6 l6">
+                                    <a href="{{skiresort.website}}" target="_blank"><strong>WEB</strong></a>
+                                </div>
+                                <div class="col s6 m6 l6">
+                                    <a href="{{skiresort.map}}" target="_blank"><strong>MAP</strong></a>
+                                </div>
                             </div>
                         </div>
                         <div class="col s6 m4 l4">
@@ -55,7 +59,7 @@
                                     <p>Additional info:</p>
                                 </div>
                                 <div class="col">
-                                    <p>{{skiresort.other_info}}</p>
+                                    <p><strong>{{skiresort.other_info}}</strong></p>
                                 </div>
                             </div>
                         </div>
