@@ -38,6 +38,7 @@
     {% endif %}
 
     <div id="main" class="container">        
+        
         <div class="message-board center">
             <!-- Flash messages -->
             {% with messages = get_flashed_messages() %}
@@ -50,6 +51,7 @@
         </div>
 
     {% block content %} {% endblock %} 
+
     </div>
 
     {% include 'footer.html' %}

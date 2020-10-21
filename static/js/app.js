@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('select').formSelect();
     $('.modal').modal();
+    $(".user-btns").addClass("invisible");
     $('.datepicker').datepicker({
         selectMonths: true,
         selectYears: 3, 
@@ -12,6 +13,7 @@ $(document).ready(function(){
         format: 'yyyy.mm.dd'
     }); 
 
+    /* Validate select fields so that a user cannot continue without filling them up */
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -39,5 +41,9 @@ $(document).ready(function(){
             }
         });
     }
+
+
 });
+
+
  
