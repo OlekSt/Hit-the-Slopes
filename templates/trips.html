@@ -19,7 +19,7 @@
                     <input placeholder="date to" type="text" name="query_to" id="query_to" class="validate datepicker">
                 </div>
             </div>
-            <div id="search-btn-box" class="col s3 m2">
+            <div class="col s3 m2 search-btn-box">
                 <div class="row">
                     <a href="{{ url_for('trips') }}" class="search-btn red btn text-shadow">Reset</a>
                     <button type="submit" class="search-btn light-blue btn text-shadow">Search</button>
@@ -32,76 +32,85 @@
     <div class="card">
         <table>
         {% for trip in trips %}  
-            <tbody>
-                          
-            <tr>
-                <td>
-                <div class="col s6 m3 l3 xl3">
-                {% for user in users %}
-                    {% if trip.user|lower == user.name|lower %}
-                    <a href="#{{user.name}}" data-target="#{{user.name}}" data-tool-tip="See profile" class="modal-trigger"><strong>{{user.name}}</strong></a>
-                    <div class="avatar-image">
-                        <img src="{{user.avatar}}" width="30" height="30"/>
-                    </div>
-                    <!-- Modal structure for users' profiles -->
-                    <div id="#{{user.name}}" class="modal user-profile">
-                        <div class="modal-content center">
-                            <div class="col s12 m4 l4 xl4">
-                                <h4>{{user.name}}</h4>
-                                <img src="{{user.avatar}}" width="50" height="50"/>
-                            </div>
-                            <div class="col s12 m4 l4 xl4">
-                                <p>{{user.gender}}</p>
-                                <p>{{user.ageRange}}</p>
-                                <p>{{user.from}}</p>
-                            </div>
-                            <div class="col s12 m4 l4 xl4">
-                                <p class="text-center"><i class="fas fa-address-card"></i></p>
-                                <p><a href="#">Contact Me</a></p>
-                            </div> 
-                        </div>                   
-                    </div>
-                    <!-- End - Modal structure for users' profiles -->
-                    {% break %}
-                    {% endif %}
-                {% endfor %}          
-                </div>
-                <div class="col s6 m3 l3 xl3">
-                    <a href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong>
-                    <div class="avatar-image center">
-                        {% for skiresort in skiresorts %}
-                            {% if trip.location_name|lower == skiresort.location_name|lower %}
-                                <img class="center" src="{{skiresort.thumbnail}}" width="30" height="30"/>
-                                {% break %}
-                            {% endif %}
-                        {% endfor %} 
-                    </div>
-                    </a>
-                </div>
-                <div class="col s6 m3 l3 xl3">
-                    <p class="center">From: <strong> {{trip.from}}</strong></p>
-                    <p class="center">To: <strong> {{trip.to}}</strong></p>
-                </div>  
-                <div class="col s6 m3 l3 xl3">
-                    <div>
-                        <strong>Adults:</strong>{{trip.adults}}
-                        <strong>Kids:</strong>{{trip.kids}}
-                    </div>
-                    <div>
-                        <span>{{trip.ski_snowboard}}</span>
-                    </div>
-                    <div>
-                        <strong>Add.info:</strong>{{trip.other_info}}
-                    </div>  
-                    <div>          
+            <tbody>             
+                <tr>
+                    <td>
                         <div class="row">
-                            <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="invisible blue accent-2 btn-small waves-effect ">Edit</a>
-                            <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="invisible red lighten-3 btn-small waves-effect waves-light">Delete</a>
+                            <div class="col s12 m6 l6 xl6">
+                                <div class="row">
+                                    <div class="col s6 m6 l6 xl6">
+                                    {% for user in users %}
+                                        {% if trip.user|lower == user.name|lower %}
+                                        <a href="#{{user.name}}" data-target="#{{user.name}}" data-tool-tip="See profile" class="avatar-title modal-trigger center"><strong>{{user.name}}</strong></a>
+                                        <div class="avatar-div">
+                                            <img class="avatar center" src="{{user.avatar}}" width="60" height="60"/>
+                                        </div>
+                                        <!-- Modal structure for users' profiles -->
+                                        <div id="#{{user.name}}" class="modal user-profile">
+                                            <div class="modal-content center">
+                                                <div class="col s12 m4 l4 xl4">
+                                                    <h4>{{user.name}}</h4>
+                                                    <img src="{{user.avatar}}" width="50" height="50"/>
+                                                </div>
+                                                <div class="col s12 m4 l4 xl4">
+                                                    <p>{{user.gender}}</p>
+                                                    <p>{{user.ageRange}}</p>
+                                                    <p>{{user.from}}</p>
+                                                </div>
+                                                <div class="col s12 m4 l4 xl4">
+                                                    <p class="text-center"><i class="fas fa-address-card"></i></p>
+                                                    <p><a href="#">Contact Me</a></p>
+                                                </div> 
+                                            </div>                   
+                                        </div>
+                                        <!-- End - Modal structure for users' profiles -->
+                                        {% break %}
+                                        {% endif %}
+                                    {% endfor %}          
+                                    </div>
+                                    <div class="col s6 m6 l6 xl6">
+                                        <a class="trip-skiresort-title" href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong></a>
+                                    <div class="avatar-div">
+                                            {% for skiresort in skiresorts %}
+                                                {% if trip.location_name|lower == skiresort.location_name|lower %}
+                                                <img class="trip-thumbnail" src="{{skiresort.thumbnail}}" width="60" height="60"/>
+                                                {% break %}
+                                                {% endif %}
+                                            {% endfor %} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l6 xl6 center">
+                                <div class="col s6 m6 l6 xl6 ">
+                                    <p><strong> {{trip.from}}</strong></p>
+                                    <p><strong> {{trip.to}}</strong></p>
+                                    <p>* * * * * </p>
+                                    <p>Adults:   <strong>{{trip.adults}}</strong></p>
+                                    <p>Kids:   <strong>{{trip.kids}}</strong></p>
+                                    </div>
+                                <div class="col s6 m6 l6 xl6">    
+                                    <div>
+                                        <p><strong>{{trip.ski_snowboard}}</strong></p>
+                                    </div>
+                                    <p>* * * * * </p>
+                                    <div>
+                                        <p>Add.info:</p> 
+                                        <p><strong>{{trip.other_info}}</strong></p>
+                                    </div>  
+                                </div>
+                                <div class="row">          
+                                    <div class="col s6 m8 l8">
+                                    </div>
+                                    <div class="col s6 m4 l4">
+                                        <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="invisible blue accent-2 btn-small waves-effect ">Edit</a>
+                                        <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="invisible red lighten-3 btn-small waves-effect waves-light">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
-                </td>
-            </tr>         
+                    </td>
+                </tr>         
             </tbody>
             {% endfor %}   
         </table>                              

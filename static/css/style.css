@@ -89,11 +89,6 @@ body{
     bottom: 0;
 }
 
-.avatar-image{
-    width: 30px;
-    height: 30px;
-}
-
 .card-image{
     width: 45px;
     height: 45px;
@@ -152,7 +147,7 @@ body{
     margin-bottom: 2px;
 }
 
-#search-btn-box{
+.search-btn-box{
     padding-left: 0px;
     margin-right: 10px;
     padding-right: 0px;
@@ -204,6 +199,28 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.avatar-div{
+    padding: auto;
+}
+
+.avatar-title,
+.trip-skiresort-title{
+    font-size: 1.5em;
+}
+
+.trip-skiresort-title{
+    color: #A4352C;
+}
+
+
+.avatar,
+.trip-thumbnail{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
 }
 
 /* Color or the intro card */
@@ -310,6 +327,25 @@ a[data-tool-tip]:hover::after {
     margin-bottom: 0.1em;
 }
 
+@media screen and (max-width: 2000px) {
+    #main{
+        max-width: 40%;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    #main{
+        max-width: 55%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #main{
+        max-width: 75%;
+    }
+}
+
+
 @media screen and (max-width: 992px) {
     /* minimize mobile sidenav menu  */
     #mobile-demo {
@@ -317,6 +353,10 @@ a[data-tool-tip]:hover::after {
         width: 160px;
         padding-bottom: 0;
     }  
+
+    #main{
+        max-width: 75%;
+    }
 }
 
 @media screen and (max-width: 786px) {
@@ -331,6 +371,10 @@ a[data-tool-tip]:hover::after {
     #navbar-logo{
         font-size: 2.5em;
     }   
+
+    #main{
+        max-width: 85%;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -344,6 +388,10 @@ a[data-tool-tip]:hover::after {
     #navbar-logo{
         font-size: 1.8em;
     }   
+
+    #main{
+        max-width: 95%;
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -359,6 +407,10 @@ a[data-tool-tip]:hover::after {
         width: 160px;
         padding-bottom: 0;
     }  
+
+    #main{
+        max-width: 98%;
+    }
 }
 
 @media screen and (max-width: 285px) {

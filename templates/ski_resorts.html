@@ -9,7 +9,7 @@
                 <i class="small material-icons prefix">search</i>
                 <input type="text" name="query" id="query" class="validate" required>
             </div>
-            <div class="row col s12 m4">
+            <div class="col s12 m4 search-btn-box">
                 <a href="{{ url_for('ski_resorts') }}" class="search-btn red btn text-shadow">Reset</a>
                 <button type="submit" class="search-btn light-blue btn text-shadow">Search</button>
             </div>
@@ -28,8 +28,8 @@
                             <div class="row"> 
                                 <div class="col s6 m6 l6">
                                     <span class="location-name card-title"><h5>{{skiresort.location_name}}</h5></span>  
-                                    <span class=""><p class="skiresort-description">{{skiresort.description}}</p>
-                                </div></span>
+                                    <span class=""><p class="skiresort-description">{{skiresort.description}}</p></span>
+                                </div>
                                 <div class="col s6 m6 l6 thumbnail-div">
                                     <img class="thumbnail" src="{{skiresort.thumbnail}}" width="85" height="85"/>
                                 </div>
@@ -68,8 +68,8 @@
                         <div class="col s6 m8 l8">
                         </div>
                         <div class="col s6 m4 l4">
-                            <a href="{{url_for('edit_skiresort', skiresort_id=skiresort._id)}}" class="  waves-effect waves-light btn-small right">Edit</a>
-                            <a href="{{url_for('delete_skiresort', skiresort_id=skiresort._id)}}" class=" invisible waves-effect waves-light btn-small right">Delete</a>
+                            <a href="{{url_for('edit_skiresort', skiresort_id=skiresort._id)}}" class="invisible  waves-effect waves-light btn-small right">Edit</a>
+                            <a href="{{url_for('delete_skiresort', skiresort_id=skiresort._id)}}" class="invisible waves-effect waves-light btn-small right">Delete</a>
                         </div>
                     </div> 
                 </div>
