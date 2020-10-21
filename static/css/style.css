@@ -201,6 +201,27 @@ body{
     margin-right: auto;
 }
 
+.ski-snowboard-title{
+    font-size: 1.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #0056B2;
+}
+
+.trip-cell{
+    padding-bottom: 0px;
+}
+
+.trip-main,
+.buttons-row{
+    margin-bottom: 0;
+}
+
+.buttons-box{
+    padding-left: 0px;
+    padding-right: 20px;
+}
+
 .avatar-div{
     padding: auto;
 }

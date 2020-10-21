@@ -34,8 +34,8 @@
         {% for trip in trips %}  
             <tbody>             
                 <tr>
-                    <td>
-                        <div class="row">
+                    <td class="trip-cell">
+                        <div class="trip-main row">
                             <div class="col s12 m6 l6 xl6">
                                 <div class="row">
                                     <div class="col s6 m6 l6 xl6">
@@ -85,29 +85,30 @@
                                 <div class="col s6 m6 l6 xl6 ">
                                     <p><strong> {{trip.from}}</strong></p>
                                     <p><strong> {{trip.to}}</strong></p>
-                                    <p>* * * * * </p>
-                                    <p>Adults:   <strong>{{trip.adults}}</strong></p>
-                                    <p>Kids:   <strong>{{trip.kids}}</strong></p>
+                                    <hr>
+                                    <p>ADULTS:   <strong>{{trip.adults}}</strong></p>
+                                    <p>KIDS:   <strong>{{trip.kids}}</strong></p>
                                     </div>
                                 <div class="col s6 m6 l6 xl6">    
                                     <div>
-                                        <p><strong>{{trip.ski_snowboard}}</strong></p>
+                                        <p class="ski-snowboard-title"><strong>{{trip.ski_snowboard}}</strong></p>
                                     </div>
-                                    <p>* * * * * </p>
+                                    <hr>
                                     <div>
-                                        <p>Add.info:</p> 
+                                        <p>INFO:</p> 
                                         <p><strong>{{trip.other_info}}</strong></p>
                                     </div>  
                                 </div>
-                                <div class="row">          
-                                    <div class="col s6 m8 l8">
-                                    </div>
-                                    <div class="col s6 m4 l4">
-                                        <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="invisible blue accent-2 btn-small waves-effect ">Edit</a>
-                                        <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="invisible red lighten-3 btn-small waves-effect waves-light">Delete</a>
-                                    </div>
-                                </div>
+                                
                             </div>
+                        <div class="buttons-row row">          
+                            <div class="col s6 m8 l8">
+                            </div>
+                            <div class="buttons-box col s6 m4 l4">
+                                <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="blue accent-2 btn-small waves-effect right">Edit</a>
+                                <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="red lighten-3 btn-small waves-effect waves-light right">Delete</a>
+                            </div>
+                        </div>
                         </div>
                     </td>
                 </tr>         
