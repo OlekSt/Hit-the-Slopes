@@ -33,11 +33,11 @@
         <table>
         {% for trip in trips %}  
             <tbody>             
-                <tr>
+                <tr class="trip-card">
                     <td class="trip-cell">
                         <div class="trip-main row">
-                            <div class="col s12 m6 l6 xl6">
-                                <div class="row">
+                            <div class="col s12 m5 l5 xl5">
+                                <div class="row avatar-thumbnail">
                                     <div class="col s6 m6 l6 xl6">
                                     {% for user in users %}
                                         {% if trip.user|lower == user.name|lower %}
@@ -69,44 +69,45 @@
                                     {% endfor %}          
                                     </div>
                                     <div class="col s6 m6 l6 xl6">
-                                        <a class="trip-skiresort-title" href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong></a>
-                                    <div class="avatar-div">
+                                        <a class="trip-skiresort-title center" href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong></a>
+                                    <div class="avatar-div center">
                                             {% for skiresort in skiresorts %}
                                                 {% if trip.location_name|lower == skiresort.location_name|lower %}
-                                                <img class="trip-thumbnail" src="{{skiresort.thumbnail}}" width="60" height="60"/>
+                                                <img class="trip-thumbnail center" src="{{skiresort.thumbnail}}" width="60" height="60"/>
                                                 {% break %}
                                                 {% endif %}
                                             {% endfor %} 
                                         </div>
                                     </div>
                                 </div>
+                                <hr class="invisible-hr" noshade color="#0056B2" style=";height:0.05px;width:90%">
                             </div>
-                            <div class="col s12 m6 l6 xl6 center">
+                            <div class="col s12 m7 l7 xl7 center">
                                 <div class="col s6 m6 l6 xl6 ">
-                                    <p><strong> {{trip.from}}</strong></p>
-                                    <p><strong> {{trip.to}}</strong></p>
-                                    <hr>
-                                    <p>ADULTS:   <strong>{{trip.adults}}</strong></p>
-                                    <p>KIDS:   <strong>{{trip.kids}}</strong></p>
+                                    <p class="trip-p"><strong> {{trip.from}}</strong></p>
+                                    <p class="trip-p"><strong> {{trip.to}}</strong></p>
+                                    <hr noshade color="#0056B2" style=";height:0.005px;width:70%">
+                                    <p class="trip-p">ADULTS:   <strong>{{trip.adults}}</strong></p>
+                                    <p class="trip-p">KIDS:   <strong>{{trip.kids}}</strong></p>
                                     </div>
                                 <div class="col s6 m6 l6 xl6">    
                                     <div>
                                         <p class="ski-snowboard-title"><strong>{{trip.ski_snowboard}}</strong></p>
                                     </div>
-                                    <hr>
+                                    <hr noshade color="#0056B2" style=";height:0.005px;width:80%">
                                     <div>
-                                        <p>INFO:</p> 
-                                        <p><strong>{{trip.other_info}}</strong></p>
+                                        <p class="trip-p">INFO:</p> 
+                                        <p class="trip-p"><strong>{{trip.other_info}}</strong></p>
                                     </div>  
                                 </div>
-                                
                             </div>
+                        </div>
                         <div class="buttons-row row">          
                             <div class="col s6 m8 l8">
                             </div>
                             <div class="buttons-box col s6 m4 l4">
-                                <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="blue accent-2 btn-small waves-effect right">Edit</a>
-                                <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="red lighten-3 btn-small waves-effect waves-light right">Delete</a>
+                                <a href="{{url_for('edit_trip', trip_id=trip._id)}}" class="invisible blue accent-2 btn-small waves-effect right">Edit</a>
+                                <a href="{{url_for('delete_trip', trip_id=trip._id)}}" class="invisible red lighten-3 btn-small waves-effect waves-light right">Delete</a>
                             </div>
                         </div>
                         </div>

@@ -180,6 +180,10 @@ body{
     padding-left: 14px;
 }
 
+.trip-card{
+    border: #0056B2 solid 1px;
+}
+
 .card-title{
     color: #0056B2;
     font-weight: 900;
@@ -193,6 +197,10 @@ body{
 
 .thumbnail-div{
     padding: auto;
+}
+
+.avatar-thumbnail{
+    margin-bottom: 0px;
 }
 
 .thumbnail{
@@ -209,17 +217,24 @@ body{
 }
 
 .trip-cell{
-    padding-bottom: 0px;
+    padding: 5px 0 0 0;
+   
 }
 
 .trip-main,
 .buttons-row{
+    margin-right: 0;
+    margin-bottom: 5px;
+}
+
+.trip-p{
+    margin-top: 2.5px;
     margin-bottom: 0;
 }
 
 .buttons-box{
     padding-left: 0px;
-    padding-right: 20px;
+    padding-right: 25px;
 }
 
 .avatar-div{
@@ -394,7 +409,28 @@ a[data-tool-tip]:hover::after {
     }   
 
     #main{
-        max-width: 85%;
+        max-width: 90%;
+    }
+
+    .btn-small{
+        font-size: 10px;  
+    }
+}
+
+/* Hide horizontal line under Avatar and Ski resort in trips on bigger screens */
+@media screen and (min-width: 600px) {
+    .invisible-hr{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+#main{
+        max-width: 93%;
+    }
+
+    .btn-small{
+        font-size: 9px;  
     }
 }
 
@@ -413,6 +449,10 @@ a[data-tool-tip]:hover::after {
     #main{
         max-width: 95%;
     }
+
+    .btn-small{
+        font-size: 8px;  
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -428,7 +468,6 @@ a[data-tool-tip]:hover::after {
         width: 160px;
         padding-bottom: 0;
     }  
-
     #main{
         max-width: 98%;
     }
@@ -441,8 +480,8 @@ a[data-tool-tip]:hover::after {
         font-size: 1.3em;
     }   
     #search-btn-box{
-    padding-left: 0px;
-    margin-right: 15px;
-    padding-right: 0px;
-}
+        padding-left: 0px;
+        margin-right: 15px;
+        padding-right: 0px;
+    }
 }
