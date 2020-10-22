@@ -40,12 +40,6 @@ $(document).ready(function(){
             }
         });
     }
-
-    // $(".user-btns").addClass("invisible"); // Make buttons invisible (see function showButtons below)
-    
-    // if (user == trip_owner){
-    //    $(".user-btns").removeClass("invisible");
-    // }
 });
 
 
