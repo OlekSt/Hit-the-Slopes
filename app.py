@@ -1,4 +1,4 @@
-import os, json
+import os
 from flask import Flask, render_template, redirect, flash
 from flask import url_for, request, session
 from flask_pymongo import PyMongo
@@ -51,7 +51,8 @@ def add_user():
         if name is None:
             user = {
                 "name": request.form.get("name"),
-                "password": generate_password_hash(request.form.get("password")),
+                "password": generate_password_hash(
+                                request.form.get("password")),
                 "gender": request.form.get("gender"),
                 "ageRange": request.form.get("ageRange"),
                 "from": request.form.get("from"),
@@ -77,7 +78,7 @@ def sign_in():
         existing_user = users.find_one({'name': request.form["name"]})
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+              existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("name")
                 logged_user = session["user"]
                 flash("Welcome back, " + logged_user)
@@ -191,7 +192,7 @@ def edit_trip(trip_id):
         skiresorts=mongo.db.skiresorts.find(),
         trip=trip,
         active='signedIn')
-  
+
 
 @app.route('/update_trip/<trip_id>', methods=['GET', 'POST'])
 def update_trip(trip_id):
@@ -206,8 +207,8 @@ def update_trip(trip_id):
             mongo.db.trips.update_one(
                     {'_id': ObjectId(trip_id)},
                     {"$set":
-                        {item: request.form.get(item)}}) 
-      
+                        {item: request.form.get(item)}})
+
     flash(session['user'] + "! We've updated your trip!")
     return redirect(url_for('trips'))
 
@@ -239,7 +240,6 @@ def delete_trip(trip_id):
     mongo.db.trips.delete_one({'_id': ObjectId(trip_id)})
     flash(session['user'] + ", we've deleted your trip!")
     return redirect(url_for('trips'))
-    
 
 
 @app.route('/ski_resorts')
@@ -301,7 +301,7 @@ def insert_skiresort():
                 return redirect(url_for('ski_resorts'))
             return render_template(
                 "ski_resorts.html",
-                skiresorts=mongo.db.skiresorts.find(), 
+                skiresorts=mongo.db.skiresorts.find(),
                 active='signedIn')
 
 
@@ -334,7 +334,7 @@ def update_skiresort(skiresort_id):
             mongo.db.skiresorts.update_one(
                     {'_id': ObjectId(skiresort_id)},
                     {"$set":
-                        {item: request.form.get(item)}})                 
+                        {item: request.form.get(item)}})
     flash(session['user'] + "! We've updated your ski resort!")
     return redirect(url_for('ski_resorts'))
 
