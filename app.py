@@ -1,4 +1,4 @@
-import os
+import os, json
 from flask import Flask, render_template, redirect, flash
 from flask import url_for, request, session
 from flask_pymongo import PyMongo
@@ -79,7 +79,8 @@ def sign_in():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("name")
-                flash("Welcome back, " + session["user"])
+                logged_user = session["user"]
+                flash("Welcome back, " + logged_user)
                 return redirect(url_for('trips'))
             else:
                 flash("Wrong password. Try again.")
@@ -90,7 +91,7 @@ def sign_in():
     return render_template(
             'trips.html',
             active='signedIn',
-            user=session["user"])
+            logged_user=session['user'])
 
 
 @app.route('/user_account', methods=['POST'])
@@ -109,11 +110,14 @@ def trips():
         trips = list(trips)
         skiresorts = list(mongo.db.skiresorts.find())
         users = list(mongo.db.users.find())
+        for trip in trips:
+            trip_owner = mongo.db.trips.find_one('user')
         return render_template(
                 "trips.html",
                 skiresorts=skiresorts,
                 trips=trips,
                 users=users,
+                trip_owner=trip_owner,
                 active='signedIn')
 
 
@@ -188,7 +192,8 @@ def edit_trip(trip_id):
             'edit_trip.html',
             skiresorts=mongo.db.skiresorts.find(),
             trip=mongo.db.trips.find_one({'_id': ObjectId(trip_id)}),
-            active='signedIn')
+            active='signedIn',
+            trip_owner=trip_owner)
     else:
         return redirect(url_for('no_permission'))
 
@@ -251,7 +256,7 @@ def delete_trip(trip_id):
     trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
     trip_owner = trip['user']
     if session['user'] == trip_owner:
-        mongo.db.trips.remove({'_id': ObjectId(trip_id)})
+        mongo.db.trips.delete_one({'_id': ObjectId(trip_id)})
         flash(trip_owner + ", we've deleted your trip!")
         return redirect(url_for('trips'))
     else:
@@ -356,7 +361,7 @@ def update_skiresort(skiresort_id):
 
 @app.route('/delete_skiresort/<skiresort_id>')
 def delete_skiresort(skiresort_id):
-    mongo.db.skiresorts.remove({'_id': ObjectId(skiresort_id)})
+    mongo.db.skiresorts.delete_one({'_id': ObjectId(skiresort_id)})
     return redirect(url_for('ski_resorts'))
 
 

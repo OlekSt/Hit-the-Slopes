@@ -3,7 +3,6 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('select').formSelect();
     $('.modal').modal();
-    $(".user-btns").addClass("invisible");
     $('.datepicker').datepicker({
         selectMonths: true,
         selectYears: 3, 
@@ -42,7 +41,11 @@ $(document).ready(function(){
         });
     }
 
-
+    // $(".user-btns").addClass("invisible"); // Make buttons invisible (see function showButtons below)
+    
+    // if (user == trip_owner){
+    //    $(".user-btns").removeClass("invisible");
+    // }
 });
 
 
