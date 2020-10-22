@@ -196,7 +196,7 @@ body{
 }
 
 .thumbnail-div{
-    padding: auto;
+    padding: 0;
 }
 
 .avatar-thumbnail{
@@ -238,7 +238,7 @@ body{
 }
 
 .avatar-div{
-    padding: auto;
+    padding: 0;
 }
 
 .avatar-title,
