@@ -50,34 +50,13 @@ Result below in Bugs section
 Navbar:
     -	Active menu item: shows all of them as active
 
-New user registration:
-    - Google message: Passwords are not safe....
-
-Signing In:
-    - Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
-
-Add_trip:
-    - Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
-
-Edit_skiresort.html:
-    - Thumbnail info is lost on opening a specific ski resort to be updated.
-    - Skiresort choice is lost on saving, if not chosen again.
-
-
-Sign Up & Sign In on Heroku app:
-    - Get this mistake: 'NoneType' object has no attribute 'users'.
-
-Trips.html, Search:
-    - Search does not work in combination: Ski resort name + dates (any of them(from or to) or both)
-    - Search does not work with two dates: from & to
-    - Dates search fields poorly visible on mobile
-
-Trips.html, user's profile:
-    - User's profile modal brings info of only one user, no matter if a different user's name clicked
-
-
+Sign_up.html, Add_skiresort.html:
+    - avatar & thumbnail images/names area of select is too narrow, diaplys is distorted.
 
 #### Solved bugs:
+
+New user registration:
+    - Google message: Passwords are not safe....
 
 Navbar:
     -	Mobile menu: Is not visible, and pressing on menu sandwich does not open menu in mobile view.
@@ -106,8 +85,28 @@ Add_trip:
 
 Ski_resorts.html:
     - Each ski resort displayed multiple times.
-    
 
+Signing In:
+    - Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
+
+Add_trip:
+    - Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
+
+Edit_skiresort.html:
+    - Thumbnail info is lost on opening a specific ski resort to be updated.
+    - Skiresort choice is lost on saving, if not chosen again.
+
+
+Sign Up & Sign In on Heroku app:
+    - Get this mistake: 'NoneType' object has no attribute 'users'.
+
+Trips.html, Search:
+    - Search does not work in combination: Ski resort name + dates (any of them(from or to) or both)
+    - Search does not work with two dates: from & to
+    - Dates search fields poorly visible on mobile
+
+Trips.html, user's profile:
+    - User's profile modal brings info of only one user, no matter if a different user's name clicked
     
 #### Unsolved bugs:
 
