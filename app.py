@@ -186,45 +186,28 @@ def add_trip():
 @app.route('/edit_trip/<trip_id>', methods=['GET', 'POST'])
 def edit_trip(trip_id):
     trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
-    trip_owner = trip['user']
-    if session['user'] == trip_owner:
-        return render_template(
-            'edit_trip.html',
-            skiresorts=mongo.db.skiresorts.find(),
-            trip=mongo.db.trips.find_one({'_id': ObjectId(trip_id)}),
-            active='signedIn',
-            trip_owner=trip_owner)
-    else:
-        return redirect(url_for('no_permission'))
-
+    return render_template(
+        'edit_trip.html',
+        skiresorts=mongo.db.skiresorts.find(),
+        trip=trip,
+        active='signedIn')
+  
 
 @app.route('/update_trip/<trip_id>', methods=['GET', 'POST'])
 def update_trip(trip_id):
     trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
-    if request.form.get('skiresort'):
-        mongo.db.trips.update(
-            {'_id': ObjectId(trip_id)},
-            {'user': session['user'],
-                'location_name': request.form.get('skiresort'),
-                'from': request.form.get('from'),
-                'to': request.form.get('to'),
-                'adults': request.form.get('adults'),
-                'kids': request.form.get('kids'),
-                'ski_snowboard': request.form.get('ski_snowboard'),
-                'other_info': request.form.get('other_info')}
-        )
-    else:
-        mongo.db.trips.update(
-            {'_id': ObjectId(trip_id)},
-            {'user': session['user'],
-                'location_name': trip['location_name'],
-                'from': request.form.get('from'),
-                'to': request.form.get('to'),
-                'adults': request.form.get('adults'),
-                'kids': request.form.get('kids'),
-                'ski_snowboard': request.form.get('ski_snowboard'),
-                'other_info': request.form.get('other_info')}
-        )  
+    for item in trip:
+        if request.form.get(item) is None:
+            mongo.db.trips.update_one(
+                {'_id': ObjectId(trip_id)},
+                {"$set":
+                    {item: trip[item]}})
+        else:
+            mongo.db.trips.update_one(
+                    {'_id': ObjectId(trip_id)},
+                    {"$set":
+                        {item: request.form.get(item)}}) 
+      
     flash(session['user'] + "! We've updated your trip!")
     return redirect(url_for('trips'))
 
@@ -253,14 +236,10 @@ def insert_trip():
 # to prevent a user from deleting trips created by other users
 @app.route('/delete_trip/<trip_id>')
 def delete_trip(trip_id):
-    trip = mongo.db.trips.find_one({'_id': ObjectId(trip_id)})
-    trip_owner = trip['user']
-    if session['user'] == trip_owner:
-        mongo.db.trips.delete_one({'_id': ObjectId(trip_id)})
-        flash(trip_owner + ", we've deleted your trip!")
-        return redirect(url_for('trips'))
-    else:
-        return redirect(url_for('no_permission'))
+    mongo.db.trips.delete_one({'_id': ObjectId(trip_id)})
+    flash(session['user'] + ", we've deleted your trip!")
+    return redirect(url_for('trips'))
+    
 
 
 @app.route('/ski_resorts')
@@ -370,14 +349,6 @@ def delete_skiresort(skiresort_id):
 def sign_out():
     [session.pop(key) for key in list(session.keys())]
     return redirect(url_for('show_index'))
-
-
-# No permission page
-@app.route('/no_permission')
-def no_permission():
-    return render_template(
-            "no_permission.html",
-            active='signedIn')
 
 
 if __name__ == '__main__':
