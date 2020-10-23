@@ -337,3 +337,24 @@ Testing information can be found in separate [Testing.md](Testing.md) file.
 
 
 ## DEPLOYMENT
+
+
+
+## CREDITS
+#### CONTENT
+The website is created by Alexey Statsenko, using the media described below. 
+
+
+#### IMAGES
+- Main background image is from [Pexels](https://www.pexels.com/). 
+- Avatar and Thumbnail images/icons are [Freepik from Flaticon](https://www.flaticon.com/). 
+
+
+#### CODE
+- Materialize Select fields validation is from [CI's Flask Mini Project Video](https://www.youtube.com/watch?v=CG36uQtAzkU&feature=youtu.be).
+- Code for info bubble above a user’s name and a ski resort’s name is taken from [Kevin Powell's video](https://www.youtube.com/watch?v=xoRbkm8XgfQ).
+
+#### ACKNOWLEDGMENTS 
+1. Tim Nelson, CI tutor for a lot of help with various parts of the project, & sharing learning materials, and general advice on coding.
+2. Stephen Moody, CI tutor for help with code and some general advice on coding.  
+3. Igor Basuga, CI tutor for help with the project.
