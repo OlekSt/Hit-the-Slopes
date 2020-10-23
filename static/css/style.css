@@ -389,7 +389,6 @@ a[data-tool-tip]:hover::after {
         width: 160px;
         padding-bottom: 0;
     }  
-
     #main{
         max-width: 75%;
     }
@@ -411,10 +410,6 @@ a[data-tool-tip]:hover::after {
     #main{
         max-width: 90%;
     }
-
-    .btn-small{
-        font-size: 10px;  
-    }
 }
 
 /* Hide horizontal line under Avatar and Ski resort in trips on bigger screens */
@@ -427,10 +422,6 @@ a[data-tool-tip]:hover::after {
 @media screen and (max-width: 640px) {
 #main{
         max-width: 93%;
-    }
-
-    .btn-small{
-        font-size: 9px;  
     }
 }
 
@@ -448,10 +439,6 @@ a[data-tool-tip]:hover::after {
 
     #main{
         max-width: 95%;
-    }
-
-    .btn-small{
-        font-size: 8px;  
     }
 }
 
