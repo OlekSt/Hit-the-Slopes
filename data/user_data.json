@@ -1,7 +1,0 @@
-[{
-    "_id": {
-        "$_id": "<objectId>"
-    },
-    "username": "<string>",
-    "password": "<hashed_password_string>"    
-}]
