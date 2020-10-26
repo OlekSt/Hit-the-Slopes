@@ -53,6 +53,9 @@ Navbar:
 Sign_up.html, Add_skiresort.html:
     - avatar & thumbnail images/names area of select is too narrow, diaplys is distorted.
 
+Trips.html:
+    - If a skiresort is deleted, a skiresort's thumbnail is not displayed on a trip in trips.html.
+
 #### Solved bugs:
 
 New user registration:
