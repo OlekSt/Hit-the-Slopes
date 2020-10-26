@@ -109,7 +109,7 @@ body{
     justify-content: center; 
     background-color: #6B9FC5;   
     margin-top: 0.2em;
-    border:0.5px solid #fafafa;
+    border: 0.5px solid #fafafa;
 }
 
 .message-board p{
@@ -181,7 +181,7 @@ body{
 }
 
 .trip-card{
-    border: #0056B2 solid 1px;
+    border: #0056B2 solid 2px;
 }
 
 .card-title{
@@ -231,6 +231,24 @@ body{
     margin-top: 2.5px;
     margin-bottom: 0;
 }
+
+/* Style horizontal lines in a trip */
+.hr-1{
+    height:0.05px;
+    width:90%;
+}
+
+.hr-2{
+    height:0.03px;
+    width:70%;
+}
+
+hr-3{
+    height:0.03px;
+    width:80%">
+}
+
+color="#A4352C" style="height:0.05px;width:80%">
 
 .buttons-box{
     padding-left: 0px;
