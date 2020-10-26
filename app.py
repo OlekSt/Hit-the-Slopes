@@ -1,4 +1,6 @@
 import os
+import pymongo
+from pymongo import MongoClient, ASCENDING
 from flask import Flask, render_template, redirect, flash
 from flask import url_for, request, session
 from flask_pymongo import PyMongo
@@ -220,11 +222,15 @@ def insert_trip():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
+        skiresort = mongo.db.skiresorts.find_one(
+                {"$text": {"$search": request.form['skiresort']}})
+        skiresort_id = skiresort['_id']
         if request.method == "POST":
             trips = mongo.db.trips
             trips.insert_one({
                 'user': session['user'],
                 'location_name': request.form['skiresort'],
+                'skiresort_id': skiresort_id,
                 'from': request.form['from'],
                 'to': request.form['to'],
                 'adults': request.form['adults'],
