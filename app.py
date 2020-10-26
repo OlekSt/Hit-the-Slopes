@@ -237,7 +237,7 @@ def insert_trip():
                 'kids': request.form['kids'],
                 'ski_snowboard': request.form['ski_snowboard'],
                 'other_info': request.form['other_info'],
-            })
+            }) 
             flash(session['user'] + "! We've added your trip!")
         return redirect(url_for('trips'))
 
