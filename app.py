@@ -108,8 +108,8 @@ def trips():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        today = date.today().strftime("%Y.%m.%d")
-        trips = mongo.db.trips.find().sort("from", 1).sort(today, 1)
+        # today = date.today().strftime("%Y.%m.%d")
+        trips = mongo.db.trips.find().sort("from", 1)
         trips = list(trips)
         skiresorts = list(mongo.db.skiresorts.find())
         users = list(mongo.db.users.find())
