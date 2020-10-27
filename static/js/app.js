@@ -9,7 +9,8 @@ $(document).ready(function(){
         today: 'Today',
         clear: 'Clear',
         close: 'Ok',
-        format: 'yyyy.mm.dd'
+        format: 'yyyy.mm.dd',
+        firstDay: 1
     }); 
 
     /* Validate select fields so that a user cannot continue without filling them up */
