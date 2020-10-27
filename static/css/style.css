@@ -21,6 +21,21 @@ body{
     display: none;
 }
 
+#main{
+    height: max-content;
+    min-height: 100%;
+    position: relative;
+}
+
+#index-main, 
+#signup-main,
+#signin-main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* Index page intro text with icons */
 .fa, .fas{
     font-size: 24px;
@@ -181,17 +196,19 @@ body{
 }
 
 .trip-card{
-    border: #0056B2 solid 2px;
+    border: #0056B2 solid 1.5px;
 }
 
-.card-title{
+.skiresort-title p{
+    font-size: 1.2em;
+    font-weight: 600;
     color: #0056B2;
-    font-weight: 900;
+    text-decoration: uppercase;
 }
 
 .skiresort-description{
     color: #0056B2;
-    font-size: 1.1em;
+    font-size: 0.9em;
     font-weight: 500;
 }
 
@@ -210,7 +227,7 @@ body{
 }
 
 .ski-snowboard-title{
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 600;
     text-transform: uppercase;
     color: #0056B2;
@@ -218,7 +235,6 @@ body{
 
 .trip-cell{
     padding: 5px 0 0 0;
-   
 }
 
 .trip-main,
@@ -389,7 +405,7 @@ a[data-tool-tip]:hover::after {
 
 @media screen and (max-width: 1600px) {
     #main{
-        max-width: 55%;
+        max-width: 75%;
     }
 }
 

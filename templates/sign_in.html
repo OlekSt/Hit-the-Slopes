@@ -1,7 +1,7 @@
 {% extends 'base.html'%} 
 {% block content %}
 
-<div class="container">
+<div id="signin-main" class="container">
     <div class="card">
         <div id="signup-form" class="card-content grey lighten-4">
             <div class="card-panel grey lighten-5">
@@ -9,11 +9,11 @@
                     <div class="row">
                         <form action="{{ url_for('sign_in') }}" method="POST" class="col s12">
                             <div class="row">
-                                <div class="input-field col s12 m12 l6">
+                                <div class="input-field col s12 m6 l6 xl6">
                                     <i class="material-icons prefix">account_circle</i>
                                     <input placeholder="your name" id="name" name="name" type="text" class="validate" required>
                                 </div>
-                                <div class="input-field col s12 m12 l6">
+                                <div class="input-field col s12 m6 l6 xl6">
                                     <i class="material-icons prefix">lock</i>
                                     <input placeholder="your password" id="password" name="password" type="password" required>
                                 </div>

@@ -139,7 +139,8 @@ def search_trips():
                 "from": {"$gte": query_from},
                 "to": {"$lte": query_to}
                 }).sort("from", 1)  # to sort in chronological order
-        flash("Trips to: "+query+". Between: "+query_from+" & "+query_to)
+        flash("Trips to: " + query + ". Between: "
+              + query_from + " & " + query_to)
     elif query_from and query_to:  # search by starting & ending dates of trips
         trips = mongo.db.trips.find({
                 "from": {"$gte": query_from},

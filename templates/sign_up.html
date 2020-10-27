@@ -1,7 +1,7 @@
 {% extends 'base.html'%} 
 {% block content %}
 
-<div class="container">
+<div id="signup-main" class="container">
     <div class="card valign-wrapper">
         <div class="card-content grey lighten-4">
             <div id="signup-form" class="card-panel grey lighten-5">
@@ -9,15 +9,15 @@
                 <div class="row">
                     <form action="{{ url_for('add_user') }}" method="POST" class="col s12">
                         <div class="row">
-                            <div class="input-field col s12 m12 l6">
+                            <div class="input-field col s12 m6 l6 xl6">
                                 <i class="small material-icons prefix">account_circle</i>
                                 <input placeholder="your name" id="name" name="name" type="text" class="validate" required>
                                 </div>
-                                <div class="input-field col s12 m12 l6">
+                                <div class="input-field col s12 m6 l6 xl6">
                                     <i class="material-icons prefix">lock</i>
                                     <input placeholder="your password" id="password" name="password" type="password" required>
                                 </div>
-                                <div class="input-field col s12 m12 l6">
+                                <div class="input-field col s12 m6 l6 xl6">
                                     <i class="material-icons prefix">wc</i>
                                     <select class="validate" id="gender" name="gender" required aria-required="true">
                                         <option value="" disabled selected>Your gender</option>
@@ -25,7 +25,7 @@
                                         <option value="female">Female</option>
                                     </select>
                                 </div>
-                                <div class="input-field col s12 m12 l6">
+                                <div class="input-field col s12 m6 l6 xl6">
                                     <i class="material-icons prefix">date_range</i>
                                     <select class="validate" id="ageRange" name="ageRange" required aria-required="true">
                                         <option value="" disabled selected>Your age</option>
@@ -36,11 +36,11 @@
                                         <option value="49+">49 plus</option>
                                     </select>
                                 </div>
-                                <div class="input-field col s12 m12 l6">
+                                <div class="input-field col s12 m6 l6 xl6">
                                     <i class="material-icons prefix">location_city</i>
                                     <input placeholder="you are from" id="from" name="from" type="text" class="validate" required>
                                 </div>
-                                <div class="input-field col s12 m12 l6">
+                                <div class="input-field col s12 m6 l6 xl6">
                                     <i class="material-icons prefix">face</i>
                                     <select class="icons dropdown-content validate" id="avatar" name="avatar" aria-required="true" required>
                                         <option value="" disabled selected>Choose your Avatar</option>
