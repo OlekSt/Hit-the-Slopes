@@ -243,6 +243,12 @@ Images:
 
 ### FEATURES TO BE IMPLEMENTED
 
+Calendar datepicker:
+    - Make the calendar show "date to" not earlier than "date from", e.g. date from: 15/12/2020, the calendar datepicker for date to should be showing Dec month to choose dates from. 
+
+Archiving of old trips:
+    - Add a function of auto-archiving trips older than XX weeks/days.
+
 
 ## INFORMATION ARCHITECTURE
 ### DATABASE
