@@ -31,7 +31,7 @@ body{
 #signup-main,
 #signin-main{
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -264,8 +264,6 @@ hr-3{
     width:80%">
 }
 
-color="#A4352C" style="height:0.05px;width:80%">
-
 .buttons-box{
     padding-left: 0px;
     padding-right: 25px;
@@ -283,7 +281,6 @@ color="#A4352C" style="height:0.05px;width:80%">
 .trip-skiresort-title{
     color: #A4352C;
 }
-
 
 .avatar,
 .trip-thumbnail{
@@ -405,13 +402,13 @@ a[data-tool-tip]:hover::after {
 
 @media screen and (max-width: 1600px) {
     #main{
-        max-width: 75%;
+        max-width: 55%;
     }
 }
 
 @media screen and (max-width: 1024px) {
     #main{
-        max-width: 75%;
+        max-width: 60%;
     }
 }
 
@@ -424,7 +421,7 @@ a[data-tool-tip]:hover::after {
         padding-bottom: 0;
     }  
     #main{
-        max-width: 75%;
+        max-width: 70%;
     }
 }
 
