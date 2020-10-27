@@ -39,16 +39,16 @@
 
     <div id="main" class="container">        
         
-        <div class="message-board center">
-            <!-- Flash messages -->
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                    <p class="center">{{ message }}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+        <div {% if messages %} class="message-board center"{% endif %}>
+            {% if messages %}
+                {% for message in messages %}
+                <p class="center">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
         </div>
+        {% endwith %}
 
     {% block content %} {% endblock %} 
 
