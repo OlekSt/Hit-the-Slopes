@@ -1,12 +1,9 @@
 import os
-import pymongo
-from pymongo import MongoClient, ASCENDING
 from flask import Flask, render_template, redirect, flash
 from flask import url_for, request, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
-from datetime import date
 
 
 from os import path
@@ -139,8 +136,8 @@ def search_trips():
                 "from": {"$gte": query_from},
                 "to": {"$lte": query_to}
                 }).sort("from", 1)  # to sort in chronological order
-        flash("Trips to: " + query + ". Between: "
-              + query_from + " & " + query_to)
+        flash("Trips to: " + query + ". Between: " +
+              query_from + " & " + query_to)
     elif query_from and query_to:  # search by starting & ending dates of trips
         trips = mongo.db.trips.find({
                 "from": {"$gte": query_from},
@@ -238,7 +235,7 @@ def insert_trip():
                 'kids': request.form['kids'],
                 'ski_snowboard': request.form['ski_snowboard'],
                 'other_info': request.form['other_info'],
-            }) 
+            })
             flash(session['user'] + "! We've added your trip!")
         return redirect(url_for('trips'))
 
