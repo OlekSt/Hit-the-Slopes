@@ -324,9 +324,6 @@ def edit_skiresort(skiresort_id):
             active='signedIn')
 
 
-# If any of "night", "glacier", or "thumbnail" are not updated
-# to keep what was previously saved in DB,
-# otherwise it gets lost after editing and saving
 @app.route('/update_skiresort/<skiresort_id>', methods=['GET', 'POST'])
 def update_skiresort(skiresort_id):
     skiresort = mongo.db.skiresorts.find_one({'_id': ObjectId(skiresort_id)})
@@ -348,6 +345,7 @@ def update_skiresort(skiresort_id):
 @app.route('/delete_skiresort/<skiresort_id>')
 def delete_skiresort(skiresort_id):
     mongo.db.skiresorts.delete_one({'_id': ObjectId(skiresort_id)})
+    flash(session['user'] + ", we've deleted your ski resort!")
     return redirect(url_for('ski_resorts'))
 
 

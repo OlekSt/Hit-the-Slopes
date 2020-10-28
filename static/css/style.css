@@ -51,6 +51,10 @@ body{
 }
 /* Finish - Index page intro text with icons*/
 
+.index-link{
+    color: white;
+}
+
 /* Navbar */
 #navbar{
     background-color: #A4352C;
