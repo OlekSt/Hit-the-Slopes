@@ -29,7 +29,15 @@ body{
 
 #index-main, 
 #signup-main,
-#signin-main{
+#signin-main, 
+#messaging{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#messaging{
     position: absolute;
     top: 45%;
     left: 50%;
@@ -54,7 +62,8 @@ body{
     font-size: 24px;
 }
 
-.intro-title{
+.intro-title,
+#messaging-title{
     font-size: 27px;
 }
 
@@ -421,17 +430,26 @@ a[data-tool-tip]:hover::after {
     #main{
         max-width: 40%;
     }
+    #messaging{
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 1600px) {
     #main{
         max-width: 55%;
     }
+    #messaging{
+        width: 55%;
+    }
 }
 
 @media screen and (max-width: 1024px) {
     #main{
         max-width: 65%;
+    }
+    #messaging{
+        width: 60%;
     }
 }
 
@@ -445,6 +463,9 @@ a[data-tool-tip]:hover::after {
     }  
     #main{
         max-width: 70%;
+    }
+    #messaging{
+        width: 60%;
     }
 }
 
@@ -460,10 +481,16 @@ a[data-tool-tip]:hover::after {
     #navbar-logo{
         font-size: 2.5em;
     }   
-
     #main{
         max-width: 90%;
     }
+    #messaging{
+        width: 70%;
+    }
+    #messaging-title{
+        font-size: 23px;
+    }
+    
 }
 
 /* Hide horizontal line under Avatar and Ski resort in trips on bigger screens */
@@ -476,6 +503,12 @@ a[data-tool-tip]:hover::after {
 @media screen and (max-width: 640px) {
 #main{
         max-width: 93%;
+    }
+    #messaging{
+        width: 80%;
+    }
+    #messaging-title{
+        font-size: 20px;
     }
 }
 
@@ -490,9 +523,14 @@ a[data-tool-tip]:hover::after {
     #navbar-logo{
         font-size: 1.8em;
     }   
-
     #main{
         max-width: 95%;
+    }
+    #messaging{
+        width: 85%;
+    }
+    #messaging-title{
+        font-size: 18px;
     }
 }
 
@@ -512,6 +550,12 @@ a[data-tool-tip]:hover::after {
     #main{
         max-width: 98%;
     }
+    #messaging{
+        width: 95%;
+    }
+    #messaging-title{
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 285px) {
@@ -524,5 +568,11 @@ a[data-tool-tip]:hover::after {
         padding-left: 0px;
         margin-right: 15px;
         padding-right: 0px;
+    }
+    #messaging{
+        width: 95%;
+    }
+    #messaging-title{
+        font-size: 15px;
     }
 }
