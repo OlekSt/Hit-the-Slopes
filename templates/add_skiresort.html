@@ -8,23 +8,23 @@
                 <span class="card-title">NEW SKI RESORT</span>
                 <div class="row">
                     <form action="{{ url_for('insert_skiresort')}}" method="POST" class="col s12">
-                        <div class="input-field col s12 m12 l6">
+                        <div class="input-field col s12 m6 l6">
                             <i class="small material-icons prefix">account_circle</i>
                             <input placeholder="ski resort name" id="location_name" name="location_name" type="text" class="validate" required>
                         </div>
-                        <div class="input-field col s12 m12 l6">
+                        <div class="input-field col s12 m6 l6 xl6">
                             <i class="small material-icons prefix">description</i>
                             <input placeholder="short description" id="description" name="description" type="text" class="validate" required>
                         </div>
-                        <div class="input-field col s12 m12 l6">
+                        <div class="input-field col s12 m6 l6 xl6">
                             <i class="material-icons prefix">web</i>
                                 <input placeholder="website" id="website" name="website" type="url" class="validate" required>
                         </div>
-                        <div class="input-field col s12 m12 l6">
+                        <div class="input-field col s12 m6 l6 xl6">
                             <i class="material-icons prefix">map</i>
                             <input placeholder="map link" id="map" name="map" type="url" class="validate" required>
                         </div>
-                        <div class="input-field col s12 m12 l6">
+                        <div class="input-field col s12 m6 l6 xl6">
                             <i class="material-icons prefix">terrain</i>
                             <select class="icons dropdown-content validate" id="glacier" name="glacier" required aria-required="true">
                                 <option value="" disabled selected>Glacier</option>
@@ -32,7 +32,7 @@
                                 <option value="no">No</option>
                             </select>
                         </div>
-                        <div class="input-field col s12 m12 l6">
+                        <div class="input-field col s12 m6 l6 xl6">
                             <i class="material-icons prefix">brightness_3</i>
                             <select class="icons dropdown-content validate" id="night" name="night" required aria-required="true">
                                 <option value="" disabled selected>Night skiing</option>
@@ -40,11 +40,11 @@
                                 <option value="no">No</option>
                             </select>
                         </div>
-                        <div class="input-field col s12 m12 l12">
+                        <div class="input-field col s12 m12 l12 xl12">
                             <i class="small material-icons prefix">comment</i>
                             <input placeholder="additional info" id="other_info" name="other_info" type="text" class="validate">
                         </div>
-                        <div id="skiresort-select" class="input-field col s12 m12 l6">
+                        <div id="skiresort-select" class="input-field col s12 m6 l6 xl6">
                             <i class="material-icons prefix">face</i>
                             <select class="validate icons dropdown-content" id="thumbnail" name="thumbnail" required>
                             <option value="" disabled selected>Thumbnail</option>
