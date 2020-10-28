@@ -36,13 +36,17 @@ body{
     transform: translate(-50%, -50%);
 }
 
-#signup-select li img{
+/* to fix oversized text and images in select for avatar and thumbnail */
+#signup-select li img, 
+#skiresort-select li img{
     height: 30px;
     width: 30px;
 }
 
-#signup-select li span{
-    font-size: 15px;
+/* to fix oversized text and images in select for avatar and thumbnail */
+#signup-select li span, 
+#skiresort-select li span{
+    font-size: 12px;
 }
 
 /* Index page intro text with icons */
@@ -198,6 +202,12 @@ body{
     padding-bottom: 0px;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+/* to fix oversized text and images in select for avatar and thumbnail */
+#new-skiresort-card .card-content,
+#signup-card .card-content{
+    padding: 15px;
 }
 
 .ski-resort-content{
@@ -421,7 +431,7 @@ a[data-tool-tip]:hover::after {
 
 @media screen and (max-width: 1024px) {
     #main{
-        max-width: 60%;
+        max-width: 65%;
     }
 }
 
