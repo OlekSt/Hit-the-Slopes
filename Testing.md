@@ -37,8 +37,73 @@ The following validation services were used to check the validity of the website
 ## Client stories testing
 
 The user stories are described in the UX section of [README.md](README.md) 
-...............
-!!! TO BE ADDED
+
+**As a website visitor, I want:**
+
+1. I want to find other people with similar interests to meet them during my skiing holidays
+    * I can clearly see what the website is about from the index page, where I see the slogan "Start or Join a snow Team"
+    * I can clearly see from the start (on index page) what steps I need to take:
+        - Sign Up
+        - Post your trips
+        - Search other users' trips
+        - Team Up with other people
+        - Go skiing/snowboarding
+    * On Sign Up I can add my name or nickname, and provide info about my age, and where I am from, plus choose a cool avatar for myself
+    * I can easily see a list of ski resorts and search for ones I am interested in
+    * I can see a list of upcoming trips starting from current/today's dates
+
+2. I want to easily add details of my trip to the DB
+    * When I check ski resorts I can see what ski resorts I choose from, with a brief title to give me a general idea about it, in case I am not familiar with it. 
+    * From a ski resort's account I can go directly to its official web-site, and to check its location on Google maps
+    * I can create my own trip with necessesary info:
+        - Dates of my trip
+        - To which ski resort I will go
+        - Who i will go with, adults, kids, alone, etc. 
+        - What I prefer - skiing or snowboarding
+        - Provide additional info about me, my friends, or my kids (age, for example), or my interests
+
+3. I want to be able to check for already added trips and see if I’m interested to connect to other people
+    * Trips show me:
+        - A user who created a trip, including a user's profile, where I can see info about this user, and have an option to contact this user
+        - Dates of this planned trip
+        - To which ski resort
+        - How many adults and go
+        - What they prefer - skiing or snowboarding
+        - Some additional info posted by a user
+    * Based on the provided info described before I can decide which trips/users I am interested in    
+
+4. I would like to contact other users
+    * I can check users' profiles from trips they created
+    * I can contact users and plan discuss possible meeting at the ski resort
+
+5. I want to add locations if not yet in DB
+    * If a ski resort is missing I can create one
+                Note: If a user creates a ski resort, and later a manager wants to create a ski resort, the website owner will contact this user, and hand over rights to manager this ski resort's account to its official representative.
+
+6. I want to see all trips for the next two months to a chosen location, and see if I’d plan my trip together with some other people
+    * I can easily search trips by a ski resort's name, start and end dates, or any combination of those.
+    * I can check for past trips, and contact users' and potentially plan some future trips if they go to locations I like
+
+
+**As a ski resort manager, I want:**:
+
+1. I want to add my location to the DB so users don’t have to do that
+    * I can clearly see what the purpose of the website is
+    * I can sign up and create an account for my ski resort for users to plan their trips and them to the list of upcoming trips
+    * Only I can modify into on the account or delete the account altogether
+
+2. I want to provide most important info about my location
+    * I can add correct name of my ski resort
+    * I can provide website and Google map links to the account
+
+3. I want to provide correct links to my website
+    * I can provide the correct link to my ski resort website
+    * I can provide a correct Google map link to a place within the ski resort I consider the best locator
+
+4. I want to advertise my location and promote upcoming events
+    * I can discuss possible advertising options on the web-site with the web-sites' owner
+
+    
 
 ## Manual testing
 
