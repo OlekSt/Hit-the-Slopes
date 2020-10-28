@@ -107,6 +107,7 @@ The user stories are described in the UX section of [README.md](README.md)
 
 ## Manual testing
 
+
 Currently performing testing on the go, while developing various functionalities of the app. 
 Result below in Bugs section
 
