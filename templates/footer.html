@@ -1,27 +1,25 @@
 {% block footer %}
 
-<!-- Footer trigger button -->
-    <a id="footer-btn" href="#footer-modal" class="btn-floating btn-small waves-effect waves-light right modal-trigger"><i class="material-icons">copyright</i></a>
-    <!-- Footer modal -->
-    <div id="footer-modal" class="modal card">
-        <div id="footer-content" class="card-content">
-            <div id="footer-panel" class="row card-panel">
-                <div class="center">
-                    <img id="footer-img" class="vertical-aligned" src="{{url_for('static', filename='img/info_img.jpg')}}" alt="Hit the Slopes!">
-                </div>
-                <div class="footer-box">
-                    <p id="footer-title" class="vertical-aligned center">Hit the Slopes!</p>
-                </div>
-                <div class="footer-box">
-                    <p id="footer-text" class="vertical-aligned center">Designed | Developed</p>
-                </div>
-                <div class="footer-box">
-                    <a class="vertical-aligned center" href="https://github.com/OlekSt?tab=repositories" target="_blank" title="My Github profile">
-                        <p>Ol.Statsenko</p>
-                    </a>
-                </div>
+<!-- Footer modal -->
+<div id="footer-modal" class="modal card">
+    <div id="footer-content" class="card-content">
+        <div id="footer-panel" class="row card-panel">
+            <div class="center">
+                <img id="footer-img" class="vertical-aligned" src="{{url_for('static', filename='img/info_img.jpg')}}" alt="Hit the Slopes!">
+            </div>
+            <div class="footer-box">
+                <p id="footer-title" class="vertical-aligned center">Hit the Slopes!</p>
+            </div>
+            <div class="footer-box">
+                <p id="footer-text" class="vertical-aligned center">Designed | Developed</p>
+            </div>
+            <div class="footer-box">
+                <a class="vertical-aligned center" href="https://github.com/OlekSt?tab=repositories" target="_blank" title="My Github profile">
+                    <p>Ol.Statsenko</p>
+                </a>
             </div>
         </div>
     </div>
+</div>
 
 {% endblock %}

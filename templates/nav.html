@@ -11,7 +11,9 @@
                         <li><a href="{{url_for('add_trip')}}">New Trip</a></li>
                         <li><a href="{{url_for('ski_resorts')}}">Ski Resorts</a></li>
                         <li><a href="{{ url_for('add_skiresort') }}">New Ski Resort</a></li>
-                        <li><a href="{{url_for('sign_out')}}">Sign Out</a></li>  
+                        <li><a id="footer-btn" href="#footer-modal" class="modal-trigger">&copy;</a></li>
+                        <li><a href="{{url_for('sign_out')}}">Sign Out</a></li>
+                        
                     </ul>
             </div>
         </nav>
@@ -21,6 +23,7 @@
             <li><a href="{{url_for('add_trip')}}">New Trip</a></li>
             <li><a href="{{url_for('ski_resorts')}}">Ski Resorts</a></li>
             <li><a href="{{ url_for('add_skiresort') }}">New Ski Resort</a></li>
+            <li><a id="footer-btn-mobile" href="#footer-modal" class="modal-trigger">&copy;&nbsp;About</a></li>
             <li><a href="{{url_for('sign_out')}}">Sign Out</a></li>
         </ul>
 </header>

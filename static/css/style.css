@@ -126,8 +126,12 @@ body{
     margin-right: 0.15em; 
 }
 
-#footer-btn{
-    bottom: 0;
+#footer-btn {
+    font-size: 1.6em;
+}
+
+#footer-btn-mobile{
+    font-size: 0.8em;
 }
 
 .card-image{
@@ -382,10 +386,6 @@ a[data-tool-tip]:hover::after {
 /* End - Modal for users' profiles */
 
 /* Footer */
-#footer-btn{
-    background-color: #336C8F !important;
-}
-
 #footer-img{
     width: 5em;
     height: 5em;
