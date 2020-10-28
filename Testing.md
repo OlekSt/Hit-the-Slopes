@@ -116,9 +116,6 @@ Result below in Bugs section
 Navbar:
     -	Active menu item: shows all of them as active
 
-Sign_up.html, Add_skiresort.html:
-    - avatar & thumbnail images/names area of select is too narrow, diaplys is distorted.
-
 Trips.html:
     - If a skiresort is deleted, a skiresort's thumbnail is not displayed on a trip in trips.html.
 
@@ -176,6 +173,9 @@ Trips.html, Search:
 
 Trips.html, user's profile:
     - User's profile modal brings info of only one user, no matter if a different user's name clicked
+
+Sign_up.html, Add_skiresort.html:
+    - avatar & thumbnail images/names area of select is too narrow, diaplys is distorted.
     
 #### Unsolved bugs:
 
