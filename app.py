@@ -108,7 +108,8 @@ def trips():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        today = date.today().strftime("%Y.%m.%d")
+        # to display trip started current/today's date
+        today = date.today().strftime("%Y.%m.%d") 
         trips = trips = mongo.db.trips.find({
                 "from": {"$gte": today}}).sort("from", 1)
         trips = list(trips)
@@ -122,6 +123,16 @@ def trips():
                 trips=trips,
                 users=users,
                 trip_owner=trip_owner,
+                active='signedIn')
+
+
+@app.route('/contact_me')
+def contact_me():
+    if "user" not in session:
+        return redirect(url_for('sign_in_page'))
+    else:
+        return render_template(
+                "contact_me.html",
                 active='signedIn')
 
 

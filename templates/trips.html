@@ -59,7 +59,7 @@
                                                 </div>
                                                 <div class="col s12 m4 l4 xl4">
                                                     <p class="text-center"><i class="fas fa-address-card"></i></p>
-                                                    <p><a href="#">Contact Me</a></p>
+                                                    <p><a href="{{ url_for('contact_me') }}">Contact Me</a></p>
                                                 </div> 
                                             </div>                   
                                         </div>
@@ -82,8 +82,8 @@
                             </div>
                             <div class="col s12 m7 l7 xl7 center">
                                 <div class="col s6 m6 l6 xl6 ">
-                                    <p class="trip-p">From:   <strong> {{trip.from}}</strong></p>
-                                    <p class="trip-p">To:   <strong> {{trip.to}}</strong></p>
+                                    <p class="trip-p">From:&nbsp;&nbsp;&nbsp;<strong> {{trip.from}}</strong></p>
+                                    <p class="trip-p">To:&nbsp;&nbsp;&nbsp;<strong> {{trip.to}}</strong></p>
                                     <hr noshade class="hr-2">
                                     <p class="trip-p">ADULTS:   <strong>{{trip.adults}}</strong></p>
                                     <p class="trip-p">KIDS:   <strong>{{trip.kids}}</strong></p>

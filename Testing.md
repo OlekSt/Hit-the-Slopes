@@ -177,6 +177,7 @@ Trips.html, user's profile:
 Sign_up.html, Add_skiresort.html:
     - avatar & thumbnail images/names area of select is too narrow, diaplys is distorted.
     
+    
 #### Unsolved bugs:
 
 Add_skiresort.html, skiresorts.html:
