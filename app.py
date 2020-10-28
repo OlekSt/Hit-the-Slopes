@@ -4,6 +4,7 @@ from flask import url_for, request, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
+from datetime import date, datetime
 
 
 from os import path
@@ -107,8 +108,9 @@ def trips():
     if "user" not in session:
         return redirect(url_for('sign_in_page'))
     else:
-        # today = date.today().strftime("%Y.%m.%d")
-        trips = mongo.db.trips.find().sort("from", 1)
+        today = date.today().strftime("%Y.%m.%d")
+        trips = trips = mongo.db.trips.find({
+                "from": {"$gte": today}}).sort("from", 1)
         trips = list(trips)
         skiresorts = list(mongo.db.skiresorts.find())
         users = list(mongo.db.users.find())
