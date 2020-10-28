@@ -126,12 +126,12 @@ body{
     margin-right: 0.15em; 
 }
 
-#footer-btn {
-    font-size: 1.6em;
+.footer-btn {
+    font-size: 1.4em;
 }
 
 #footer-btn-mobile{
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .card-image{
@@ -161,13 +161,14 @@ body{
     margin: 0;
     max-width: 100%;
     font-size: 1.2em;
+    font-weight: 400;
     color: white;
 }
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #intro-cont{
@@ -451,13 +452,18 @@ a[data-tool-tip]:hover::after {
     #messaging{
         width: 60%;
     }
+    #mobile-demo {
+        height: 300px;
+        width: 160px;
+        padding-bottom: 0;
+    }  
 }
 
 
 @media screen and (max-width: 992px) {
     /* minimize mobile sidenav menu  */
     #mobile-demo {
-        height: 260px;
+        height: 300px;
         width: 160px;
         padding-bottom: 0;
     }  
@@ -472,7 +478,7 @@ a[data-tool-tip]:hover::after {
 @media screen and (max-width: 786px) {
     /* minimize mobile sidenav menu  */
     #mobile-demo {
-        height: 260px;
+        height: 295px;
         width: 160px;
         padding-bottom: 0;
     }  
@@ -515,7 +521,7 @@ a[data-tool-tip]:hover::after {
 @media screen and (max-width: 576px) {
     /* minimize mobile sidenav menu  */
     #mobile-demo {
-        height: 260px;
+        height: 290px;
         width: 160px;
         padding-bottom: 0;
     }  
@@ -543,7 +549,7 @@ a[data-tool-tip]:hover::after {
 
     /* minimize mobile sidenav menu  */
     #mobile-demo {
-        height: 270px;
+        height: 300px;
         width: 160px;
         padding-bottom: 0;
     }  
