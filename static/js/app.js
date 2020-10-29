@@ -42,12 +42,13 @@ $(document).ready(function(){
         });
     }
     
-    /* To make Date-To not earlier or later that chosen Date-From */
+    /* To make Date-To set for the same month as a chosen Date-From in add_trip.html */
+    /* Same for search dates in trips.html */
     setDate();
     function setDate(){
-        $('#from').datepicker({
+        $('#from, #query_from').datepicker({
         onSelect: function(dateFrom){ 
-            $("#to").datepicker('setDate', new Date (dateFrom));
+            $("#to, #query_to").datepicker('setDate', new Date (dateFrom));
             }
         });       
     }
