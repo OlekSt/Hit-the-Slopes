@@ -109,7 +109,7 @@ def trips():
         return redirect(url_for('sign_in_page'))
     else:
         # to display trip started current/today's date
-        today = date.today().strftime("%Y.%m.%d") 
+        today = date.today().strftime("%Y.%m.%d")
         trips = trips = mongo.db.trips.find({
                 "from": {"$gte": today}}).sort("from", 1)
         trips = list(trips)
@@ -169,15 +169,15 @@ def search_trips():
                 "to": {"$lte": query_to}
                 }).sort("from", 1)
         flash("Trips to: " + query + ". From: " + query_to)
-    elif query:                                 # search by a place
+    elif query:      # search by a place
         trips = mongo.db.trips.find({"$text":
                                     {"$search": query}}).sort("from", 1)
         flash("Trips to: " + query)
-    elif query_from:                            # search by a starting date
+    elif query_from:     # search by a starting date
         trips = mongo.db.trips.find({"from":
                                     {"$gte": query_from}}).sort("from", 1)
         flash("Trips starting: " + query_from)
-    elif query_to:                              # search by a ending date
+    elif query_to:     # search by a ending date
         trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
         flash("Trips till: " + query_to)
     else:
@@ -190,7 +190,7 @@ def search_trips():
         "trips.html",
         skiresorts=skiresorts,
         trips=trips,
-        users=users, 
+        users=users,
         active='signedIn')
 
 

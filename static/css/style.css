@@ -377,7 +377,7 @@ a[data-tool-tip]:hover::after {
     width: max-content;
 }
 
-.user-profile h4{
+.user-profile h5{
     color:  #A4352C;
 }
 

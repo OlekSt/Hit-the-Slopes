@@ -44,33 +44,27 @@ $(document).ready(function(){
     
     /* To make Date-To set for the same month as a chosen Date-From in add_trip.html */
     /* Same for search dates in trips.html */
-    var today = new Date();
+    const today = new Date();
     setDate();
     function setDate(){
         /* Dates choice for a new trip */
-        $('#from').datepicker({
-        format: 'yyyy.mm.dd', 
-        minDate: today,/* Block dates before today for a new trip */
+        $('#from').datepicker({format: 'yyyy.mm.dd',minDate: today,/* Block dates before today for a new trip */
         onSelect: function(dateFrom){
             $("#to").datepicker({ minDate: dateFrom, format: 'yyyy.mm.dd' }).datepicker('setDate', new Date (dateFrom));
             }
         });    
-        $('#to').datepicker({
-        format: 'yyyy.mm.dd',
-        minDate: today,
+        $('#to').datepicker({format: 'yyyy.mm.dd',minDate: today,
         onSelect: function(dateTo){ 
             $("#from").datepicker({ minDate: today, maxDate: dateTo, format: 'yyyy.mm.dd' }).datepicker('setDate', new Date (dateTo));
             }
         });        
         /* Dates choice for search in trips */
-        $('#query_from').datepicker({
-        format: 'yyyy.mm.dd',
+        $('#query_from').datepicker({format: 'yyyy.mm.dd',
         onSelect: function(dateFrom){
             $("#query_to").datepicker({ minDate: dateFrom, format: 'yyyy.mm.dd' }).datepicker('setDate', new Date (dateFrom));
             }
         });    
-        $('#query_to').datepicker({
-        format: 'yyyy.mm.dd',
+        $('#query_to').datepicker({format: 'yyyy.mm.dd',
         onSelect: function(dateTo){ 
             $("#query_from").datepicker({ maxDate: dateTo, format: 'yyyy.mm.dd' }).datepicker('setDate', new Date (dateTo));
             }

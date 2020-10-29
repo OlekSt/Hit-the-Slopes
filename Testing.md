@@ -119,6 +119,9 @@ Navbar:
 Trips.html:
     - If a skiresort is deleted, a skiresort's thumbnail is not displayed on a trip in trips.html.
 
+User's profile opened from search for trips:
+    - Contact me takes me to UnderConstruction page, if initially I chose some search parameters, and opened a profile from one of the filtered trips, when I press Back button, takes me to a "Re-confirm Submission" warning page, instead of showing a list of trips
+
 #### Solved bugs:
 
 New user registration:
