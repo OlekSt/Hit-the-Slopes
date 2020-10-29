@@ -1,7 +1,14 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /*----  General styles ---*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700,800,900&display=swap');
 
-html, body {
+html, body{
     margin: 0;
     padding: 0;  
     max-width: 100%;
@@ -22,6 +29,8 @@ body{
 }
 
 #main{
+    height: -webkit-max-content;
+    height: -moz-max-content;
     height: max-content;
     min-height: 100%;
     position: relative;
@@ -34,6 +43,8 @@ body{
     position: absolute;
     top: 45%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -41,6 +52,8 @@ body{
     position: absolute;
     top: 45%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -67,8 +80,7 @@ body{
     font-size: 27px;
 }
 
-#index-list li
-    {
+#index-list li{
     line-height:250%
 }
 /* Finish - Index page intro text with icons*/
@@ -90,6 +102,7 @@ body{
     position: absolute;
     width: 80%;
     bottom: 5%;
+    -ms-flex-line-pack: center;
     align-content: center;
 }
 
@@ -111,6 +124,7 @@ body{
     font-size: 12px;
     margin: 3px 2px 3px 0;
 }
+
 .bnts{
     margin-right: 1px;
 }
@@ -126,7 +140,7 @@ body{
     margin-right: 0.15em; 
 }
 
-.footer-btn {
+.footer-btn{
     font-size: 1.4em;
 }
 
@@ -150,7 +164,11 @@ body{
 }
 
 .message-board{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center; 
     background-color: #6B9FC5;   
     margin-top: 0.2em;
@@ -161,18 +179,25 @@ body{
     margin: 0;
     max-width: 100%;
     font-size: 1.2em;
-    font-weight: 4
-    00;
+    font-weight: 400;
     color: white;
 }
 
 .center {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 #intro-cont{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -181,6 +206,8 @@ body{
 }
 
 #intro-title{
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
 }
 
@@ -241,7 +268,8 @@ body{
     font-size: 1.2em;
     font-weight: 600;
     color: #0056B2;
-    text-decoration: uppercase;
+    -webkit-text-decoration: uppercase;
+            text-decoration: uppercase;
 }
 
 .skiresort-description{
@@ -299,7 +327,7 @@ body{
 
 hr-3{
     height:0.03px;
-    width:80%">
+    width:80%;
 }
 
 .buttons-box{
@@ -354,13 +382,23 @@ a[data-tool-tip]::after {
     bottom: 0;
     
     white-space: nowrap;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
     transform: scale(0);
+    -webkit-transition:
+     bottom ease-out 150ms,
+     webkit-transform ease-out 150ms;
     transition:
-        transform ease-out 150ms,
-        bottom ease-out 150ms;
+     bottom ease-out 150ms,
+     -webkit-transform ease-out 150ms;
+    -o-transition:
+     transform ease-out 150ms,
+     bottom ease-out 150ms;
 }
 
 a[data-tool-tip]:hover::after {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     transform: scale(1);
     bottom: 100%;
 }
@@ -374,6 +412,8 @@ a[data-tool-tip]:hover::after {
     padding: 0;
     max-height: 60%;
     will-change: top, opacity;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
 }
 
@@ -428,7 +468,7 @@ a[data-tool-tip]:hover::after {
     margin-bottom: 0.1em;
 }
 
-@media screen and (max-width: 2000px) {
+@media screen and (max-width: 2000px){
     #main{
         max-width: 40%;
     }
@@ -437,7 +477,7 @@ a[data-tool-tip]:hover::after {
     }
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1600px){
     #main{
         max-width: 55%;
     }
@@ -446,7 +486,7 @@ a[data-tool-tip]:hover::after {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px){
     #main{
         max-width: 65%;
     }
@@ -461,7 +501,7 @@ a[data-tool-tip]:hover::after {
 }
 
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 992px){
     /* minimize mobile sidenav menu  */
     #mobile-demo {
         height: 300px;
@@ -476,7 +516,7 @@ a[data-tool-tip]:hover::after {
     }
 }
 
-@media screen and (max-width: 786px) {
+@media screen and (max-width: 786px){
     /* minimize mobile sidenav menu  */
     #mobile-demo {
         height: 295px;
@@ -507,8 +547,8 @@ a[data-tool-tip]:hover::after {
     }
 }
 
-@media screen and (max-width: 640px) {
-#main{
+@media screen and (max-width: 640px){
+    #main{
         max-width: 93%;
     }
     #messaging{
@@ -519,7 +559,7 @@ a[data-tool-tip]:hover::after {
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 576px){
     /* minimize mobile sidenav menu  */
     #mobile-demo {
         height: 290px;
@@ -541,15 +581,15 @@ a[data-tool-tip]:hover::after {
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 375px){
     /*small phones*/
     /*  Logo size smaller */
     #navbar-logo{
         font-size: 1.5em;
     }   
 
-    /* minimize mobile sidenav menu  */
-    #mobile-demo {
+    /* minimize mobile sidenav menu */
+    #mobile-demo{
         height: 300px;
         width: 160px;
         padding-bottom: 0;
@@ -565,7 +605,7 @@ a[data-tool-tip]:hover::after {
     }
 }
 
-@media screen and (max-width: 285px) {
+@media screen and (max-width: 285px){
     /*very small phones*/
     /*  Logo size smaller */
     #navbar-logo{
