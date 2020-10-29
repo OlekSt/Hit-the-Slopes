@@ -2,9 +2,9 @@
 ## Let's Team Up & Hit the Slopes!
 
 #### Python & Data Centric Project:
-Website for people interested in skiing/snowboarding for planning their trips and meeting other visitors with similar interests. The website will be built using Flask-Python & MongoDB.
+Website for people interested in skiing/snowboarding for planning their trips and meeting other visitors with similar interests. The website is be built using Flask-Python & MongoDB.
 
-<img src="assets/images/readme/title_image.jpg" alt="Title image" style="margin: 0 10px;" width="100%"/>
+<img src="static/readme/amiresponsive_main.jpg" alt="Title image" style="margin: 0 10px;" width="100%"/>
 
 [Hit the Slopes - Heroku link](https://hit-the-slopes.herokuapp.com/)
 
