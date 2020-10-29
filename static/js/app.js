@@ -49,7 +49,7 @@ $(document).ready(function(){
         $('#from, #query_from').datepicker({
         format: 'yyyy.mm.dd',
         onSelect: function(dateFrom){ 
-            $("#to, #query_to").datepicker('setDate', new Date (dateFrom));
+            $("#to, #query_to").datepicker({ minDate: dateFrom }).datepicker('setDate', new Date (dateFrom));
             }
         });       
     }
