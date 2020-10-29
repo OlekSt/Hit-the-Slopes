@@ -47,9 +47,11 @@ $(document).ready(function(){
     setDate();
     function setDate(){
         $('#from, #query_from').datepicker({
+        format: 'yyyy.mm.dd',
         onSelect: function(dateFrom){ 
             $("#to, #query_to").datepicker('setDate', new Date (dateFrom));
             }
         });       
     }
+    
 });
