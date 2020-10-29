@@ -4,7 +4,7 @@ from flask import url_for, request, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
-from datetime import date, datetime
+from datetime import date
 
 
 from os import path
@@ -181,6 +181,8 @@ def search_trips():
         trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
         flash("Trips till: " + query_to)
     else:
+        trips = trips = mongo.db.trips.find()
+        flash("No search parameters were chosen.")
         redirect(url_for('trips'))
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
@@ -188,7 +190,8 @@ def search_trips():
         "trips.html",
         skiresorts=skiresorts,
         trips=trips,
-        users=users, active='signedIn')
+        users=users, 
+        active='signedIn')
 
 
 @app.route('/add_trip')
