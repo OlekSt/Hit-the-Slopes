@@ -325,12 +325,25 @@ Other info | info | text, `maxlength="200"` | string
 
 ## TECHNOLOGIES USED 
 
+- This project is built using HTML, CSS, JavaScript, Python programming languages plus MongoDB.
+
+- [JQuery](https://jquery.com) to simplify DOM manipulation
+- [Gitpod](https://gitpod.io/) for coding the project.
+- [GitHub](https://github.com/) to store & share the project's code. 
+- [ChromeDevtools](https://developers.google.com/web/tools/chrome-devtools) to check created code and possible inconsistencies, find best parameters for various code items. 
+- [Materialize](https://materializecss.com/) for navbar, calendar datepicker, icons, and other elements.
+- [Bootstrap](https://www.bootstrapcdn.com/) to simplify some parts of the website's structure. 
+- [FontAwesome](https://www.bootstrapcdn.com/fontawesome/) for icons.
+- [Flask microframework](https://www.fullstackpython.com/flask.html) -  to build and connect Jinja templates, Werkzeug for hashing & checking passwords.
+- [Google Fonts](https://fonts.google.com/) for fonts.
+- [AutoPrefixer](https://autoprefixer.github.io/) to make sure css prefixes cover all browser versions.
+- [Am I responsive](http://ami.responsivedesign.is/) was used to check responsiveness of the website for various screen sizes - mobile, tab, laptop, desktop.
+- [Balsamiq](https://balsamiq.com/) was used to create wireframes.
+- [ColorSpace](https://mycolor.space/) for matching colors
 
 
 ## TESTING
 Testing information can be found in separate [Testing.md](Testing.md) file.
-
-
 
 
 ## DEPLOYMENT
