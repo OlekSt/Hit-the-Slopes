@@ -41,5 +41,14 @@ $(document).ready(function(){
             }
         });
     }
+    
+    /* To make Date-To not earlier or later that chosen Date-From */
+    setDate();
+    function setDate(){
+        $('#from').datepicker({
+        onSelect: function(dateFrom){ 
+            $("#to").datepicker('setDate', new Date (dateFrom));
+            }
+        });       
+    }
 });
- 
