@@ -341,7 +341,7 @@ hr-3{
 
 .avatar-title,
 .trip-skiresort-title{
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 .trip-skiresort-title{
@@ -411,6 +411,7 @@ a[data-tool-tip]:hover::after {
     background-color: #fafafa;
     padding: 0;
     max-height: 60%;
+    max-width: 100%;
     will-change: top, opacity;
     width: -webkit-max-content;
     width: -moz-max-content;
@@ -520,7 +521,7 @@ a[data-tool-tip]:hover::after {
     /* minimize mobile sidenav menu  */
     #mobile-demo {
         height: 295px;
-        width: 160px;
+        width: 180px;
         padding-bottom: 0;
     }  
 
@@ -563,7 +564,7 @@ a[data-tool-tip]:hover::after {
     /* minimize mobile sidenav menu  */
     #mobile-demo {
         height: 290px;
-        width: 160px;
+        width: 180px;
         padding-bottom: 0;
     }  
     /*  Logo size smaller */
@@ -591,7 +592,7 @@ a[data-tool-tip]:hover::after {
     /* minimize mobile sidenav menu */
     #mobile-demo{
         height: 300px;
-        width: 160px;
+        width: 180px;
         padding-bottom: 0;
     }  
     #main{

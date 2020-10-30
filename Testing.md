@@ -156,6 +156,105 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - In all cases a correct message is flashed saying "Trips to 'ski resort'"; "Trips to a 'ski resort' between date-from & date-to"; or other correct combinations.
 - Pressing on Search button without any search info flashes a message "No search parameters were chosen" and shows a list of trips.
 - A trip in the list, shows a user's name and avatar image, who created that trip; ski resort's name with an thumbnail image, dates from and to, number of adults and kids going, ski vs snoboard preference, and additional note from that user.
+- Touching a user's name opens an action bubble, suggesting to see a user's profile. Pressing on it shows a user's profile in a modal, with a name, avatar image, age range, place where user is from, and Contact link (confirmed that pressing it takes a user to contact_me.html).
+- Touching a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
+- Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
+- A user/owner of a trip can press Edit, and will be taken to edit_trip.html, where all the previously saved data will be shown with a possibility to modify.
+- A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.**
+
+5. New Trip screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- Confirmed that it won't allow to save a trip with any field empty, shows a message next to such empty field.
+- Confirmed that Choose a ski resort dropdown menu correctly opens a list of ski resorts which are already registered in the database.
+- Dates fields open datepicker, Date-From field does not allow to choose dates before today's. Dates search fields work correctly, once the Date-From is chosen, the datepicker for Date-To shows the chosen Date-From, and does not allow to choose dates before. and vice-versa, when Date-To is chosen first, the datepicker for Date-From will show that date, and won't allow to choose dates after, but also won't let choose dates before today's.
+- Confirmed that Date-To cannot be before Date-from and vice-versa.
+- Adults/Kids fields accepts only numbers from 0, don't allow negative numbers or letters. Shows a message that a correct value should be entered. 
+- Ski/Snowboard shows correct dropdown menu with Ski and Snowboard to choose from. 
+- Pressing Save Trip adds trip to the list of trips, and redirects a user to trips.html, where the list of trips is displayed. Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
+
+6. Edit trip screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- All the fields are populated with data previously saved in DB. If i press save without changing anything, all the data is kept as before. Same with pressing Cancel. 
+- If I change any data, and press Save, new data will be saved into DB. 
+- Upon saving a message is flashed "'Username', we've updated your trip."
+
+7. Ski resorts screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- Ski resorts are displayed in an alphabetical order. 
+- A ski resort card displays its name, a short descriptive title, a thumnail image, info whether it is a glacier, and if night skiing is possible, link to a ski resort's official website, and Google map link, with additional info field for any useful information about it.
+- Confirmed that both wesbite and map links work and open a target website in another tab. 
+- Search card contains search field, plus Reset & Search buttons. 
+- Putting a name of a ski resort and pressing Search will return a card with a respective ski resort. 
+- If name is not in DB, it will return an empty screen, no ski resorts. 
+        **To add a flashed message "Ski Resort is not found**
+        **To add a feature to search by an initial/two/three letter/s**
+- Pressing Search with an empty search field, will show a message that the field has to be field. 
+- Pressing Reset will display all the ski resorts an alphabetical order. 
+
+8. New Ski Resort screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- Confirmed that it won't allow to save with any field empty, except additional info field.
+- Website and map links are validated for an url to be entered. 
+- Glacier and Night skiing dropdown menus show correct choices.
+- Additional info field is not obligatory. 
+- Thumbnail dropdown menu shows correct list of images with names.
+- Pressing Add Ski Resort, saves the info into DB correctly (checked Atlas mongod DB), and takes us to the list of ski resorts in skiresorts.html.
+- Checked add_trip.html, a ski resort is added to the list.
+- Buttons to Edit or Delete a ski resort are visible only to a user who created that particular ski resort. 
+- A user/owner of a ski resort can press Edit, and will be taken to edit_skiresort.html, where all the previously saved data will be shown with a possibility to modify.
+- A user/owner of a ski resort can press Delete, and a ski resort  will be deleted, user will be returned to the ski_resorts.html. A message will flash "'Username', we've deleted your ski resort." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.**
+
+9. Edit ski resort screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- All the fields are populated with data previously saved in DB. If i press save without changing anything, all the data is kept as before. Same with pressing Cancel. 
+- If I change any data, and press Save, new data will be saved into DB. 
+- Upon saving a message is flashed "'Username', we've updated your ski resort."
+
+10. Sign Out
+    - Pressing take us correctly to the index.html with the main screen with the slogan. The navbar shows only the log and Sign Up & Sing In links. 
+
+
+### Testing undertaken on mobile and pad devices
+The game was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrome, Microsoft Edge & Mozilla Firefox
+1. The main page screen:
+- Confirmed that it shows the main screen with the slogan "Join/Start a snow team" with a list of actions required: Sign up, Post Trips, Search Trips, Team Up, Hit the slopes (each with a descriptive icon).
+- Confirmed that SignUp action points to sign_up.html, and Post Trips, Search Trips, Team Up actions point to sign_in.html. Used button back to go back to the main screen with no issues.
+- Confirmed that the navbar has the Logo and links to Sign Up and Sing In, pressing on the Logo takes us back to the main screen(index.html), and both Sign Up & Sing In take to respective pages.
+
+2. Sign Up screen:
+- Confirmed that pressing the Logo takes me back to the main screen(index.html), and pressing Sing In takes me to sign_in.html.
+- Confirmed that the registration process works, and validation does not allow to register with any field left empty. If not, a message is flashed next to a field, which still needs info. Gender, age fields open correct select dropdown menus. Avatar dropdown menu opens a correct list of avatars with images and names.
+- Confirmed that pressing Sign Up buttons takes me to the trips.hmtl, flashes a message "Welcome, 'username'!", shows the list of trips, and the navbar shows full (visible to logged in users) menu with the Logo, Trips, New Trip, Ski Resorts, New Ski Resort, Copyright, Sign Out. Plus search window with fields: Ski Resort, Date from, Date to, and buttons: Reset & Search.
+
+3. Sign In screen:
+- Show correct screen with a name and a password fields. The navbar has the logo, which takes us to the main screen(index.html) and Sign Up, which takes to sign_up_page.html, and Sign In, which takes to the sign_in_page.html.
+- Confirmed that sign in process requires both name and password fields to be filled in. If not, a message is flashed next to a field, which still needs info. 
+- Tried to sign in with a wrong password, flashes the message "Wrong password. Try again".
+- Tried to sign in with a wrong name, flashes the message "Wrong name. Try again".
+- With correct name & passwors correctly takes us to the trips.html, flashes a message "Welcome back, 'username'!", shows the list of trips, and the navbar shows full (visible to logged in users) menu with the Logo, Trips, New Trip, Ski Resorts, New Ski Resort, Copyright, Sign Out. Plus search window with a fields Ski Resort and buttons: Reset & Search.
+
+4. Trips screen:
+*Navbar
+- Pressing on the logo takes us back to the trips (when users are logged in), the flashed welcome message disappears.
+- Pressing Trip on the menu takes us back to display trips.
+- Pressing New Trip takes to the add_trip.html displayed correctly. 
+- Ski Resorts takes us to skiresorts.html
+- New Ski Resort to add_skiresort.html
+- Copyright opens a modal with a mini hero image, and info who designed and developed, and a link to the developer's Github.
+- Sign Out correctly signs out to index.html with the main screen with the slogan "Join/Start a snow team", where the navbar has the Logo, links to Sign Up & Sign In.
+*End Navbar
+
+- Trips are correctly displayed with dates from today into the future in correct chronological order. 
+- Testing search with a ski resort name, it returns a list of trips to that ski resort in correct chronological order.
+- Dates search fields work correctly, once the Date-From is chosen, the datepicker for Date-To shows the chosen Date-From, and does not allow to choose dates before. and vice-versa, when Date-To is chosen first, the datepicker for Date-From will show that date, and won't allow to choose dates after.
+- Search for trips before today, shows a list of trips correctly, which are not visible on the generaly trips display, which shows them from today into the future. 
+- Rest button works correctly and returns a list of trips from today into the future in correct chronological order.
+- Searching by Date-From returns a list of trips starting that date in correct chronological order.
+- Searching by Date-To returns a list of trips before that date in correct chronological order, including trips before today.
+- Searching a combination of a ski resort and any of both dates, return a correct list of trips to that destination, starting a date or before a date. 
+- In all cases a correct message is flashed saying "Trips to 'ski resort'"; "Trips to a 'ski resort' between date-from & date-to"; or other correct combinations.
+- Pressing on Search button without any search info flashes a message "No search parameters were chosen" and shows a list of trips.
+- A trip in the list, shows a user's name and avatar image, who created that trip; ski resort's name with an thumbnail image, dates from and to, number of adults and kids going, ski vs snoboard preference, and additional note from that user.
 - Mouse over a user's name opens an action bubble, suggesting to see a user's profile. Pressing on it shows a user's profile in a modal, with a name, avatar image, age range, place where user is from, and Contact link (confirmed that pressing it takes a user to contact_me.html).
 - Mouse over a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
 - Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
