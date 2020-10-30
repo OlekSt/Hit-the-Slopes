@@ -222,6 +222,7 @@ def update_trip(trip_id):
                 {"$set":
                     {item: trip[item]}})
         else:
+
             mongo.db.trips.update_one(
                     {'_id': ObjectId(trip_id)},
                     {"$set":
@@ -280,11 +281,17 @@ def ski_resorts():
 def search_ski_resorts():
     query = request.form.get("query")
     skiresorts = list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
-    return render_template(
-        "ski_resorts.html",
-        skiresorts=skiresorts,
-        active='signedIn')
-
+    if skiresorts:
+        return render_template(
+            "ski_resorts.html",
+            skiresorts=skiresorts,
+            active='signedIn')
+    else:
+        flash("Wrong name or the ski resort is not registered.")
+        return render_template(
+            "ski_resorts.html",
+            skiresorts=skiresorts,
+            active='signedIn')
 
 @app.route('/add_skiresort')
 def add_skiresort():
