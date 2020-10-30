@@ -240,6 +240,15 @@ Calendar datepicker:
 Archiving of old trips:
     - Add a function of auto-archiving trips older than XX weeks/days.
 
+Delete a trip:
+    - Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.
+
+Delete a ski resort:
+    - Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.
+
+Lost password:
+    - Add a feature to allow users to restore or change their passwords.
+
 
 ## INFORMATION ARCHITECTURE
 ### DATABASE
