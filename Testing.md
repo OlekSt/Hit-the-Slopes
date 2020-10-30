@@ -142,7 +142,31 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - New Ski Resort to add_skiresort.html
 - Copyright opens a modal with a mini hero image, and info who designed and developed, and a link to the developer's Github.
 - Sign Out correctly signs out to index.html with the main screen with the slogan "Join/Start a snow team", where the navbar has the Logo, links to Sign Up & Sign In.
-- 
+- Trips are correctly displayed with dates from today into the future in correct chronological order. 
+- Testing search with a ski resort name, it returns a list of trips to that ski resort in correct chronological order.
+- Dates search fields work correctly, once the Date-From is chosen, the datepicker for Date-To shows the chosen Date-From, and does not allow to choose dates before. and vice-versa, when Date-To is chosen first, the datepicker for Date-From will show that date, and won't allow to choose dates after.
+- Search for trips before today, shows a list of trips correctly, which are not visible on the generaly trips display, which shows them from today into the future. 
+- Rest button works correctly and returns a list of trips from today into the future in correct chronological order.
+- Searching by Date-From returns a list of trips starting that date in correct chronological order.
+- Searching by Date-To returns a list of trips before that date in correct chronological order, including trips before today.
+- Searching a combination of a ski resort and any of both dates, return a correct list of trips to that destination, starting a date or before a date. 
+- In all cases a correct message is flashed saying "Trips to 'ski resort'"; "Trips to a 'ski resort' between date-from & date-to"; or other correct combinations.
+- Pressing on Search button without any search info flashes a message "No search parameters were chosen" and shows a list of trips.
+- A trip in the list, shows a user's name and avatar image, who created that trip; ski resort's name with an thumbnail image, dates from and to, number of adults and kids going, ski vs snoboard preference, and additional note from that user.
+- Mouse over a user's name opens an action bubble, suggesting to see a user's profile. Pressing on it shows a user's profile in a modal, with a name, avatar image, age range, place where user is from, and Contact link (confirmed that pressing it takes a user to contact_me.html).
+- Mouse over a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
+
+5. New Trip screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- Confirmed that it won't allow to save a trip with any field empty, shows a message next to such empty field.
+- Confirmed that Choose a ski resort dropdown menu correctly opens a list of ski resorts which are already registered in the database.
+- Dates fields open datepicker, Date-From field does not allow to choose dates before today's. Dates search fields work correctly, once the Date-From is chosen, the datepicker for Date-To shows the chosen Date-From, and does not allow to choose dates before. and vice-versa, when Date-To is chosen first, the datepicker for Date-From will show that date, and won't allow to choose dates after, but also won't let choose dates before today's.
+- Confirmed that Date-To cannot be before Date-from and vice-versa.
+- Adults/Kids fields accepts only numbers from 0, don't allow negative numbers or letters. Shows a message that a correct value should be entered. 
+- Ski/Snowboard shows correct dropdown menu with Ski and Snowboard to choose from. 
+- Pressing Save Trip adds trip to the list of trips, and redirects a user to trips.html, where the list of trips is displayed. 
+
+
 
 ### Bugs discovered: 
 
@@ -155,6 +179,7 @@ Trips.html:
 
 User's profile opened from search for trips:
     - Contact me takes me to UnderConstruction page, if initially I chose some search parameters, and opened a profile from one of the filtered trips, when I press Back button, takes me to a "Re-confirm Submission" warning page, instead of showing a list of trips
+
 
 #### Solved bugs:
 
