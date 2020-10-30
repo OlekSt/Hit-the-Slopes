@@ -12,6 +12,7 @@ This document is intended to record testing at various stages of development of 
 
 ## Hit the Slopes app
 
+## Table of Contents
 1. [**Automated Testing**](#automated-testing)
     - [**Validation services**](#validation-services)
 2. [**Client Stories Testing**](#client-stories-testing)
@@ -39,6 +40,8 @@ The following validation services were used to check the validity of the website
 - [PEP8 Python Validator](http://pep8online.com):
     No errors or warnings.
 - [Am I responsive](http://ami.responsivedesign.is/) was used to check responsiveness of the website for various screen sizes - mobile, tab, laptop, desktop. 
+
+##### back to [top](#table-of-contents)
 
 ## Client stories testing
 
@@ -78,6 +81,8 @@ The user stories are described in the UX section of [README.md](README.md)
         - Some additional info posted by a user
     * Based on the provided info described before I can decide which trips/users I am interested in    
 
+##### back to [top](#table-of-contents)
+
 4. I would like to contact other users
     * I can check users' profiles from trips they created
     * I can contact users and plan discuss possible meeting at the ski resort
@@ -109,7 +114,8 @@ The user stories are described in the UX section of [README.md](README.md)
 4. I want to advertise my location and promote upcoming events
     * I can discuss possible advertising options on the web-site with the web-sites' owner
 
-    
+
+##### back to [top](#table-of-contents)
 
 
 ## Manual testing
@@ -132,6 +138,8 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Confirmed that pressing the Logo takes me back to the main screen(index.html), and pressing Sing In takes me to sign_in.html.
 - Confirmed that the registration process works, and validation does not allow to register with any field left empty. If not, a message is flashed next to a field, which still needs info. Gender, age fields open correct select dropdown menus. Avatar dropdown menu opens a correct list of avatars with images and names.
 - Confirmed that pressing Sign Up buttons takes me to the trips.hmtl, flashes a message "Welcome, 'username'!", shows the list of trips, and the navbar shows full (visible to logged in users) menu with the Logo, Trips, New Trip, Ski Resorts, New Ski Resort, Copyright, Sign Out. Plus search window with fields: Ski Resort, Date from, Date to, and buttons: Reset & Search.
+
+##### back to [top](#table-of-contents)
 
 3. Sign In screen:
 - Show correct screen with a name and a password fields. The navbar has the logo, which takes us to the main screen(index.html) and Sign Up, which takes to sign_up_page.html, and Sign In, which takes to the sign_in_page.html.
@@ -168,6 +176,8 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - A user/owner of a trip can press Edit, and will be taken to edit_trip.html, where all the previously saved data will be shown with a possibility to modify.
 - A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." *Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.*
 
+##### back to [top](#table-of-contents)
+
 5. New Trip screen:
 - Has the navbar with all the properly working features/links described above in point 4.
 - Confirmed that it won't allow to save a trip with any field empty, shows a message next to such empty field.
@@ -197,6 +207,10 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Pressing Search with an empty search field, will show a message that the field has to be field. 
 - Pressing Reset will display all the ski resorts an alphabetical order. 
 
+
+##### back to [top](#table-of-contents)
+
+
 8. New Ski Resort screen:
 - Has the navbar with all the properly working features/links described above in point 4.
 - Confirmed that it won't allow to save with any field empty, except additional info field.
@@ -220,6 +234,8 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
     - Pressing take us correctly to the index.html with the main screen with the slogan. The navbar shows only the log and Sign Up & Sing In links. 
 
 
+##### back to [top](#table-of-contents)
+
 ### Testing undertaken on mobile and pad devices
 The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrome, Microsoft Edge & Mozilla Firefox
 1. The main page screen:
@@ -238,6 +254,8 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 - Tried to sign in with a wrong password, flashes the message "Wrong password. Try again".
 - Tried to sign in with a wrong name, flashes the message "Wrong name. Try again".
 - With correct name & passwors correctly takes us to the trips.html, flashes a message "Welcome back, 'username'!", shows the list of trips, and the navbar shows full (visible to logged in users) menu with the Logo, Trips, New Trip, Ski Resorts, New Ski Resort, Copyright, Sign Out. Plus search window with a fields Ski Resort and buttons: Reset & Search.
+
+##### back to [top](#table-of-contents)
 
 4. Trips screen:
 *Navbar
@@ -267,6 +285,8 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 - A user/owner of a trip can press Edit, and will be taken to edit_trip.html, where all the previously saved data will be shown with a possibility to modify.
 - A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." *Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.*
 
+##### back to [top](#table-of-contents)
+
 5. New Trip screen:
 - Has the navbar with all the properly working features/links described above in point 4.
 - Confirmed that it won't allow to save a trip with any field empty, shows a message next to such empty field.
@@ -296,6 +316,8 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 - Pressing Search with an empty search field, will show a message that the field has to be field. 
 - Pressing Reset will display all the ski resorts an alphabetical order. 
 
+##### back to [top](#table-of-contents)
+
 8. New Ski Resort screen:
 - Has the navbar with all the properly working features/links described above in point 4.
 - Confirmed that it won't allow to save with any field empty, except additional info field.
@@ -318,6 +340,7 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 10. Sign Out
     - Pressing take us correctly to the index.html with the main screen with the slogan. The navbar shows only the log and Sign Up & Sing In links. 
 
+##### back to [top](#table-of-contents)
 
 ### Testing undertaken in DevTools
 The website was tested on all devices available there following the same procedure described in the section above for testing on a laptop, tab & mobile 
@@ -340,6 +363,7 @@ Firefox on mobile:
 Edit_trip.html:
     - It is possible to change one date, and set Date-To before Date-From, and save a trip with wrong dates.
 
+##### back to [top](#table-of-contents)
 
 #### Solved bugs:
 
@@ -384,6 +408,7 @@ Edit_skiresort.html:
     - Thumbnail info is lost on opening a specific ski resort to be updated.
     - Skiresort choice is lost on saving, if not chosen again.
 
+##### back to [top](#table-of-contents)
 
 Sign Up & Sign In on Heroku app:
     - Get this mistake: 'NoneType' object has no attribute 'users'.
@@ -402,7 +427,8 @@ Sign_up.html, Add_skiresort.html:
 Sign-up form:
     - Where from had same id as calendar datepicker, so was opening datepicker on registration. 
 
-    
+##### back to [top](#table-of-contents)
+
 #### Unsolved bugs:
 
 Add_skiresort.html, skiresorts.html:
