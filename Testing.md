@@ -32,7 +32,8 @@ The following validation services were used to check the validity of the website
 - [W3C Markup Validation]( https://validator.w3.org/): 
     No errors or warnings.
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/):
-    Found some errors - fixing.
+    No errors. 
+    Three errors from materialize.min.css, and numerous warnings to materialize.min.css,
 - [JSHint](https://jshint.com/):
     No errors, 3 warning about 'let' & 'const'.
 - [PEP8 Python Validator](http://pep8online.com):
