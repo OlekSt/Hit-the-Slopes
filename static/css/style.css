@@ -619,7 +619,8 @@ a[data-tool-tip]:hover::after {
     #messaging{
         width: 95%;
     }
-    #messaging-title{
+    #messaging-title,
+    #404-title{
         font-size: 15px;
     }
 }
