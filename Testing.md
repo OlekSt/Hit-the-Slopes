@@ -105,13 +105,22 @@ The user stories are described in the UX section of [README.md](README.md)
 
     
 
+
 ## Manual testing
+The section described in detail all the steps taken to confirm all the elements of the website work as intended. 
+Tested on:
+- laptop
+- pad mode on a laptop
+- mobile phone
+- Chrome Developer Tools device simulators on all options
 
-
-Currently performing testing on the go, while developing various functionalities of the app. 
-Result below in Bugs section
+### Testing undertaken on laptop
+The game was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, & Microsoft Edge
 
 ### Bugs discovered: 
+
+Sign-up form:
+    - Where from had same id as calendar datepicker, so was opening datepicker on registration. 
 
 Navbar:
     -	Active menu item: shows all of them as active
