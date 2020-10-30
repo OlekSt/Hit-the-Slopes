@@ -155,6 +155,9 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - A trip in the list, shows a user's name and avatar image, who created that trip; ski resort's name with an thumbnail image, dates from and to, number of adults and kids going, ski vs snoboard preference, and additional note from that user.
 - Mouse over a user's name opens an action bubble, suggesting to see a user's profile. Pressing on it shows a user's profile in a modal, with a name, avatar image, age range, place where user is from, and Contact link (confirmed that pressing it takes a user to contact_me.html).
 - Mouse over a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
+- Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
+- A user/owner of a trip can press Edit, and will be taken to edit_trip.html, where all the previously saved data will be shown with a possibility to modify.
+- A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.**
 
 5. New Trip screen:
 - Has the navbar with all the properly working features/links described above in point 4.
@@ -164,9 +167,36 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Confirmed that Date-To cannot be before Date-from and vice-versa.
 - Adults/Kids fields accepts only numbers from 0, don't allow negative numbers or letters. Shows a message that a correct value should be entered. 
 - Ski/Snowboard shows correct dropdown menu with Ski and Snowboard to choose from. 
-- Pressing Save Trip adds trip to the list of trips, and redirects a user to trips.html, where the list of trips is displayed. 
+- Pressing Save Trip adds trip to the list of trips, and redirects a user to trips.html, where the list of trips is displayed. Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
+- 
+
+6. Ski resorts screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- Ski resorts are displayed in an alphabetical order. 
+- A ski resort card displays its name, a short descriptive title, a thumnail image, info whether it is a glacier, and if night skiing is possible, link to a ski resort's official website, and Google map link, with additional info field for any useful information about it.
+- Confirmed that both wesbite and map links work and open a target website in another tab. 
+- Search card contains search field, plus Reset & Search buttons. 
+- Putting a name of a ski resort and pressing Search will return a card with a respective ski resort. 
+- If name is not in DB, it will return an empty screen, no ski resorts. 
+        **To add a flashed message "Ski Resort is not found**
+        **To add a feature to search by an initial/two/three letter/s**
+- Pressing Search with an empty search field, will show a message that the field has to be field. 
+- Pressing Reset will display all the ski resorts an alphabetical order. 
+
+7. New Ski Resort screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- Confirmed that it won't allow to save with any field empty, except additional info field.
+- Website and map links are validated for an url to be entered. 
+- Glacier and Night skiing dropdown menus show correct choices.
+- Additional info field is not obligatory. 
+- Thumbnail dropdown menu shows correct list of images with names.
+- Pressing Add Ski Resort, saves the info into DB correctly (checked Atlas mongod DB), and takes us to the list of ski resorts in skiresorts.html.
+- Checked add_trip.html, a ski resort is added to the list.
 
 
+
+- A user/owner of a ski resort can press Edit, and will be taken to edit_skiresort.html, where all the previously saved data will be shown with a possibility to modify.
+- A user/owner of a ski resort can press Delete, and a ski resort  will be deleted, user will be returned to the ski_resorts.html. A message will flash "'Username', we've deleted your ski resort." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.**
 
 ### Bugs discovered: 
 

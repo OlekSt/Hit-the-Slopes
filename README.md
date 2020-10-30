@@ -249,6 +249,9 @@ Delete a ski resort:
 Lost password:
     - Add a feature to allow users to restore or change their passwords.
 
+Ski resorts search: 
+    - To add a feature to search by an initial/two/three letter/s.
+
 
 ## INFORMATION ARCHITECTURE
 ### DATABASE
