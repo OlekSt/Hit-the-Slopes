@@ -135,6 +135,7 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - With correct name & passwors correctly takes us to the trips.html, flashes a message "Welcome back, 'username'!", shows the list of trips, and the navbar shows full (visible to logged in users) menu with the Logo, Trips, New Trip, Ski Resorts, New Ski Resort, Copyright, Sign Out. Plus search window with a fields Ski Resort and buttons: Reset & Search.
 
 4. Trips screen:
+*Navbar
 - Pressing on the logo takes us back to the trips (when users are logged in), the flashed welcome message disappears.
 - Pressing Trip on the menu takes us back to display trips.
 - Pressing New Trip takes to the add_trip.html displayed correctly. 
@@ -142,6 +143,8 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - New Ski Resort to add_skiresort.html
 - Copyright opens a modal with a mini hero image, and info who designed and developed, and a link to the developer's Github.
 - Sign Out correctly signs out to index.html with the main screen with the slogan "Join/Start a snow team", where the navbar has the Logo, links to Sign Up & Sign In.
+*End Navbar
+
 - Trips are correctly displayed with dates from today into the future in correct chronological order. 
 - Testing search with a ski resort name, it returns a list of trips to that ski resort in correct chronological order.
 - Dates search fields work correctly, once the Date-From is chosen, the datepicker for Date-To shows the chosen Date-From, and does not allow to choose dates before. and vice-versa, when Date-To is chosen first, the datepicker for Date-From will show that date, and won't allow to choose dates after.
@@ -168,9 +171,14 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Adults/Kids fields accepts only numbers from 0, don't allow negative numbers or letters. Shows a message that a correct value should be entered. 
 - Ski/Snowboard shows correct dropdown menu with Ski and Snowboard to choose from. 
 - Pressing Save Trip adds trip to the list of trips, and redirects a user to trips.html, where the list of trips is displayed. Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
-- 
 
-6. Ski resorts screen:
+6. Edit trip screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- All the fields are populated with data previously saved in DB. If i press save without changing anything, all the data is kept as before. Same with pressing Cancel. 
+- If I change any data, and press Save, new data will be saved into DB. 
+- Upon saving a message is flashed "'Username', we've updated your trip."
+
+7. Ski resorts screen:
 - Has the navbar with all the properly working features/links described above in point 4.
 - Ski resorts are displayed in an alphabetical order. 
 - A ski resort card displays its name, a short descriptive title, a thumnail image, info whether it is a glacier, and if night skiing is possible, link to a ski resort's official website, and Google map link, with additional info field for any useful information about it.
@@ -183,7 +191,7 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Pressing Search with an empty search field, will show a message that the field has to be field. 
 - Pressing Reset will display all the ski resorts an alphabetical order. 
 
-7. New Ski Resort screen:
+8. New Ski Resort screen:
 - Has the navbar with all the properly working features/links described above in point 4.
 - Confirmed that it won't allow to save with any field empty, except additional info field.
 - Website and map links are validated for an url to be entered. 
@@ -192,11 +200,18 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Thumbnail dropdown menu shows correct list of images with names.
 - Pressing Add Ski Resort, saves the info into DB correctly (checked Atlas mongod DB), and takes us to the list of ski resorts in skiresorts.html.
 - Checked add_trip.html, a ski resort is added to the list.
-
-
-
+- Buttons to Edit or Delete a ski resort are visible only to a user who created that particular ski resort. 
 - A user/owner of a ski resort can press Edit, and will be taken to edit_skiresort.html, where all the previously saved data will be shown with a possibility to modify.
 - A user/owner of a ski resort can press Delete, and a ski resort  will be deleted, user will be returned to the ski_resorts.html. A message will flash "'Username', we've deleted your ski resort." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.**
+
+9. Edit ski resort screen:
+- Has the navbar with all the properly working features/links described above in point 4.
+- All the fields are populated with data previously saved in DB. If i press save without changing anything, all the data is kept as before. Same with pressing Cancel. 
+- If I change any data, and press Save, new data will be saved into DB. 
+- Upon saving a message is flashed "'Username', we've updated your ski resort."
+
+10. Sign Out
+    - Pressing take us correctly to the index.html with the main screen with the slogan. The navbar shows only the log and Sign Up & Sing In links. 
 
 ### Bugs discovered: 
 
