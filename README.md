@@ -272,7 +272,7 @@ Images:
     * New Ski Resort 
     * Copyright/about
     * Sign Out
-**On mobile devices the navbar has only the logo and burge menu button, which opens a mobile view menu with the respective options**
+*On mobile devices the navbar has only the logo and burge menu button, which opens a mobile view menu with the respective options*
 
 - Flashed message area: 
     * After sign up: "Welcome, 'username'!"
@@ -350,25 +350,26 @@ Images:
 - Text: Desgined & Developed
 - Designer/Developer's name "Ol.Statsenko", which works as a link to the developer's Github profile/repositories.
 
+
 ### FEATURES TO BE IMPLEMENTED
 
-Calendar datepicker:
-    - Make the calendar show "date to" not earlier than "date from", e.g. date from: 15/12/2020, the calendar datepicker for date to should be showing Dec month to choose dates from. 
+- Archiving of old trips:
+    * Add a function of auto-archiving trips older than XX weeks/days.
 
-Archiving of old trips:
-    - Add a function of auto-archiving trips older than XX weeks/days.
+- Delete a trip:
+    * Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.
 
-Delete a trip:
-    - Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.
+- Delete a ski resort:
+    * Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.
 
-Delete a ski resort:
-    - Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.
+- Lost password:
+    * Add a feature to allow users to restore or change their passwords.
 
-Lost password:
-    - Add a feature to allow users to restore or change their passwords.
+- Ski resorts search: 
+    * To add a feature to search by an initial/two/three letter/s.
 
-Ski resorts search: 
-    - To add a feature to search by an initial/two/three letter/s.
+- Ski resorts:
+    * Add a button "New Trip" to each ski resort, which would take a user to a New Trip page with a pre-selected ski resort.
 
 
 ## INFORMATION ARCHITECTURE
@@ -378,8 +379,7 @@ For the purpose of the project MongodDB will be used as required by the project'
 The types of data stored in MongoDB for this project are:
 - ObjectId
 - String
-- Boolean
-- DateTime
+- Datetime
 - Object
 
 ### Collections Data Structure
@@ -427,7 +427,6 @@ Other info | info | text, `maxlength="200"` | string
 
 
 #### Location/s Collection
-
 | Title | Key in db | form validation type | Data type |
 --- | --- | --- | --- 
 Activity ID | _id | None | ObjectId 
@@ -476,6 +475,72 @@ Testing information can be found in separate [Testing.md](Testing.md) file.
 
 
 ## DEPLOYMENT
+
+[Hit the Slope on Heroku](https://hit-the-slopes.herokuapp.com/)
+
+Gitpod was used to code this project. It was then committed and pushed to Github using the command line and deployed on Heroku PaaS platform.
+All versions and branches of the code are stored on [Github repository](https://github.com/OlekSt/Hit-the-Slopes).
+
+## How to run this project locally
+
+In order to clone this project, it is necessary to follow these steps:
+
+The following **must be installed** on your machine:
+- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python 3](https://www.python.org/downloads/)
+- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
+- If you use Code Institute template, all the above will be already installed
+- An account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or MongoDB running locally on your machine. 
+    - How to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
+
+### Instructions
+1. Install all required modules with the command 
+```pip3 freeze -r requirements.txt```
+
+2. In your local IDE create a file called `env.py`
+
+3. Inside the env.py file, create a SECRET_KEY variable and a MONGO_URI to link to your own database. Please make sure to call your database `hit_the_slopes`, with collections `users`, `skiresorts`, and `trips`
+
+4. Make sure to add env.py to a .gitignore file so it's not pushed to the repository
+
+4. You can now run the application with the command
+```python app.py```
+
+9. You can visit the website at `https://8080-b781839f-058d-4b52-8df7-2319d1b0a0f7.ws-eu01.gitpod.io/`
+
+
+## Heroku Deployment
+To deploy the project to Heroku, follow these steps:
+
+1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
+
+2. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
+
+3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
+
+3. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+
+4. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
+
+5. Confirm the linking of the heroku app to the correct GitHub repository.
+
+6. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+
+7. Set the following config vars:
+
+| Key | Value |
+ --- | ---
+DEBUG | FALSE
+IP | 0.0.0.0
+MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
+PORT | 5000
+SECRET_KEY | `<your_secret_key>`
+
+- To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
+
+8. In the heroku dashboard, click "Deploy".
+
+9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
 
 
 ## CREDITS

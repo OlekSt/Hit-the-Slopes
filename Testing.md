@@ -166,7 +166,7 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Touching a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
 - Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
 - A user/owner of a trip can press Edit, and will be taken to edit_trip.html, where all the previously saved data will be shown with a possibility to modify.
-- A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.**
+- A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." *Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.*
 
 5. New Trip screen:
 - Has the navbar with all the properly working features/links described above in point 4.
@@ -192,8 +192,8 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Search card contains search field, plus Reset & Search buttons. 
 - Putting a name of a ski resort and pressing Search will return a card with a respective ski resort. 
 - If name is not in DB, it will return an empty screen, no ski resorts. 
-        **To add a flashed message "Ski Resort is not found**
-        **To add a feature to search by an initial/two/three letter/s**
+        *To add a flashed message "Ski Resort is not found*
+        *To add a feature to search by an initial/two/three letter/s*
 - Pressing Search with an empty search field, will show a message that the field has to be field. 
 - Pressing Reset will display all the ski resorts an alphabetical order. 
 
@@ -208,7 +208,7 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - Checked add_trip.html, a ski resort is added to the list.
 - Buttons to Edit or Delete a ski resort are visible only to a user who created that particular ski resort. 
 - A user/owner of a ski resort can press Edit, and will be taken to edit_skiresort.html, where all the previously saved data will be shown with a possibility to modify.
-- A user/owner of a ski resort can press Delete, and a ski resort  will be deleted, user will be returned to the ski_resorts.html. A message will flash "'Username', we've deleted your ski resort." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.**
+- A user/owner of a ski resort can press Delete, and a ski resort  will be deleted, user will be returned to the ski_resorts.html. A message will flash "'Username', we've deleted your ski resort." *Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.*
 
 9. Edit ski resort screen:
 - Has the navbar with all the properly working features/links described above in point 4.
@@ -265,7 +265,7 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 - Mouse over a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
 - Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
 - A user/owner of a trip can press Edit, and will be taken to edit_trip.html, where all the previously saved data will be shown with a possibility to modify.
-- A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.**
+- A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." *Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.*
 
 5. New Trip screen:
 - Has the navbar with all the properly working features/links described above in point 4.
@@ -291,8 +291,8 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 - Search card contains search field, plus Reset & Search buttons. 
 - Putting a name of a ski resort and pressing Search will return a card with a respective ski resort. 
 - If name is not in DB, it will return an empty screen, no ski resorts. 
-        **To add a flashed message "Ski Resort is not found**
-        **To add a feature to search by an initial/two/three letter/s**
+        *To add a flashed message "Ski Resort is not found*
+        *To add a feature to search by an initial/two/three letter/s*
 - Pressing Search with an empty search field, will show a message that the field has to be field. 
 - Pressing Reset will display all the ski resorts an alphabetical order. 
 
@@ -307,7 +307,7 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 - Checked add_trip.html, a ski resort is added to the list.
 - Buttons to Edit or Delete a ski resort are visible only to a user who created that particular ski resort. 
 - A user/owner of a ski resort can press Edit, and will be taken to edit_skiresort.html, where all the previously saved data will be shown with a possibility to modify.
-- A user/owner of a ski resort can press Delete, and a ski resort  will be deleted, user will be returned to the ski_resorts.html. A message will flash "'Username', we've deleted your ski resort." **Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.**
+- A user/owner of a ski resort can press Delete, and a ski resort  will be deleted, user will be returned to the ski_resorts.html. A message will flash "'Username', we've deleted your ski resort." *Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a ski resort.*
 
 9. Edit ski resort screen:
 - Has the navbar with all the properly working features/links described above in point 4.
