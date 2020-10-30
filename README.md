@@ -215,12 +215,12 @@ Color choosing:
 
 Palettes derived from the chosen colors: 
  
-<img src="static/readme/palette/matching_palette.jpg" alt="Matching Palette" style="margin: 0 10px; align-self: center;" width="75%"/>
+<img align="center" src="static/readme/palette/matching_palette.jpg" alt="Matching Palette" style="margin: 0 10px; align-self: center;" width="80%"/>
 
 <table>
     <tr>
-        <td><img src="static/readme/palette/highlight_palette.jpg" alt="Highlight Palette" style="float: left; margin-rigth: 10px;" width="400"/></td>
-        <td><img src="static/readme/palette/spot_palette.jpg" alt="Spot Palette" style="float: left; margin-rigth: 10px;" width="400"/></td>
+        <td><img src="static/readme/palette/highlight_palette.jpg" alt="Highlight Palette" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+        <td><img src="static/readme/palette/spot_palette.jpg" alt="Spot Palette" style="float: left; margin-rigth: 10px;" width="100%"/></td>
     </tr>
 </table>
 
@@ -246,7 +246,7 @@ Images:
 - SignUp action is a link to sign_up.html, and Post Trips, Search Trips, Team Up actions point to sign_in.html. 
 - The navbar has the Logo and links to Sign Up and Sing In.
 
-<img src="static/readme/main_screen.png" alt="Main screen" style="margin: 0 10px;" width="50%"/>
+<img src="static/readme/main_screen.png" alt="Main screen" style="margin: 0 10px;" width="70%"/>
 
 2. SIGN UP screen:
 - The navbar has the Logo and links to Sign Up and Sing In.
@@ -270,14 +270,16 @@ Images:
 
 <table>
     <tr>
-        <td><img src="static/readme/sign_up_screen.png" alt="Sign Up screen" style="float: left; margin-rigth: 10px;" width="50%"/></td>
-        <td><img src="static/readme/sign_up_screen.png" alt="Sign In screen" style="float: left; margin-rigth: 10px;" width="50%"/></td>
+        <td><img src="static/readme/sign_up_screen.png" alt="Sign Up screen" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+        <td><img src="static/readme/sign_up_screen.png" alt="Sign In screen" style="float: left; margin-rigth: 10px;" width="100%"/></td>
     </tr>
 </table>
 
 ##### back to [top](#table-of-contents)
 
 #### FOR LOGGED IN USERS
+
+<img align="center" src="static/readme/trips.png" alt="Trips screen" style="float: left; margin-rigth: 10px;" width="80%"/>
 
 1. TRIPS:
 - Navbar has the following:
@@ -317,6 +319,12 @@ Images:
 
 ##### back to [top](#table-of-contents)
 
+<table>
+    <tr>
+        <td><img src="static/readme/trips_search.png" alt="Sign Up screen" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+        <td><img src="static/readme/user_profile.png" alt="Sign In screen" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+    </tr>
+</table>
 
 2. NEW TRIP:
 - Navbar (as described above in point 1)
