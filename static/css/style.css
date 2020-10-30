@@ -588,7 +588,6 @@ a[data-tool-tip]:hover::after {
     #navbar-logo{
         font-size: 1.5em;
     }   
-
     /* minimize mobile sidenav menu */
     #mobile-demo{
         height: 300px;
@@ -604,6 +603,11 @@ a[data-tool-tip]:hover::after {
     #messaging-title{
         font-size: 16px;
     }
+    #search-btn-box{
+        padding-left: 3px;
+        margin-right: 25px;
+        padding-right: 0px;
+    }
 }
 
 @media screen and (max-width: 285px){
@@ -611,7 +615,14 @@ a[data-tool-tip]:hover::after {
     /*  Logo size smaller */
     #navbar-logo{
         font-size: 1.3em;
+        margin-left: 0px;
     }   
+    .menu-item{
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 2px;
+        padding-right: 5px;
+    }
     #search-btn-box{
         padding-left: 3px;
         margin-right: 20px;
@@ -634,5 +645,9 @@ a[data-tool-tip]:hover::after {
     #messaging-title,
     #page-not-found-title{
         font-size: 15px;
+    }
+    /* to make datepciker modal smaller for the smallest devices */
+    .datepicker-modal {
+        transform: scaleX(0.8) scaleY(0.8) !important;
     }
 }
