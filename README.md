@@ -246,6 +246,8 @@ Images:
 - SignUp action is a link to sign_up.html, and Post Trips, Search Trips, Team Up actions point to sign_in.html. 
 - The navbar has the Logo and links to Sign Up and Sing In.
 
+<img src="static/readme/main_screen.png" alt="Main screen" style="margin: 0 10px;" width="50%"/>
+
 2. SIGN UP screen:
 - The navbar has the Logo and links to Sign Up and Sing In.
 - The Sign UP card has the following fields:
@@ -265,6 +267,13 @@ Images:
     * Name
     * Password
     * Button "SIGN IN"
+
+<table>
+    <tr>
+        <td><img src="static/readme/sign_up_screen.png" alt="Sign Up screen" style="float: left; margin-rigth: 10px;" width="50%"/></td>
+        <td><img src="static/readme/sign_up_screen.png" alt="Sign In screen" style="float: left; margin-rigth: 10px;" width="50%"/></td>
+    </tr>
+</table>
 
 ##### back to [top](#table-of-contents)
 

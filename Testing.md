@@ -8,7 +8,7 @@ This document is intended to record testing at various stages of development of 
 
 [Main README.md file](README.md)
 
-[View website in GitHub Pages](https://hit-the-slopes.herokuapp.com/)
+[View website on Heroku](https://hit-the-slopes.herokuapp.com/)
 
 ## Hit the Slopes app
 
