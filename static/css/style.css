@@ -37,20 +37,20 @@ body{
 }
 
 #index-main, 
-#signup-main,
 #signin-main, 
 #messaging{
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
-#messaging{
+/* to allow better placementd on mobile screens */
+#signup-main{
     position: absolute;
-    top: 45%;
+    top: 60%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);

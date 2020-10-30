@@ -56,7 +56,7 @@ def add_user():
                                 request.form.get("password")),
                 "gender": request.form.get("gender"),
                 "ageRange": request.form.get("ageRange"),
-                "from": request.form.get("from"),
+                "city": request.form.get("city"),
                 "avatar": request.form.get("avatar")
             }
             mongo.db.users.insert_one(user)

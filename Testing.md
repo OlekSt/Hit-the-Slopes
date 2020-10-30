@@ -119,8 +119,6 @@ The game was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, & Mic
 
 ### Bugs discovered: 
 
-Sign-up form:
-    - Where from had same id as calendar datepicker, so was opening datepicker on registration. 
 
 Navbar:
     -	Active menu item: shows all of them as active
@@ -188,7 +186,10 @@ Trips.html, user's profile:
 
 Sign_up.html, Add_skiresort.html:
     - avatar & thumbnail images/names area of select is too narrow, diaplys is distorted.
-    
+
+Sign-up form:
+    - Where from had same id as calendar datepicker, so was opening datepicker on registration. 
+
     
 #### Unsolved bugs:
 
