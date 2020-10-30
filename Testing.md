@@ -2,7 +2,7 @@
 ## Let's Team Up & Hit the Slopes! - TESTING
 #### Data Centri development Project - Testing write-up
 
-<img src="assets/images/readme/title_image.jpg" alt="Title image" style="margin: 0 10px;" width="100%"/>
+<img src="static/readme/amiresponsive_main.jpg" alt="Title image" style="margin: 0 10px;" width="100%"/>
 
 This document is intended to record testing at various stages of development of the project, as well as different functions, functionalities, correct display of the project's page, etc. 
 

@@ -4,9 +4,13 @@
 #### Python & Data Centric Project:
 Website for people interested in skiing/snowboarding for planning their trips and meeting other visitors with similar interests. The website is be built using Flask-Python & MongoDB.
 
-<img src="static/readme/amiresponsive_main.jpg" alt="Title image" style="margin: 0 10px;" width="100%"/>
+<img src="static/readme/hero_title_image.jpg" alt="Title image" style="margin: 0 10px;" width="100%"/>
 
 [Hit the Slopes - Heroku link](https://hit-the-slopes.herokuapp.com/)
+
+************************************************************
+
+<img src="static/readme/amiresponsive_main.jpg" alt="Title image" style="margin: 0 10px;" width="100%"/>
 
 ************************************************************
 
@@ -168,6 +172,8 @@ User Stories:
     - Navbar, with the website Name/Logo, Menu: Home, Trips, Add Trip, Locations, Add Location
     - INFO button to open footer modal with copyright info.
 
+##### back to [top](#table-of-contents)
+
 - Single Location screen: 
     - Location name
     - Description
@@ -180,9 +186,6 @@ User Stories:
     - Link – Back to Locations
     - Navbar, with the website Name/Logo, Menu: Home, Trips, Add Trip, Locations, Add Location
     - INFO button to open footer modal with copyright info
-
-
-##### back to [top](#table-of-contents)
 
 
 ### SKELETON
@@ -208,6 +211,7 @@ Colors:
 Color choosing: 
 <img src="static/readme/palette/color_ picking.jpg" alt="Color Picking" style="margin: 0 10px; align-self: center;" width="100%"/>
 
+##### back to [top](#table-of-contents)
 
 Palettes derived from the chosen colors: 
  
@@ -220,7 +224,6 @@ Palettes derived from the chosen colors:
     </tr>
 </table>
 
-##### back to [top](#table-of-contents)
 
 Fonts: 
 * Roboto font was chosen for the website due its simplicity but great look and readability.
@@ -229,6 +232,8 @@ Images:
 - Background image was chosen to convey the idea about going skiing/snowboarding, featuring slopes, mountains, skiers.
 - Avatars for user were chosen for their looks as human interest in skiing/snowboarding or interests related to this recreational activity/sport.
 - Thumbnail for ski resorts were chosen featering mountains, ski lifts or skit cottages/huts to convey the idea of a ski resort. 
+
+##### back to [top](#table-of-contents)
 
 
 ## FEATURES
@@ -260,6 +265,8 @@ Images:
     * Name
     * Password
     * Button "SIGN IN"
+
+##### back to [top](#table-of-contents)
 
 #### FOR LOGGED IN USERS
 
@@ -299,6 +306,9 @@ Images:
     * Additional info (posted by a creator of a trip)
     * ONLY for a creator of a trip: Edit & Delete buttons.
 
+##### back to [top](#table-of-contents)
+
+
 2. NEW TRIP:
 - Navbar (as described above in point 1)
 - New Trip card with:
@@ -330,6 +340,10 @@ Images:
     * Link to a map wesbite (e.g. Google maps)
     * ONLY for a creator of a ski resort: Edit & Delete buttons.
 
+
+##### back to [top](#table-of-contents) 
+
+
 4. NEW SKI RESORT:
 - Navbar (as described above in point 1)
 - New Ski Resort card with:
@@ -351,6 +365,9 @@ Images:
 - Designer/Developer's name "Ol.Statsenko", which works as a link to the developer's Github profile/repositories.
 
 
+##### back to [top](#table-of-contents)
+
+
 ### FEATURES TO BE IMPLEMENTED
 
 - Archiving of old trips:
@@ -370,6 +387,9 @@ Images:
 
 - Ski resorts:
     * Add a button "New Trip" to each ski resort, which would take a user to a New Trip page with a pre-selected ski resort.
+
+
+##### back to [top](#table-of-contents)
 
 
 ## INFORMATION ARCHITECTURE
@@ -410,7 +430,7 @@ Avatar06 | image path  | text | string
 Avatar07 | image path  | text | string
 Avatar08 | image path  | text | string
 
-
+##### back to [top](#table-of-contents)
 
 #### Trip/s Collection
 | Title | Key in db | form validation type | Data type |
@@ -473,6 +493,7 @@ This project is built using HTML, CSS, JavaScript, Python programming languages 
 ## TESTING
 Testing information can be found in separate [Testing.md](Testing.md) file.
 
+##### back to [top](#table-of-contents)
 
 ## DEPLOYMENT
 
@@ -508,6 +529,8 @@ The following **must be installed** on your machine:
 
 9. You can visit the website at `https://8080-b781839f-058d-4b52-8df7-2319d1b0a0f7.ws-eu01.gitpod.io/`
 
+##### back to [top](#table-of-contents)
+
 
 ## Heroku Deployment
 To deploy the project to Heroku, follow these steps:
@@ -542,16 +565,16 @@ SECRET_KEY | `<your_secret_key>`
 
 9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
 
+##### back to [top](#table-of-contents)
+
 
 ## CREDITS
 #### CONTENT
 The website is created by Alexey Statsenko, using the media described below. 
 
-
 #### IMAGES
 - Main background image is from [Pexels](https://www.pexels.com/). 
 - Avatar and Thumbnail images/icons are [Freepik from Flaticon](https://www.flaticon.com/). 
-
 
 #### CODE
 - Materialize Select fields validation is from [CI's Flask Mini Project Video](https://www.youtube.com/watch?v=CG36uQtAzkU&feature=youtu.be).
@@ -564,3 +587,5 @@ The website is created by Alexey Statsenko, using the media described below.
 3. Igor Basuga, CI tutor for help with the project.
 4. My mentor, Adegbenga Adeye, for advice and help with planning and creating the website; checking the project and giving advice during the project's calls - checking the code, fixing problems, giving general advice how to organize the website in a better way.
 5. My brother Andrey, and friends - Mario, Chris, Katja, for testing the game on various devices, info on possible fixes, and advice for improvement. 
+
+##### back to [top](#table-of-contents)
