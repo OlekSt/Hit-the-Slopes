@@ -2,9 +2,9 @@
 {% block content %}
 
 <div class="container">
-    <div class="card valign-wrapper">
+    <div id="new-trip-card" class="card valign-wrapper">
         <div class="card-content grey lighten-4">
-            <div id="new_skiresort" class="card-panel grey lighten-5">
+            <div id="new-trip" class="card-panel grey lighten-5">
                 <span class="card-title">NEW TRIP</span>
                 <div class="row">
                     <form action="{{ url_for('insert_trip') }}" method="POST" class="col s12">
@@ -37,6 +37,10 @@
                             <i class="material-icons prefix">child_care</i>
                             <input placeholder="how many kids?" id="kids" name="kids" type="number" min="0" class="validate" required>
                         </div>
+                        <div class="input-field col s12 m12 l12">
+                            <i class="small material-icons prefix">comment</i>
+                            <input placeholder="additional info" id="other_info" name="other_info" type="text" class="validate" required>
+                        </div> 
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">ac_unit</i>
                             <select class="validate" id="ski_snowboard" name="ski_snowboard" required aria-required="true">
@@ -44,11 +48,7 @@
                                 <option value="ski">Ski</option>
                                 <option value="Snowboard">Snowboard</option>
                             </select>
-                        </div>
-                        <div class="input-field col s12 m12 l12">
-                            <i class="small material-icons prefix">comment</i>
-                            <input placeholder="additional info" id="other_info" name="other_info" type="text" class="validate" required>
-                        </div>                   
+                        </div>                  
                         <button class="btn waves-effect waves-red right" type="submit">Save Trip</button>
                     </form>
                 </div>
