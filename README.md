@@ -103,6 +103,8 @@ User Stories:
 
 ### STRUCTURE 
 
+**This is planned structure. Some features or their position on the website were changed during the project implementation due to optimization of either the website's functionality or development process.**
+
 - The main screen will have a background image and a slogan: "Let’s Team Up & Hit the Slopes", plus two buttons: Sign Up & Sign In
 
 - Sing Up screen: 
@@ -166,7 +168,6 @@ User Stories:
     - Navbar, with the website Name/Logo, Menu: Home, Trips, Add Trip, Locations, Add Location
     - INFO button to open footer modal with copyright info.
 
-
 - Single Location screen: 
     - Location name
     - Description
@@ -222,15 +223,132 @@ Palettes derived from the chosen colors:
 ##### back to [top](#table-of-contents)
 
 Fonts: 
-* S..... 
+* Roboto font was chosen for the website due its simplicity but great look and readability.
 
 Images:
-- Background image 
+- Background image was chosen to convey the idea about going skiing/snowboarding, featuring slopes, mountains, skiers.
+- Avatars for user were chosen for their looks as human interest in skiing/snowboarding or interests related to this recreational activity/sport.
+- Thumbnail for ski resorts were chosen featering mountains, ski lifts or skit cottages/huts to convey the idea of a ski resort. 
 
 
 ## FEATURES
 ### EXISTING FEATURES
 
+#### FOR NON-LOGGED IN USERS
+
+1. MAIN PAGE:
+- The introduction screen with the slogan "Join/Start a snow team" with a list of actions required: Sign up, Post Trips, Search Trips, Team Up, Hit the slopes (each with a descriptive icon).
+- SignUp action is a link to sign_up.html, and Post Trips, Search Trips, Team Up actions point to sign_in.html. 
+- The navbar has the Logo and links to Sign Up and Sing In.
+
+2. SIGN UP screen:
+- The navbar has the Logo and links to Sign Up and Sing In.
+- The Sign UP card has the following fields:
+    * Card title "SIGN UP"
+    * Name
+    * Password
+    * Gender (dropdown menu)
+    * Age (dropdown menu)
+    * Home town/country
+    * Avatar (dropdown menu)
+    * Button "SIGN UP"
+
+3. SIGN IN screen:
+- The navbar has the Logo and links to Sign Up and Sing In.
+- The Sign UP card has the following fields:
+    * Card title "SIGN IN"
+    * Name
+    * Password
+    * Button "SIGN IN"
+
+#### FOR LOGGED IN USERS
+
+1. TRIPS:
+- Navbar has the following:
+    * The Logo
+    * Trips 
+    * New Trip
+    * Ski resorts
+    * New Ski Resort 
+    * Copyright/about
+    * Sign Out
+**On mobile devices the navbar has only the logo and burge menu button, which opens a mobile view menu with the respective options**
+
+- Flashed message area: 
+    * After sign up: "Welcome, 'username'!"
+    * After login: "Welcome back, 'username'!"
+    * After trips search show relevant messages
+- Search area with:
+    * Title "Search Upcoming Trips"
+    * Ski resort name field
+    * Date from field (open calendar picker)
+    * Date to field (open calendar picker)
+    * Reset button
+    * Search button
+- Trips (list of trips in chronological order starting from current/today's date)
+- Each trip card has:
+    * User's name with a popup suggestion bubble(which opens a profile in a modal)
+    * Avatar
+    * Ski resort name with a popup suggestion bubble(works as a link to ski resorts)
+    * Ski resort thumbnail
+    * Date from 
+    * Date to
+    * Adults (number)
+    * Kids (number)
+    * Ski or Snowboard preference
+    * Additional info (posted by a creator of a trip)
+    * ONLY for a creator of a trip: Edit & Delete buttons.
+
+2. NEW TRIP:
+- Navbar (as described above in point 1)
+- New Trip card with:
+    * Card title "New Trip"
+    * Choose ski resort field (dropdown menu with the list of registered ski resorts)
+    * Date from (opens a calendar datepicker)
+    * Date to (opens a calendar datepicker)
+    * Adults (number field)
+    * Kids (number field)
+    * Ski or Snowboard preference (dropdown menu)
+    * Additional info field
+    * Button "Save Trip"
+
+3. SKI RESORTS:
+- Navbar (as described above in point 1)
+- Search area with:
+    * Title "Search Ski Resorts"
+    * Ski resort name field
+    * Reset button
+    * Search button
+- Ski resorts (list, alphabetically displayed)
+- Each ski resort card has:
+    * Name
+    * Brief descriptive title
+    * Thumbnail
+    * Glacier: Yes/No
+    * Night skiing: Yes/No
+    * Link to its official website
+    * Link to a map wesbite (e.g. Google maps)
+    * ONLY for a creator of a ski resort: Edit & Delete buttons.
+
+4. NEW SKI RESORT:
+- Navbar (as described above in point 1)
+- New Ski Resort card with:
+    * Card title "New Ski Resort"
+    * Name field
+    * Short description field
+    * Field for a website
+    * Field for a map link
+    * Glacier info (dropdown menu)
+    * Night skiing (dropdown menu)
+    * Additional info field
+    * Thumbnail (dropdown menu)
+    * Button "Add Ski Resort"
+
+5. Copyright modal
+- A mini hero image 
+- The website's title "Hit the Slopes!"
+- Text: Desgined & Developed
+- Designer/Developer's name "Ol.Statsenko", which works as a link to the developer's Github profile/repositories.
 
 ### FEATURES TO BE IMPLEMENTED
 
@@ -318,7 +436,7 @@ Short description | description |text, `maxlength="80"` | string
 Website | url | url, `maxlength="100"` | string
 Map link | map | url, `maxlength="100"` | string
 Night | night | text | string
-Glacier | glacier | text | tring
+Glacier | glacier | text | string
 **Thumbnail Choice** | thumbnail | | **object**
 Thumbnail01 | image path | text | string
 Thumbnail02 | image path | text | string
@@ -336,8 +454,7 @@ Other info | info | text, `maxlength="200"` | string
 
 
 ## TECHNOLOGIES USED 
-
-- This project is built using HTML, CSS, JavaScript, Python programming languages plus MongoDB.
+This project is built using HTML, CSS, JavaScript, Python programming languages plus MongoDB.
 
 - [JQuery](https://jquery.com) to simplify DOM manipulation
 - [Gitpod](https://gitpod.io/) for coding the project.
@@ -361,7 +478,6 @@ Testing information can be found in separate [Testing.md](Testing.md) file.
 ## DEPLOYMENT
 
 
-
 ## CREDITS
 #### CONTENT
 The website is created by Alexey Statsenko, using the media described below. 
@@ -376,7 +492,10 @@ The website is created by Alexey Statsenko, using the media described below.
 - Materialize Select fields validation is from [CI's Flask Mini Project Video](https://www.youtube.com/watch?v=CG36uQtAzkU&feature=youtu.be).
 - Code for info bubble above a user’s name and a ski resort’s name is taken from [Kevin Powell's video](https://www.youtube.com/watch?v=xoRbkm8XgfQ).
 
+
 #### ACKNOWLEDGMENTS 
 1. Tim Nelson, CI tutor for a lot of help with various parts of the project, & sharing learning materials, and general advice on coding.
 2. Stephen Moody, CI tutor for help with code and some general advice on coding.  
 3. Igor Basuga, CI tutor for help with the project.
+4. My mentor, Adegbenga Adeye, for advice and help with planning and creating the website; checking the project and giving advice during the project's calls - checking the code, fixing problems, giving general advice how to organize the website in a better way.
+5. My brother Andrey, and friends - Mario, Chris, Katja, for testing the game on various devices, info on possible fixes, and advice for improvement. 
