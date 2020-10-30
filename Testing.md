@@ -337,6 +337,9 @@ User's profile opened from search for trips:
 Firefox on mobile:
     - Color validation does not work for all fields on Sing Up, popup message is not shown if a field is not filled, but won't let save till all the fields are filled in.
 
+Edit_trip.html:
+    - It is possible to change one date, and set Date-To before Date-From, and save a trip with wrong dates.
+
 
 #### Solved bugs:
 
