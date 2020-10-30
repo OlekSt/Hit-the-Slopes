@@ -215,7 +215,7 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 
 
 ### Testing undertaken on mobile and pad devices
-The game was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrome, Microsoft Edge & Mozilla Firefox
+The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrome, Microsoft Edge & Mozilla Firefox
 1. The main page screen:
 - Confirmed that it shows the main screen with the slogan "Join/Start a snow team" with a list of actions required: Sign up, Post Trips, Search Trips, Team Up, Hit the slopes (each with a descriptive icon).
 - Confirmed that SignUp action points to sign_up.html, and Post Trips, Search Trips, Team Up actions point to sign_in.html. Used button back to go back to the main screen with no issues.
@@ -312,8 +312,12 @@ The game was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrome, 
 10. Sign Out
     - Pressing take us correctly to the index.html with the main screen with the slogan. The navbar shows only the log and Sign Up & Sing In links. 
 
-### Bugs discovered: 
 
+### Testing undertaken in DevTools
+The website was tested on all devices available there following the same procedure described in the section above for testing on a laptop, tab & mobile 
+
+
+### Bugs discovered: 
 
 Navbar:
     -	Active menu item: shows all of them as active
@@ -394,5 +398,4 @@ Add_skiresort.html, skiresorts.html:
     ** Removed functionality. 
 
 ## Further testing: 
-...............
-!!! TO BE ADDED
+1. Asked friends and family to look at the site on their devices & report any issues they found.
