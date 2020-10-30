@@ -328,6 +328,9 @@ Trips.html:
 User's profile opened from search for trips:
     - Contact me takes me to UnderConstruction page, if initially I chose some search parameters, and opened a profile from one of the filtered trips, when I press Back button, takes me to a "Re-confirm Submission" warning page, instead of showing a list of trips
 
+Firefox on mobile:
+    - Color validation does not work for all fields on Sing Up, popup message is not shown if a field is not filled, but won't let save till all the fields are filled in.
+
 
 #### Solved bugs:
 
