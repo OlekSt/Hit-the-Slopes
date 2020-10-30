@@ -44,7 +44,7 @@ $(document).ready(function(){
     
     /* To make Date-To set for the same month as a chosen Date-From in add_trip.html */
     /* Same for search dates in trips.html */
-    var today = new Date();
+    const today = new Date();
     setDate();
     function setDate(){
         /* Dates choice for a new trip */
@@ -54,11 +54,12 @@ $(document).ready(function(){
         onSelect: function(dateFrom){
             $("#to").datepicker({ minDate: dateFrom, format: 'yyyy.mm.dd' }).datepicker('setDate', new Date (dateFrom));
             }
+        
         });    
         $('#to').datepicker({
         format: 'yyyy.mm.dd',
         minDate: today,
-        onSelect: function(dateTo){ 
+        onSelect: function(dateTo){
             $("#from").datepicker({ minDate: today, maxDate: dateTo, format: 'yyyy.mm.dd' }).datepicker('setDate', new Date (dateTo));
             }
         });        
@@ -74,6 +75,34 @@ $(document).ready(function(){
         onSelect: function(dateTo){ 
             $("#query_from").datepicker({ maxDate: dateTo, format: 'yyyy.mm.dd' }).datepicker('setDate', new Date (dateTo));
             }
-        });        
+        });
+    }
+
+    let startDate = $('#from').val();
+    console.log(startDate)
+    let endDate = $('#to').val();
+    console.log(endDate);
+    tripDates();
+    function tripDates(){
+        $('#from').datepicker({
+        format: 'yyyy.mm.dd',
+        onSelect: function(date){
+            startDate = date.toISOString();
+            console.log(startDate);
+            return startDate;
+            }
+        });
+        $('#to').datepicker({
+        format: 'yyyy.mm.dd',
+        onSelect: function(date){
+            endDate = date.toISOString();
+            console.log(endDate);
+            return endDate;
+            }
+        });
+
+        if (startDate > endDate){
+            alert("End date cannot be before Start Date!");
+            }
     }
 });
