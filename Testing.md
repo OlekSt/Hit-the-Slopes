@@ -29,9 +29,14 @@ This document is intended to record testing at various stages of development of 
 
 ### Validation services
 The following validation services were used to check the validity of the website code.
-- [W3C Markup Validation]( https://validator.w3.org/) ......
-- [W3C CSS validation](https://jigsaw.w3.org/css-validator/) .....
-- [JSHint](https://jshint.com/) .......
+- [W3C Markup Validation]( https://validator.w3.org/): 
+    No errors or warnings.
+- [W3C CSS validation](https://jigsaw.w3.org/css-validator/):
+    Found some errors - fixing.
+- [JSHint](https://jshint.com/):
+    No errors, 3 warning about 'let' & 'const'.
+- [PEP8 Python Validator](http://pep8online.com):
+    No errors or warnings.
 - [Am I responsive](http://ami.responsivedesign.is/) was used to check responsiveness of the website for various screen sizes - mobile, tab, laptop, desktop. 
 
 ## Client stories testing

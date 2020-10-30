@@ -268,8 +268,7 @@ body{
     font-size: 1.2em;
     font-weight: 600;
     color: #0056B2;
-    -webkit-text-decoration: uppercase;
-            text-decoration: uppercase;
+    text-transform: uppercase;
 }
 
 .skiresort-description{
@@ -411,7 +410,7 @@ a[data-tool-tip]:hover::after {
     background-color: #fafafa;
     padding: 0;
     max-height: 60%;
-    max-width: 100%;
+    max-width: 96%;
     will-change: top, opacity;
     width: -webkit-max-content;
     width: -moz-max-content;
@@ -621,7 +620,7 @@ a[data-tool-tip]:hover::after {
         width: 95%;
     }
     #messaging-title,
-    #404-title{
+    #page-not-found-title{
         font-size: 15px;
     }
 }
