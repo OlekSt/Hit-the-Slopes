@@ -309,10 +309,12 @@ def insert_skiresort():
                 'location_name': request.form["location_name"]
                 })
             if skiresort_in_db:
+                query = request.form["location_name"]
                 flash("Ski resort is already registered.")
+                skiresorts = list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
                 return render_template(
                     "ski_resorts.html",
-                    skiresorts=mongo.db.skiresorts.find(),
+                    skiresorts=skiresorts,
                     active='signedIn')
             else:
                 skiresorts.insert_one({
