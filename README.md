@@ -339,6 +339,13 @@ Images:
     * Additional info field
     * Button "Save Trip"
 
+<table>
+    <tr>
+        <td><img src="static/readme/new_trip01.png" alt="New Trip" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+        <td><img src="static/readme/new_trip02.png" alt="New Trip" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+    </tr>
+</table>
+
 3. SKI RESORTS:
 - Navbar (as described above in point 1)
 - Search area with:
@@ -360,6 +367,12 @@ Images:
 
 ##### back to [top](#table-of-contents) 
 
+<table>
+    <tr>
+        <td><img src="static/readme/skiresorts.png" alt="New Trip" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+        <td><img src="static/readme/new_skiresort.png" alt="New Trip" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+    </tr>
+</table>
 
 4. NEW SKI RESORT:
 - Navbar (as described above in point 1)
