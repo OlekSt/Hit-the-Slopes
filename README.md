@@ -271,7 +271,7 @@ Images:
 <table>
     <tr>
         <td><img src="static/readme/sign_up_screen.png" alt="Sign Up screen" style="float: left; margin-rigth: 10px;" width="100%"/></td>
-        <td><img src="static/readme/sign_up_screen.png" alt="Sign In screen" style="float: left; margin-rigth: 10px;" width="100%"/></td>
+        <td><img src="static/readme/sign_in_screen.png" alt="Sign In screen" style="float: left; margin-rigth: 10px;" width="100%"/></td>
     </tr>
 </table>
 
@@ -279,7 +279,7 @@ Images:
 
 #### FOR LOGGED IN USERS
 
-<img align="center" src="static/readme/trips.png" alt="Trips screen" style="float: left; margin-rigth: 10px;" width="80%"/>
+<img align="center" src="static/readme/trips.png" alt="Trips screen" style="float: left; margin-rigth: 10px;" width="100%"/>
 
 1. TRIPS:
 - Navbar has the following:
