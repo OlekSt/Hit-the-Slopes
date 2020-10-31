@@ -125,7 +125,7 @@ User Stories:
     - List of trips with dates, location, user info.
     - Navbar, with the website Name/Logo, Menu: Home, Trips, Add Trip, Locations, Add Location
     - INFO button to open footer modal with copyright info
-    - Each trip thumbnail has a user icon, which (onhover or onclick) shows info about a user: age, m/f, from (e.g. Prague), ski/snowboard preference, and option to contact
+    - Each trip thumbnail has a user icon, which (on-hover or on-click) shows info about a user: age, m/f, from (e.g. Prague), ski/snowboard preference, and option to contact
     - Sidebar with Top locations, and search options (optional)
 
 ##### back to [top](#table-of-contents)
@@ -166,7 +166,7 @@ User Stories:
     - Additional info
     - Navbar, with the website Name/Logo, Menu: Home, Trips, Add Trip, Locations, Add Location
     - INFO button to open footer modal with copyright info
-    - A user icon, which (onhover or onclick) shows info about a user: age, m/f, from (e.g. Prague), ski/snowboard preference, and option to contact
+    - A user icon, which (on-hover or on-click) shows info about a user: age, m/f, from (e.g. Prague), ski/snowboard preference, and option to contact
     - Link – Back to Trips
     - Link - Locations
     - Navbar, with the website Name/Logo, Menu: Home, Trips, Add Trip, Locations, Add Location
@@ -231,7 +231,7 @@ Fonts:
 Images:
 - Background image was chosen to convey the idea about going skiing/snowboarding, featuring slopes, mountains, skiers.
 - Avatars for user were chosen for their looks as human interest in skiing/snowboarding or interests related to this recreational activity/sport.
-- Thumbnail for ski resorts were chosen featering mountains, ski lifts or skit cottages/huts to convey the idea of a ski resort. 
+- Thumbnail for ski resorts were chosen featuring mountains, ski lifts or skit cottages/huts to convey the idea of a ski resort. 
 
 ##### back to [top](#table-of-contents)
 
@@ -361,7 +361,7 @@ Images:
     * Glacier: Yes/No
     * Night skiing: Yes/No
     * Link to its official website
-    * Link to a map wesbite (e.g. Google maps)
+    * Link to a map website (e.g. Google maps)
     * ONLY for a creator of a ski resort: Edit & Delete buttons.
 
 
@@ -508,7 +508,7 @@ This project is built using HTML, CSS, JavaScript, Python programming languages 
 - [JQuery](https://jquery.com) to simplify DOM manipulation
 - [Gitpod](https://gitpod.io/) for coding the project.
 - [GitHub](https://github.com/) to store & share the project's code. 
-- [ChromeDevtools](https://developers.google.com/web/tools/chrome-devtools) to check created code and possible inconsistencies, find best parameters for various code items. 
+- [ChromeDevtools](https://developers.google.com/web/tools/chrome-devtools) to check created code and possible inconsistencies, find the best parameters for various code items. 
 - [Materialize](https://materializecss.com/) for navbar, calendar datepicker, icons, and other elements.
 - [Bootstrap](https://www.bootstrapcdn.com/) to simplify some parts of the website's structure. 
 - [FontAwesome](https://www.bootstrapcdn.com/fontawesome/) for icons.
@@ -527,7 +527,7 @@ Testing information can be found in separate [Testing.md](Testing.md) file.
 
 ## DEPLOYMENT
 
-[Hit the Slope on Heroku](https://hit-the-slopes.herokuapp.com/)
+[Hit the Slope! on Heroku](https://hit-the-slopes.herokuapp.com/)
 
 Gitpod was used to code this project. It was then committed and pushed to Github using the command line and deployed on Heroku PaaS platform.
 All versions and branches of the code are stored on [Github repository](https://github.com/OlekSt/Hit-the-Slopes).
@@ -615,7 +615,7 @@ The website is created by Alexey Statsenko, using the media described below.
 1. Tim Nelson, CI tutor for a lot of help with various parts of the project, & sharing learning materials, and general advice on coding.
 2. Stephen Moody, CI tutor for help with code and some general advice on coding.  
 3. Igor Basuga, CI tutor for help with the project.
-4. My mentor, Adegbenga Adeye, for advice and help with planning and creating the website; checking the project and giving advice during the project's calls - checking the code, fixing problems, giving general advice how to organize the website in a better way.
+4. My mentor, Adegbenga Adeye, for advice and help with planning and creating the website; checking the project and giving advice during the project's calls - checking the code, giving general advice.
 5. My brother Andrey, and friends - Mario, Chris, Katja, for testing the game on various devices, info on possible fixes, and advice for improvement. 
 
 ##### back to [top](#table-of-contents)
