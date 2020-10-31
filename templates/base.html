@@ -12,10 +12,11 @@
 
     <!-- favicon file -->
     <link rel="icon" href="{{ url_for('static', filename='img/favicon/ski_favicon_32.png') }}" type="image/x-icon">
+
     <!--Font Awesome style link-->
     <script src="https://kit.fontawesome.com/9e99644672.js" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-       
+
     <!--Import materialize.css-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -25,7 +26,6 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     
 </head>
-
 <body>
     <!-- Navbar -->
     {% if active == 'signedIn' %} 

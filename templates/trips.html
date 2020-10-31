@@ -31,12 +31,12 @@
 <div class="row panel">
     <div class="card">
         <table>
-        {% for trip in trips %}  
+            {% for trip in trips %}  
             <tbody>             
                 <tr class="trip-card">
                     <td class="trip-cell">
                     {% for user in users %}
-                                        {% if trip.user|lower == user.name|lower %}
+                        {% if trip.user|lower == user.name|lower %}
                         <div class="trip-main row">
                             <div class="col s12 m5 l5 xl5">
                                 <div class="row avatar-thumbnail">
@@ -63,12 +63,11 @@
                                                 </div> 
                                             </div>                   
                                         </div>
-                                        <!-- End - Modal structure for users' profiles -->
-                                              
+                                        <!-- End - Modal structure for users' profiles -->     
                                     </div>
                                     <div class="col s6 m6 l6 xl6">
                                         <a class="trip-skiresort-title center" href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong></a>
-                                    <div class="avatar-div center">
+                                        <div class="avatar-div center">
                                             {% for skiresort in skiresorts %}
                                                 {% if trip.skiresort_id == skiresort._id %}
                                                 <img class="trip-thumbnail center" src="{{skiresort.thumbnail}}" width="60" height="60"/>
@@ -87,7 +86,7 @@
                                     <hr noshade class="hr-2">
                                     <p class="trip-p">ADULTS:   <strong>{{trip.adults}}</strong></p>
                                     <p class="trip-p">KIDS:   <strong>{{trip.kids}}</strong></p>
-                                    </div>
+                                </div>
                                 <div class="col s6 m6 l6 xl6">    
                                     <div>
                                         <p class="ski-snowboard-title"><strong>{{trip.ski_snowboard}}</strong></p>
