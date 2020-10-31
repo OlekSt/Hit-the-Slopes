@@ -48,10 +48,10 @@ def sign_in_page():
 def add_user():
     users = mongo.db.users
     if request.method == "POST":
-        name = users.find_one({'name': request.form.get("name")})
+        name = users.find_one({'name': request.form.get("name").lower().capitalize()})
         if name is None:
             user = {
-                "name": request.form.get("name"),
+                "name": request.form.get("name").lower().capitalize(),
                 "password": generate_password_hash(
                                 request.form.get("password")),
                 "gender": request.form.get("gender"),
@@ -60,7 +60,7 @@ def add_user():
                 "avatar": request.form.get("avatar")
             }
             mongo.db.users.insert_one(user)
-            session['user'] = request.form["name"]
+            session['user'] = request.form.get("name").lower().capitalize()
             flash("Welcome, " + session['user'] + "!")
             return redirect(url_for('trips'))
         else:
@@ -76,7 +76,8 @@ def add_user():
 def sign_in():
     if request.method == "POST":
         users = mongo.db.users
-        existing_user = users.find_one({'name': request.form["name"]})
+        existing_user = users.find_one(
+            {'name': request.form.get("name").lower().capitalize()})
         if existing_user:
             if check_password_hash(
               existing_user["password"], request.form.get("password")):
@@ -93,7 +94,7 @@ def sign_in():
     return render_template(
             'trips.html',
             active='signedIn',
-            logged_user=session['user'])
+            logged_user=logged_user)
 
 
 @app.route('/user_account', methods=['POST'])
@@ -293,6 +294,7 @@ def search_ski_resorts():
             skiresorts=skiresorts,
             active='signedIn')
 
+
 @app.route('/add_skiresort')
 def add_skiresort():
     return render_template('add_skiresort.html', active='signedIn')
@@ -306,12 +308,14 @@ def insert_skiresort():
         if request.method == "POST":
             skiresorts = mongo.db.skiresorts
             skiresort_in_db = skiresorts.find_one({
-                'location_name': request.form["location_name"]
+                'location_name':
+                request.form.get("location_name").lower().capitalize()
                 })
             if skiresort_in_db:
-                query = request.form["location_name"]
+                query = request.form.get("location_name").lower().capitalize()
                 flash("Ski resort is already registered.")
-                skiresorts = list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
+                skiresorts = list(mongo.db.skiresorts.find(
+                                    {"$text": {"$search": query}}))
                 return render_template(
                     "ski_resorts.html",
                     skiresorts=skiresorts,
@@ -319,7 +323,8 @@ def insert_skiresort():
             else:
                 skiresorts.insert_one({
                     'user': session['user'],
-                    'location_name': request.form['location_name'],
+                    'location_name':
+                        request.form['location_name'].lower().capitalize(),
                     'description': request.form['description'],
                     'website': request.form['website'],
                     'map': request.form['map'],
