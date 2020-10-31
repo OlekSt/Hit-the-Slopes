@@ -234,8 +234,8 @@ def search_trips():
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
     trips = sorted(trips,
-                       key=lambda i: (i['from'], i['to']),
-                       reverse=False)
+                   key=lambda i: (i['from'], i['to']),
+                   reverse=False)
     return render_template(
         "trips.html",
         skiresorts=skiresorts,
