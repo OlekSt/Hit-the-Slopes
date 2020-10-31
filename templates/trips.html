@@ -70,7 +70,7 @@
                                         <a class="trip-skiresort-title center" href="{{ url_for('ski_resorts')}}" data-tool-tip="See Ski Resorts"><strong>{{trip.location_name}}</strong></a>
                                     <div class="avatar-div center">
                                             {% for skiresort in skiresorts %}
-                                                {% if trip.location_name|lower == skiresort.location_name|lower %}
+                                                {% if trip.skiresort_id == skiresort._id %}
                                                 <img class="trip-thumbnail center" src="{{skiresort.thumbnail}}" width="60" height="60"/>
                                                 {% break %}
                                                 {% endif %}
