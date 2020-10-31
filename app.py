@@ -142,35 +142,60 @@ def contact_me():
 # and dates of trips starting and finishing at
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
-    query = request.form.get("query")
+    query = request.form.get("query").lower().capitalize()
     query_from = request.form.get("query_from")
     query_to = request.form.get("query_to")
+    skiresorts = mongo.db.skiresorts
+    query_in_db = skiresorts.find_one(  # check if ski resort in DB
+            {'location_name': request.form.get("query").lower().capitalize()})
     if query and query_from and query_to:  # search by place, & dates from & to
-        trips = mongo.db.trips.find({
-                "$text": {"$search": query},
-                "from": {"$gte": query_from},
-                "to": {"$lte": query_to}
-                }).sort("from", 1)  # to sort in chronological order
-        flash("Trips to: " + query + ". Between: " +
-              query_from + " & " + query_to)
-    elif query_from and query_to:  # search by starting & ending dates of trips
+        if query_in_db:
+            trips = mongo.db.trips.find({
+                    "$text": {"$search": query},
+                    "from": {"$gte": query_from},
+                    "to": {"$lte": query_to}
+                    }).sort("from", 1)  # to sort in chronological order
+            flash("Trips to: " + query + ", between: " +
+                  query_from + " & " + query_to)
+        else:  # if spelt wrongly in search field
+            trips = mongo.db.trips.find({
+                    "from": {"$gte": query_from},
+                    "to": {"$lte": query_to}
+                    }).sort("from", 1)  # to sort in chronological order
+            flash("Wrong name, or no such ski resort!")
+            flash("Trips between: " + query_from + " & " + query_to)
+    elif query_from and query_to:  # search by start/end dates of trips
         trips = mongo.db.trips.find({
                 "from": {"$gte": query_from},
                 "to": {"$lte": query_to}
                 }).sort("from", 1)
         flash("Trips between: " + query_from + " & " + query_to)
     elif query and query_from:  # search by a place and a starting date
-        trips = mongo.db.trips.find({
-                "$text": {"$search": query},
-                "from": {"$gte": query_from}
-                }).sort("from", 1)
-        flash("Trips to: " + query + ". Starting: " + query_from)
+        if query_in_db:
+            trips = mongo.db.trips.find({
+                    "$text": {"$search": query},
+                    "from": {"$gte": query_from}
+                    }).sort("from", 1)
+            flash("Trips to: " + query + ", starting: " + query_from)
+        else:  # if spelt wrongly in search field
+            trips = mongo.db.trips.find({
+                    "from": {"$gte": query_from}
+                    }).sort("from", 1)
+            flash("Wrong name, or no such ski resort!")
+            flash("Trips starting: " + query_from)
     elif query and query_to:  # search by a place & an ending date
-        trips = mongo.db.trips.find({
-                "$text": {"$search": query},
-                "to": {"$lte": query_to}
-                }).sort("from", 1)
-        flash("Trips to: " + query + ". From: " + query_to)
+        if query_in_db:
+            trips = mongo.db.trips.find({
+                    "$text": {"$search": query},
+                    "to": {"$lte": query_to}
+                    }).sort("from", 1)
+            flash("Trips to: " + query + ", till: " + query_to)
+        else:  # if spelt wrongly in search field
+            trips = mongo.db.trips.find({
+                    "to": {"$lte": query_to}
+                    }).sort("from", 1)
+            flash("Wrong name, or no such ski resort!")
+            flash("Trips till: " + query_to)
     elif query:      # search by a place
         trips = mongo.db.trips.find({"$text":
                                     {"$search": query}}).sort("from", 1)
@@ -224,7 +249,6 @@ def update_trip(trip_id):
                 {"$set":
                     {item: trip[item]}})
         else:
-
             mongo.db.trips.update_one(
                     {'_id': ObjectId(trip_id)},
                     {"$set":
@@ -281,7 +305,7 @@ def ski_resorts():
 # search through ski resorts
 @app.route('/search_ski_resorts', methods=['GET', 'POST'])
 def search_ski_resorts():
-    query = request.form.get("query")
+    query = request.form.get("query").lower().capitalize()
     skiresorts = list(mongo.db.skiresorts.find({"$text": {"$search": query}}))
     if skiresorts:
         return render_template(
