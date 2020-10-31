@@ -146,6 +146,8 @@ def search_trips():
     query_from = request.form.get("query_from")
     query_to = request.form.get("query_to")
     skiresorts = mongo.db.skiresorts
+    trips = mongo.db.trips
+    users = mongo.db.users
     query_in_db = skiresorts.find_one(  # check if ski resort in DB
             {'location_name': request.form.get("query").lower().capitalize()})
     if query and query_from and query_to:  # search by place, & dates from & to
@@ -156,20 +158,20 @@ def search_trips():
                     "to": {"$lte": query_to}
                     }).sort("from", 1)  # to sort in chronological order
             flash("Trips to: " + query + ", between: " +
-                  query_from + " & " + query_to)
+                  query_from + " - " + query_to)
         else:  # if spelt wrongly in search field
             trips = mongo.db.trips.find({
                     "from": {"$gte": query_from},
                     "to": {"$lte": query_to}
                     }).sort("from", 1)  # to sort in chronological order
-            flash("Wrong name, or no such ski resort!")
-            flash("Trips between: " + query_from + " & " + query_to)
+            flash("Wrong name, or no such ski resort!..")
+            flash(" Trips between: " + query_from + " - " + query_to)
     elif query_from and query_to:  # search by start/end dates of trips
         trips = mongo.db.trips.find({
                 "from": {"$gte": query_from},
                 "to": {"$lte": query_to}
                 }).sort("from", 1)
-        flash("Trips between: " + query_from + " & " + query_to)
+        flash("Trips between: " + query_from + " - " + query_to)
     elif query and query_from:  # search by a place and a starting date
         if query_in_db:
             trips = mongo.db.trips.find({
@@ -181,7 +183,7 @@ def search_trips():
             trips = mongo.db.trips.find({
                     "from": {"$gte": query_from}
                     }).sort("from", 1)
-            flash("Wrong name, or no such ski resort!")
+            flash("Wrong name, or no such ski resort!..")
             flash("Trips starting: " + query_from)
     elif query and query_to:  # search by a place & an ending date
         if query_in_db:
@@ -194,12 +196,15 @@ def search_trips():
             trips = mongo.db.trips.find({
                     "to": {"$lte": query_to}
                     }).sort("from", 1)
-            flash("Wrong name, or no such ski resort!")
+            flash("Wrong name, or no such ski resort!..")
             flash("Trips till: " + query_to)
     elif query:      # search by a place
-        trips = mongo.db.trips.find({"$text":
-                                    {"$search": query}}).sort("from", 1)
-        flash("Trips to: " + query)
+        if query_in_db:
+            trips = mongo.db.trips.find({"$text":
+                                        {"$search": query}}).sort("from", 1)
+            flash("Trips to: " + query)
+        else:
+            flash("Wrong name, or no such ski resort!")
     elif query_from:     # search by a starting date
         trips = mongo.db.trips.find({"from":
                                     {"$gte": query_from}}).sort("from", 1)
@@ -208,9 +213,11 @@ def search_trips():
         trips = mongo.db.trips.find({"to": {"$lte": query_to}}).sort("from", 1)
         flash("Trips till: " + query_to)
     else:
-        trips = trips = mongo.db.trips.find()
         flash("No search parameters were chosen.")
         redirect(url_for('trips'))
+        users = list(mongo.db.users.find())
+        skiresorts = list(mongo.db.skiresorts.find())
+        trips = mongo.db.trips.find().sort("from", 1)
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
     return render_template(
