@@ -47,6 +47,15 @@ body{
     transform: translate(-50%, -50%);
 }
 
+#signup-main{
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    } 
+
 /* to fix oversized text and images in select for avatar and thumbnail */
 #signup-select li img, 
 #skiresort-select li img{
@@ -628,7 +637,7 @@ a[data-tool-tip]:hover::after {
     /* to allow better placement of signup form on mobile screens */
     #signup-main{
         position: absolute;
-        top: 70%;
+        top: 60%;
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -646,9 +655,6 @@ a[data-tool-tip]:hover::after {
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     } 
-    #main{
-        max-height: 100%;
-    }
 }
 
 @media screen and (max-width: 285px){
@@ -697,7 +703,7 @@ a[data-tool-tip]:hover::after {
         transform: translate(-50%, -50%);
     }   
     /* to make datepciker modal smaller for the smallest devices */
-    .datepicker-modal {
+    .datepicker-modal{
         -webkit-transform: scaleX(0.8) scaleY(0.8) !important;
         -ms-transform: scaleX(0.8) scaleY(0.8) !important;
         transform: scaleX(0.8) scaleY(0.8) !important;

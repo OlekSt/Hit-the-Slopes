@@ -354,14 +354,14 @@ Navbar:
 Trips.html:
     - If a skiresort is deleted, a skiresort's thumbnail is not displayed on a trip in trips.html.
 
-User's profile opened from search for trips:
-    - Contact me takes me to UnderConstruction page, if initially I chose some search parameters, and opened a profile from one of the filtered trips, when I press Back button, takes me to a "Re-confirm Submission" warning page, instead of showing a list of trips
-
 Firefox on mobile:
     - Color validation does not work for all fields on Sing Up, popup message is not shown if a field is not filled, but won't let save till all the fields are filled in.
 
 Edit_trip.html:
     - It is possible to change one date, and set Date-To before Date-From, and save a trip with wrong dates.
+
+Sign_up_page.html(mobile view, only on Chrome, works ok on Firefox):
+    - If i am trying to register with an existing name, flashes a message, the message is covered by the top of the sign-up card.
 
 ##### back to [top](#table-of-contents)
 
@@ -407,6 +407,9 @@ Add_trip:
 Edit_skiresort.html:
     - Thumbnail info is lost on opening a specific ski resort to be updated.
     - Skiresort choice is lost on saving, if not chosen again.
+
+User's profile opened from search for trips:
+    - Contact me takes me to UnderConstruction page, if initially I chose some search parameters, and opened a profile from one of the filtered trips, when I press Back button, takes me to a "Re-confirm Submission" warning page, instead of showing a list of trips
 
 ##### back to [top](#table-of-contents)
 
