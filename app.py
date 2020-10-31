@@ -65,7 +65,7 @@ def add_user():
             flash("Welcome, " + session['user'] + "!")
             return redirect(url_for('trips'))
         else:
-            flash("This username already exists, please choose another one")
+            flash("This username already exists, please choose another one.")
             return redirect(url_for('sign_up_page'))
     return render_template(
             'trips.html',
