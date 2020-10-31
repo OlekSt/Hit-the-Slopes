@@ -146,7 +146,7 @@ def search_trips():
     query_from = request.form.get("query_from")
     query_to = request.form.get("query_to")
     skiresorts = mongo.db.skiresorts
-    query_in_db = skiresorts.find_one(
+    query_in_db = skiresorts.find_one(  # check if ski resort in DB
             {'location_name': request.form.get("query").lower().capitalize()})
     if query and query_from and query_to:  # search by place, & dates from & to
         if query_in_db:
@@ -155,9 +155,9 @@ def search_trips():
                     "from": {"$gte": query_from},
                     "to": {"$lte": query_to}
                     }).sort("from", 1)  # to sort in chronological order
-            flash("Trips to: " + query + ". Between: " +
+            flash("Trips to: " + query + ", between: " +
                   query_from + " & " + query_to)
-        else:
+        else:  # if spelt wrongly in search field
             trips = mongo.db.trips.find({
                     "from": {"$gte": query_from},
                     "to": {"$lte": query_to}
@@ -176,8 +176,8 @@ def search_trips():
                     "$text": {"$search": query},
                     "from": {"$gte": query_from}
                     }).sort("from", 1)
-            flash("Trips to: " + query + ". Starting: " + query_from)
-        else:
+            flash("Trips to: " + query + ", starting: " + query_from)
+        else:  # if spelt wrongly in search field
             trips = mongo.db.trips.find({
                     "from": {"$gte": query_from}
                     }).sort("from", 1)
@@ -190,7 +190,7 @@ def search_trips():
                     "to": {"$lte": query_to}
                     }).sort("from", 1)
             flash("Trips to: " + query + ", till: " + query_to)
-        else:
+        else:  # if spelt wrongly in search field
             trips = mongo.db.trips.find({
                     "to": {"$lte": query_to}
                     }).sort("from", 1)
