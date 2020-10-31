@@ -139,7 +139,7 @@ def contact_me():
 
 
 # for searching through trips by ski resorts' names,
-# and dates of trips starting and finishing at
+# and start/end dates
 @app.route('/search_trips', methods=['GET', 'POST'])
 def search_trips():
     query = request.form.get("query").lower().capitalize()
