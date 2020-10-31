@@ -82,7 +82,7 @@ def sign_in():
         if existing_user:
             if check_password_hash(
               existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("name")
+                session["user"] = request.form.get("name").lower().capitalize()
                 logged_user = session["user"]
                 flash("Welcome back, " + logged_user)
                 return redirect(url_for('trips'))
