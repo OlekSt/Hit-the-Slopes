@@ -140,14 +140,6 @@ body{
     margin-right: 0.15em; 
 }
 
-.footer-btn{
-    font-size: 1.4em;
-}
-
-#footer-btn-mobile{
-    font-size: 1em;
-}
-
 .card-image{
     width: 45px;
     height: 45px;
@@ -433,7 +425,6 @@ a[data-tool-tip]:hover::after {
 .user-profile p{
     color:  #336C8F;
 }
-
 /* End - Modal for users' profiles */
 
 /* Footer */
@@ -477,6 +468,14 @@ a[data-tool-tip]:hover::after {
     margin-bottom: 0.1em;
 }
 
+.footer-btn{
+    font-size: 1.4em;
+}
+
+#footer-btn-mobile{
+    font-size: 1em;
+}
+
 @media screen and (max-width: 2000px){
     #main{
         max-width: 40%;
@@ -507,6 +506,19 @@ a[data-tool-tip]:hover::after {
         width: 160px;
         padding-bottom: 0;
     }  
+}
+
+/* self-close button for contact_me.html  */
+#message-close{
+    font-size: 0.9em;
+}
+
+.close-button {    
+    border-radius: 50%;
+}
+
+.close-button .material-icons{    
+    color: #A4352C;
 }
 
 
