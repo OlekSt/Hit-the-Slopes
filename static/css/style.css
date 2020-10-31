@@ -265,7 +265,7 @@ body{
     border: #0056B2 solid 1.5px;
 }
 
-.skiresort-title p{
+.skiresort-title {
     font-size: 1.2em;
     font-weight: 600;
     color: #0056B2;
@@ -276,6 +276,14 @@ body{
     color: #0056B2;
     font-size: 0.9em;
     font-weight: 500;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.skiresort-info{
+    font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .thumbnail-div{

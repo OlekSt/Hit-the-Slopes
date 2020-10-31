@@ -48,7 +48,8 @@ def sign_in_page():
 def add_user():
     users = mongo.db.users
     if request.method == "POST":
-        name = users.find_one({'name': request.form.get("name").lower().capitalize()})
+        name = users.find_one(
+            {'name': request.form.get("name").lower().capitalize()})
         if name is None:
             user = {
                 "name": request.form.get("name").lower().capitalize(),
