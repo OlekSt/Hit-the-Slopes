@@ -32,7 +32,7 @@ body{
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
-    min-height: 80%;
+    min-height: 90%;
     position: relative;
 }
 
@@ -41,16 +41,6 @@ body{
 #messaging{
     position: absolute;
     top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-/* to allow better placementd on mobile screens */
-#signup-main{
-    position: absolute;
-    top: 60%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -635,6 +625,30 @@ a[data-tool-tip]:hover::after {
         margin-right: 25px;
         padding-right: 0px;
     }
+    /* to allow better placement of signup form on mobile screens */
+    #signup-main{
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }   
+}
+
+@media screen and (max-width: 325px){
+/* to allow better placement of signup form on mobile screens */
+    #signup-main{
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    } 
+    #main{
+        max-height: 100%;
+    }
 }
 
 @media screen and (max-width: 285px){
@@ -673,6 +687,15 @@ a[data-tool-tip]:hover::after {
     #page-not-found-title{
         font-size: 15px;
     }
+    /* to allow better placement of signup form on mobile screens */
+    #signup-main{
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }   
     /* to make datepciker modal smaller for the smallest devices */
     .datepicker-modal {
         -webkit-transform: scaleX(0.8) scaleY(0.8) !important;

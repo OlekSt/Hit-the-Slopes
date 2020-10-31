@@ -38,7 +38,7 @@
         
         <!-- Flash messages -->
         {% with messages = get_flashed_messages() %}
-        <div {% if messages %} class="message-board center"{% endif %} >
+        <div {% if messages %} class="message-board center" {% endif %} >
             {% if messages %}
                 {% for message in messages %}
                 <p class="center">{{ message }}</p>
@@ -47,7 +47,7 @@
         </div>
         {% endwith %}
 
-    {% block content %} {% endblock %} 
+        {% block content %} {% endblock %} 
 
     </div>
 
