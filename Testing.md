@@ -31,20 +31,20 @@ This document is intended to record testing at various stages of development of 
 ### Validation services
 The following validation services were used to check the validity of the website code.
 - [W3C Markup Validation]( https://validator.w3.org/): 
-    No errors or warnings.
+    * No errors or warnings.
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/):
-    No errors. 
-    Three errors from materialize.min.css, and numerous warnings to materialize.min.css,
+    * No errors. 
+    * Three errors from materialize.min.css, and numerous warnings to materialize.min.css,
 - [JSHint](https://jshint.com/):
-    No errors, 3 warning about 'let' & 'const'.
+    * No errors, 3 warning about 'let' & 'const'.
 - [PEP8 Python Validator](http://pep8online.com):
-    No errors or warnings.
+    * No errors or warnings.
 - [Am I responsive](http://ami.responsivedesign.is/) was used to check responsiveness of the website for various screen sizes - mobile, tab, laptop, desktop. 
 
 ##### back to [top](#table-of-contents)
 
-## Client stories testing
 
+## Client stories testing
 The user stories are described in the UX section of [README.md](README.md) 
 
 **As a website visitor, I want:**
@@ -125,6 +125,7 @@ Tested on:
 - pad mode on a laptop
 - mobile phone
 - Chrome Developer Tools device simulators on all options
+*Friends tested on various devices - desktops, pads, mobile phones; Android and Apple. 
 
 ### Testing undertaken on laptop
 The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Microsoft Edge, Brave browser
@@ -149,7 +150,7 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - With correct name & passwors correctly takes us to the trips.html, flashes a message "Welcome back, 'username'!", shows the list of trips, and the navbar shows full (visible to logged in users) menu with the Logo, Trips, New Trip, Ski Resorts, New Ski Resort, Copyright, Sign Out. Plus search window with a fields Ski Resort and buttons: Reset & Search.
 
 4. Trips screen:
-*Navbar
+* Navbar
 - Pressing on the logo takes us back to the trips (when users are logged in), the flashed welcome message disappears.
 - Pressing Trip on the menu takes us back to display trips.
 - Pressing New Trip takes to the add_trip.html displayed correctly. 
@@ -157,7 +158,7 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - New Ski Resort to add_skiresort.html
 - Copyright opens a modal with a mini hero image, and info who designed and developed, and a link to the developer's Github.
 - Sign Out correctly signs out to index.html with the main screen with the slogan "Join/Start a snow team", where the navbar has the Logo, links to Sign Up & Sign In.
-*End Navbar
+* End Navbar
 
 - Trips are correctly displayed with dates from today into the future in correct chronological order. 
 - Testing search with a ski resort name, it returns a list of trips to that ski resort in correct chronological order.
@@ -170,8 +171,8 @@ The website was tested on Lenovo Yoga 530, in Google Chrome, Mozilla Firefox, Mi
 - In all cases a correct message is flashed saying "Trips to 'ski resort'"; "Trips to a 'ski resort' between date-from & date-to"; or other correct combinations.
 - Pressing on Search button without any search info flashes a message "No search parameters were chosen" and shows a list of trips.
 - A trip in the list, shows a user's name and avatar image, who created that trip; ski resort's name with an thumbnail image, dates from and to, number of adults and kids going, ski vs snoboard preference, and additional note from that user.
-- Touching a user's name opens an action bubble, suggesting to see a user's profile. Pressing on it shows a user's profile in a modal, with a name, avatar image, age range, place where user is from, and Contact link (confirmed that pressing it takes a user to contact_me.html).
-- Touching a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
+- Mouse over a user's name opens an action bubble, suggesting to see a user's profile. Pressing on it shows a user's profile in a modal, with a name, avatar image, age range, place where user is from, and Contact link (confirmed that pressing it takes a user to contact_me.html).
+- Mouse over a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
 - Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
 - A user/owner of a trip can press Edit, and will be taken to edit_trip.html, where all the previously saved data will be shown with a possibility to modify.
 - A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." *Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.*
@@ -258,7 +259,7 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 ##### back to [top](#table-of-contents)
 
 4. Trips screen:
-*Navbar
+* Navbar
 - Pressing on the logo takes us back to the trips (when users are logged in), the flashed welcome message disappears.
 - Pressing Trip on the menu takes us back to display trips.
 - Pressing New Trip takes to the add_trip.html displayed correctly. 
@@ -266,7 +267,7 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 - New Ski Resort to add_skiresort.html
 - Copyright opens a modal with a mini hero image, and info who designed and developed, and a link to the developer's Github.
 - Sign Out correctly signs out to index.html with the main screen with the slogan "Join/Start a snow team", where the navbar has the Logo, links to Sign Up & Sign In.
-*End Navbar
+* End Navbar
 
 - Trips are correctly displayed with dates from today into the future in correct chronological order. 
 - Testing search with a ski resort name, it returns a list of trips to that ski resort in correct chronological order.
@@ -279,8 +280,8 @@ The website was tested on Samsung A7 & Lenovo Yoga 530 in Pad mode, Google Chrom
 - In all cases a correct message is flashed saying "Trips to 'ski resort'"; "Trips to a 'ski resort' between date-from & date-to"; or other correct combinations.
 - Pressing on Search button without any search info flashes a message "No search parameters were chosen" and shows a list of trips.
 - A trip in the list, shows a user's name and avatar image, who created that trip; ski resort's name with an thumbnail image, dates from and to, number of adults and kids going, ski vs snoboard preference, and additional note from that user.
-- Mouse over a user's name opens an action bubble, suggesting to see a user's profile. Pressing on it shows a user's profile in a modal, with a name, avatar image, age range, place where user is from, and Contact link (confirmed that pressing it takes a user to contact_me.html).
-- Mouse over a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
+- Touching a user's name opens an action bubble, suggesting to see a user's profile. Pressing on it shows a user's profile in a modal, with a name, avatar image, age range, place where user is from, and Contact link (confirmed that pressing it takes a user to contact_me.html).
+- Touching a ski resort's name opens an action bubble, suggesting to see ski resorts, and confirmed that pressing it, takes us to skiresorts.html. 
 - Buttons to Edit or Delete a trip are visible only to a user who created that particular trip. 
 - A user/owner of a trip can press Edit, and will be taken to edit_trip.html, where all the previously saved data will be shown with a possibility to modify.
 - A user/owner of a trip can press Delete, and a trip will be deleted, user will be returned to the trips.html. A message will flash "'Username', we've deleted your trip." *Note: Feature to be added to ask a user for confirmation if he/she really wants to delete a trip.*
@@ -348,93 +349,96 @@ The website was tested on all devices available there following the same procedu
 
 ### Bugs discovered: 
 
-Navbar:
-    -	Active menu item: shows all of them as active
-
-Trips.html:
-    - If a skiresort is deleted, a skiresort's thumbnail is not displayed on a trip in trips.html.
-
-Firefox on mobile:
-    - Color validation does not work for all fields on Sing Up, popup message is not shown if a field is not filled, but won't let save till all the fields are filled in.
-
-Edit_trip.html:
-    - It is possible to change one date, and set Date-To before Date-From, and save a trip with wrong dates.
-
-Sign_up_page.html(mobile view, only on Chrome, works ok on Firefox):
-    - If i am trying to register with an existing name, flashes a message, the message is covered by the top of the sign-up card.
+All the bugs have been moved either to [solved](#solved-bugs) or [unsolved](#unsolved-bugs). 
 
 ##### back to [top](#table-of-contents)
 
 #### Solved bugs:
 
-New user registration:
-    - Google message: Passwords are not safe....
+- New user registration:
+    * Google message: Passwords are not safe....
 
-Navbar:
-    -	Mobile menu: Is not visible, and pressing on menu sandwich does not open menu in mobile view.
+- Navbar:
+    * Mobile menu: Is not visible, and pressing on menu sandwich does not open menu in mobile view.
 
-Edit_skiresort.html:
-    - Google maps info is lost on opening a specific ski resort to be updated. 
-    - Does not show logged-in navbar.
+- Edit_skiresort.html:
+    * Google maps info is lost on opening a specific ski resort to be updated. 
+    * Does not show logged-in navbar.
 
-Edit_trip.html:
-    - Name of the stored resort is not posted to the form.
+- Edit_trip.html:
+    * Name of the stored resort is not posted to the form.
 
-Trips.html:
-    - User's avatar image per trip record is not visible. 
-    - User's name is not visible
-    - Deleting a trip triggers view distortion. Line of trips become blocks. 
+- Trips.html:
+    * User's avatar image per trip record is not visible. 
+    * User's name is not visible
+    * Deleting a trip triggers view distortion. Line of trips become blocks. 
 
-Trips.html - Search by ski Ski_resorts:
-    - User's avatar image per trip record is not visible. 
-    - Ski resorts' thumbnails are not visible
+- Trips.html - Search by ski Ski_resorts:
+    * User's avatar image per trip record is not visible. 
+    * Ski resorts' thumbnails are not visible
 
-Signing In:
-    - Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
+- Signing In:
+    * Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
 
-Add_trip:
-    - Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
+- Add_trip:
+    * Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
 
-Ski_resorts.html:
-    - Each ski resort displayed multiple times.
+- Ski_resorts.html:
+    * Each ski resort displayed multiple times.
 
-Signing In:
-    - Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
+- Signing In:
+    * Wrong name should redirect to sign_in_page.html. It just flashes the message: Wrong name. Try again. Also shows the full menu, instead of just Sing-In & Sign-Up menu to be visible for unlogged users.
 
-Add_trip:
-    - Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
+- Add_trip:
+    * Does not render trips.html, writes "Collection is not iterble" for {% for trip in trips %}, while a trip is added to the DB correctly
 
-Edit_skiresort.html:
-    - Thumbnail info is lost on opening a specific ski resort to be updated.
-    - Skiresort choice is lost on saving, if not chosen again.
+- Edit_skiresort.html:
+    * Thumbnail info is lost on opening a specific ski resort to be updated.
+    * Skiresort choice is lost on saving, if not chosen again.
 
-User's profile opened from search for trips:
-    - Contact me takes me to UnderConstruction page, if initially I chose some search parameters, and opened a profile from one of the filtered trips, when I press Back button, takes me to a "Re-confirm Submission" warning page, instead of showing a list of trips
+- User's profile opened from search for trips:
+    * Contact me takes me to UnderConstruction page, if initially I chose some search parameters, and opened a profile from one of the filtered trips, when I press Back button, takes me to a "Re-confirm Submission" warning page, instead of showing a list of trips
 
 ##### back to [top](#table-of-contents)
 
-Sign Up & Sign In on Heroku app:
-    - Get this mistake: 'NoneType' object has no attribute 'users'.
+- Sign Up & Sign In on Heroku app:
+    * Get this mistake: 'NoneType' object has no attribute 'users'.
 
-Trips.html, Search:
-    - Search does not work in combination: Ski resort name + dates (any of them(from or to) or both)
-    - Search does not work with two dates: from & to
-    - Dates search fields poorly visible on mobile
+- Trips.html, Search:
+    * Search does not work in combination: Ski resort name + dates (any of them(from or to) or both)
+    * Search does not work with two dates: from & to
+    * Dates search fields poorly visible on mobile
 
-Trips.html, user's profile:
-    - User's profile modal brings info of only one user, no matter if a different user's name clicked
+- Trips.html, user's profile:
+    * User's profile modal brings info of only one user, no matter if a different user's name clicked
 
-Sign_up.html, Add_skiresort.html:
-    - avatar & thumbnail images/names area of select is too narrow, diaplys is distorted.
+- Sign_up.html, Add_skiresort.html:
+    * Avatar & thumbnail images/names area of select is too narrow, diaplys is distorted.
 
-Sign-up form:
-    - Where from had same id as calendar datepicker, so was opening datepicker on registration. 
+- Sign-up form:
+    * Where from had same id as calendar datepicker, so was opening datepicker on registration. 
 
 ##### back to [top](#table-of-contents)
 
 #### Unsolved bugs:
+The bugs below have been left unsolved due to project's time constraints & deadlines; because either the bugs are currently deemed inessential for funcitonality of the website, or out of capabilities of the developer to resolve them.
 
-Add_skiresort.html, skiresorts.html:
+- Navbar:
+    * Active menu item: shows all of them as active
+
+- Trips.html:
+    * If a skiresort is deleted, a skiresort's thumbnail is not displayed on a trip in trips.html.
+
+- Firefox on mobile:
+    * Color validation does not work for all fields on Sing Up, popup message is not shown if a field is not filled, but won't let save till all the fields are filled in.
+
+- Edit_trip.html:
+    * It is possible to change one date, and set Date-To before Date-From, and save a trip with wrong dates.
+
+- Sign_up_page.html(mobile view, only on Chrome, works ok on Firefox):
+    * If i am trying to register with an existing name, flashes a message, the message is covered by the top of the sign-up card.
+
+- Add_skiresort.html, skiresorts.html:
     - Issues with Materialize checkboxes for "spring/autumn/night skiing/glacier" info. Deleted the checkboxes for now. Using strings with "yes/no". If timing will allow, will add checkboxes at the end of the project.
     ** Removed functionality. 
 
