@@ -159,7 +159,7 @@ def search_trips():
                     }).sort("from", 1)  # to sort in chronological order
             flash("Trips to: " + query + ", between: " +
                   query_from + " - " + query_to)
-        else:  # if spelt wrongly in search field
+        else:  # if skiresort spelt wrongly in search field
             trips = mongo.db.trips.find({
                     "from": {"$gte": query_from},
                     "to": {"$lte": query_to}
@@ -179,7 +179,7 @@ def search_trips():
                     "from": {"$gte": query_from}
                     }).sort("from", 1)
             flash("Trips to: " + query + ", starting: " + query_from)
-        else:  # if spelt wrongly in search field
+        else:  # if skiresort spelt wrongly in search field
             trips = mongo.db.trips.find({
                     "from": {"$gte": query_from}
                     }).sort("from", 1)
@@ -192,7 +192,7 @@ def search_trips():
                     "to": {"$lte": query_to}
                     }).sort("from", 1)
             flash("Trips to: " + query + ", till: " + query_to)
-        else:  # if spelt wrongly in search field
+        else:  # if skiresort spelt wrongly in search field
             trips = mongo.db.trips.find({
                     "to": {"$lte": query_to}
                     }).sort("from", 1)
@@ -204,6 +204,10 @@ def search_trips():
                                         {"$search": query}}).sort("from", 1)
             flash("Trips to: " + query)
         else:
+            # to display trip started current/today's date
+            today = date.today().strftime("%Y.%m.%d")
+            trips = mongo.db.trips.find({
+                "from": {"$gte": today}}).sort("from", 1)
             flash("Wrong name, or no such ski resort!")
     elif query_from:     # search by a starting date
         trips = mongo.db.trips.find({"from":
@@ -217,7 +221,10 @@ def search_trips():
         redirect(url_for('trips'))
         users = list(mongo.db.users.find())
         skiresorts = list(mongo.db.skiresorts.find())
-        trips = mongo.db.trips.find().sort("from", 1)
+        # to display trip started current/today's date
+        today = date.today().strftime("%Y.%m.%d")
+        trips = mongo.db.trips.find({
+                "from": {"$gte": today}}).sort("from", 1)
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
     return render_template(
