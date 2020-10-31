@@ -114,7 +114,9 @@ def trips():
         today = date.today().strftime("%Y.%m.%d")
         trips = trips = mongo.db.trips.find({"from": {"$gte": today}})
         # sort trips by enddate too
-        trips = sorted(trips, key=lambda i: (i['from'], i['to']),reverse=False)
+        trips = sorted(trips,
+                       key=lambda i: (i['from'], i['to']),
+                       reverse=False)
         trips = list(trips)
         skiresorts = list(mongo.db.skiresorts.find())
         users = list(mongo.db.users.find())
@@ -226,10 +228,14 @@ def search_trips():
         today = date.today().strftime("%Y.%m.%d")
         trips = mongo.db.trips.find({
                 "from": {"$gte": today}})
-        trips = sorted(trips, key=lambda i: (i['from'], i['to']),reverse=False)
+        trips = sorted(trips,
+                       key=lambda i: (i['from'], i['to']),
+                       reverse=False)
     users = list(mongo.db.users.find())
     skiresorts = list(mongo.db.skiresorts.find())
-    trips = sorted(trips, key=lambda i: (i['from'], i['to']),reverse=False)
+    trips = sorted(trips,
+                       key=lambda i: (i['from'], i['to']),
+                       reverse=False)
     return render_template(
         "trips.html",
         skiresorts=skiresorts,
