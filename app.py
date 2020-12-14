@@ -76,7 +76,7 @@ def add_user():
 @app.route('/sign_in', methods=['GET', 'POST'])
 def sign_in():
     if request.method == "POST":
-        users = mongo.db.users.find()
+        users = mongo.db.users
         existing_user = users.find_one(
             {'name': request.form.get("name").lower().capitalize()})
         if existing_user:
