@@ -76,7 +76,7 @@ def add_user():
 @app.route('/sign_in', methods=['GET', 'POST'])
 def sign_in():
     if request.method == "POST":
-        users = mongo.db.users
+        users = mongo.db.users.find()
         existing_user = users.find_one(
             {'name': request.form.get("name").lower().capitalize()})
         if existing_user:
@@ -115,8 +115,8 @@ def trips():
         trips = trips = mongo.db.trips.find({"from": {"$gte": today}})
         # sort trips by enddate too
         trips = sorted(trips,
-                       key=lambda i: (i['from'], i['to']),
-                       reverse=False)
+                        key=lambda i: (i['from'], i['to']),
+                        reverse=False)
         trips = list(trips)
         skiresorts = list(mongo.db.skiresorts.find())
         users = list(mongo.db.users.find())
@@ -441,4 +441,4 @@ def not_found(error):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)
