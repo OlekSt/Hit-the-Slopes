@@ -31,7 +31,8 @@ This document is intended to record testing at various stages of development of 
 ### Validation services
 The following validation services were used to check the validity of the website code.
 - [W3C Markup Validation]( https://validator.w3.org/): 
-    * No errors or warnings.
+    * Using individual page links for validation: No errors or warnings.
+    * Using source code of each page: errors due to repeated ID of users, because one username, in multiple trips created by the user. Plus  repeated ID in See profile link to open a user's profile. 
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/):
     * No errors. 
     * Three errors from materialize.min.css, and numerous warnings to materialize.min.css,
@@ -441,6 +442,10 @@ The bugs below have been left unsolved due to project's time constraints & deadl
 - Add_skiresort.html, skiresorts.html:
     - Issues with Materialize checkboxes for "spring/autumn/night skiing/glacier" info. Deleted the checkboxes for now. Using strings with "yes/no". If timing will allow, will add checkboxes at the end of the project.
     ** Removed functionality. 
+
+- trips.html(source code html validation):
+    - Errors due to repeated ID of users, because one username, in multiple trips created by the user. Plus  repeated ID in See profile link to open a user's profile.
+    ** Not fixing because they are not critical, and due to lack of time to re-submit the project for assesment.  
 
 ## Further testing: 
 1. Asked friends and family to look at the site on their devices & report any issues they found.
