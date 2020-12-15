@@ -26,7 +26,7 @@
                         </div>
                         <div class="input-field col s12 m12 l6">
                             <i class="material-icons prefix">terrain</i>
-                            <select class="icons dropdown-content" id="glacier" name="glacier" required>
+                            <select class="icons dropdown-content" id="glacier" name="glacier" size="2" required>
                                 <option value="{{skiresort.glacier}}" disabled selected>Glacier: {{skiresort.glacier}}</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="input-field col s12 m12 l6">
                             <i class="material-icons prefix">brightness_3</i>
-                            <select class="icons dropdown-content" id="night" name="night" required>
+                            <select class="icons dropdown-content" id="night" name="night" size="2" required>
                                 <option value="{{skiresort.night}}" disabled selected>Night: {{skiresort.night}}</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="input-field col s12 m12 l6">
                             <img class="center" src="{{skiresort.thumbnail}}" width="30" height="30" alt="Ski Resort Thumbnail"/>
-                            <select value="{{skiresort.thumbnail}}" class="validate" id="thumbnail" name="thumbnail" required>
+                            <select class="validate" id="thumbnail" name="thumbnail" size="10" required>
                                 <option value="{{skiresort.thumbnail}}" disabled selected>Update thumbnail</option>
                                 <option value="/static/img/resorts_thumbs/mountain01.png" data-icon="/static/img/resorts_thumbs/mountain01.png">Peak</option>
                                 <option value="/static/img/resorts_thumbs/mountain02.png" data-icon="/static/img/resorts_thumbs/mountain02.png">Glacier</option>
