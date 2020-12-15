@@ -331,9 +331,14 @@ body{
     width:70%;
 }
 
-hr-3{
+.hr-3{
     height:0.03px;
     width:80%;
+}
+
+.hr{
+    color:#808080;
+	background:#808080;
 }
 
 .buttons-box{

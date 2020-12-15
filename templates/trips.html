@@ -43,14 +43,14 @@
                                     <div class="col s6 m6 l6 xl6">
                                         <a href="#{{user.name}}" data-target="#{{user.name}}" data-tool-tip="See profile" class="avatar-title modal-trigger center"><strong>{{user.name}}</strong></a>
                                         <div class="avatar-div">
-                                            <img class="avatar center" src="{{user.avatar}}" width="60" height="60"/>
+                                            <img class="avatar center" src="{{user.avatar}}" width="60" height="60" alt="Avatar"/>
                                         </div>
                                         <!-- Modal structure for users' profiles -->
                                         <div id="#{{user.name}}" class="modal user-profile">
                                             <div class="modal-content center">
                                                 <div class="col s12 m4 l4 xl4">
                                                     <h5>{{user.name}}</h5>
-                                                    <img src="{{user.avatar}}" width="50" height="50"/>
+                                                    <img src="{{user.avatar}}" width="50" height="50" alt="Avatar"/>
                                                 </div>
                                                 <div class="col s12 m4 l4 xl4">
                                                     <p>{{user.gender}}</p>
@@ -70,20 +70,20 @@
                                         <div class="avatar-div center">
                                             {% for skiresort in skiresorts %}
                                                 {% if trip.skiresort_id == skiresort._id %}
-                                                <img class="trip-thumbnail center" src="{{skiresort.thumbnail}}" width="60" height="60"/>
+                                                <img class="trip-thumbnail center" src="{{skiresort.thumbnail}}" width="60" height="60" alt="Ski Resort Thumbnail"/>
                                                 {% break %}
                                                 {% endif %}
                                             {% endfor %} 
                                         </div>
                                     </div>
                                 </div>
-                                <hr class="invisible-hr hr-1" noshade >
+                                <hr class="invisible-hr hr-1 hr">
                             </div>
                             <div class="col s12 m7 l7 xl7 center">
                                 <div class="col s6 m6 l6 xl6 ">
                                     <p class="trip-p">From:&nbsp;&nbsp;&nbsp;<strong> {{trip.from}}</strong></p>
                                     <p class="trip-p">To:&nbsp;&nbsp;&nbsp;<strong> {{trip.to}}</strong></p>
-                                    <hr noshade class="hr-2">
+                                    <hr class="hr-2 hr">
                                     <p class="trip-p">ADULTS:   <strong>{{trip.adults}}</strong></p>
                                     <p class="trip-p">KIDS:   <strong>{{trip.kids}}</strong></p>
                                 </div>
@@ -91,7 +91,7 @@
                                     <div>
                                         <p class="ski-snowboard-title"><strong>{{trip.ski_snowboard}}</strong></p>
                                     </div>
-                                    <hr noshade class="hr-3">
+                                    <hr class="hr-3 hr">
                                     <div>
                                         <p class="trip-p">INFO:</p> 
                                         <p class="trip-p"><strong>{{trip.other_info}}</strong></p>
