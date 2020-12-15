@@ -115,8 +115,8 @@ def trips():
         trips = trips = mongo.db.trips.find({"from": {"$gte": today}})
         # sort trips by enddate too
         trips = sorted(trips,
-                        key=lambda i: (i['from'], i['to']),
-                        reverse=False)
+                       key=lambda i: (i['from'], i['to']),
+                       reverse=False)
         trips = list(trips)
         skiresorts = list(mongo.db.skiresorts.find())
         users = list(mongo.db.users.find())
@@ -284,7 +284,7 @@ def update_trip(trip_id):
                     {'_id': ObjectId(trip_id)},
                     {"$set":
                         {'location_name': request.form.get('skiresort'),
-                        'skiresort_id': skiresort_id}})
+                         'skiresort_id': skiresort_id}})
     flash(session['user'] + "! We've updated your trip!")
     return redirect(url_for('trips'))
 
