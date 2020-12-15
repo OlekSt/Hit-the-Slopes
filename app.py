@@ -81,7 +81,7 @@ def sign_in():
             {'name': request.form.get("name").lower().capitalize()})
         if existing_user:
             if check_password_hash(
-              existing_user["password"], request.form.get("password")):
+             existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("name").lower().capitalize()
                 logged_user = session["user"]
                 flash("Welcome back, " + logged_user)
@@ -276,7 +276,15 @@ def update_trip(trip_id):
                     {'_id': ObjectId(trip_id)},
                     {"$set":
                         {item: request.form.get(item)}})
-
+            if request.form.get('skiresort'):
+                skiresort = mongo.db.skiresorts.find_one(
+                    {"$text": {"$search": request.form['skiresort']}})
+                skiresort_id = skiresort['_id']
+                mongo.db.trips.update_one(
+                    {'_id': ObjectId(trip_id)},
+                    {"$set":
+                        {'location_name': request.form.get('skiresort'),
+                        'skiresort_id': skiresort_id}})
     flash(session['user'] + "! We've updated your trip!")
     return redirect(url_for('trips'))
 
