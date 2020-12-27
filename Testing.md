@@ -39,7 +39,9 @@ The following validation services were used to check the validity of the website
 - [JSHint](https://jshint.com/):
     * No errors, 3 warning about 'let' & 'const'.
 - [PEP8 Python Validator](http://pep8online.com):
+    * Checking the file commited on 27.12.2020, link to raw file https://raw.githubusercontent.com/OlekSt/Hit-the-Slopes/master/app.py
     * No errors or warnings.
+    * See [print-screens](static/re-submission)
 - [Am I responsive](http://ami.responsivedesign.is/) was used to check responsiveness of the website for various screen sizes - mobile, tab, laptop, desktop. 
 
 ##### back to [top](#table-of-contents)
