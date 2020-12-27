@@ -41,7 +41,7 @@ The following validation services were used to check the validity of the website
 - [PEP8 Python Validator](http://pep8online.com):
     * Checking the file commited on 27.12.2020, link to raw file https://raw.githubusercontent.com/OlekSt/Hit-the-Slopes/master/app.py
     * No errors or warnings.
-    * See [print-screens](static/re-submission)
+    * See printscreens: [1](static/re_submission/python_validation01.jpg), [2](static/re_submission/python_validation02.jpg), [3](static/re_submission/python_validation03.jpg) 
 - [Am I responsive](http://ami.responsivedesign.is/) was used to check responsiveness of the website for various screen sizes - mobile, tab, laptop, desktop. 
 
 ##### back to [top](#table-of-contents)
