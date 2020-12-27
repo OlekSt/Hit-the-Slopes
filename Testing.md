@@ -34,9 +34,13 @@ The following validation services were used to check the validity of the website
     * Using individual page links for validation: No errors or warnings.
     * Using source code of each page: errors due to repeated ID of users, because one username, in multiple trips created by the user. Plus  repeated ID in See profile link to open a user's profile. 
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/):
-    * No errors. 
-    * Three errors from materialize.min.css, and numerous warnings to materialize.min.css,
-- [JSHint](https://jshint.com/):
+    * Validating the file with the last commit: e1b34f2, link - https://github.com/OlekSt/Hit-the-Slopes/commit/e1b34f25a5d35447c0c1383a293113c1e445d685.
+    * No errors on validating the source code from here https://raw.githubusercontent.com/OlekSt/Hit-the-Slopes/master/static/css/style.css
+    * Three errors from materialize.min.css, and numerous warnings to materialize.min.css, if validating the deployed website on heroku. 
+    **These errors were indicated in my initial submit!!!**
+    **I still don't understand why the assesment came back with CSS errors**
+    * See printscreens
+- [JSHint](https://jshint.com/):[1](static/re_submission/css_validation01.jpg), [2](static/re_submission/css_validation02.jpg), [3](static/re_submission/css_validation03.jpg) 
     * No errors, 3 warning about 'let' & 'const'.
 - [PEP8 Python Validator](http://pep8online.com):
     * Checking the file commited on 27.12.2020, link to raw file https://raw.githubusercontent.com/OlekSt/Hit-the-Slopes/master/app.py
