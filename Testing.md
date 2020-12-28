@@ -32,9 +32,25 @@ This document is intended to record testing at various stages of development of 
 The following validation services were used to check the validity of the website code.
 - [W3C Markup Validation]( https://validator.w3.org/): 
     * http://hit-the-slopes.herokuapp.com/: 
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation01_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation01_2.jpg)
     
-    * Using individual page links for validation: No errors or warnings.
-    * Using source code of each page: errors due to repeated ID of users, because one username, in multiple trips created by the user. Plus  repeated ID in See profile link to open a user's profile. 
+    * http://hit-the-slopes.herokuapp.com/sign_up_page: 
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation02_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation02_2.jpg)
+
+    * http://hit-the-slopes.herokuapp.com/sign_in_page:
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation03_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation03_2.jpg)
+    * http://hit-the-slopes.herokuapp.com/trips:
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation04_1.jpg)
+        - Source code: no warnings, but some errors due to repeated IDs, caused by a generated list of trips, some of the trips created by the same user, e.g. with id "Alex": [print-screen](static/re_submission/html_validation04_2.jpg)
+
+    * http://hit-the-slopes.herokuapp.com/edit_trip/5f9c20eb1463e641164e2cc7:
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation05_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation05_2.jpg)
+
+    
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/):
     * Validating the file with the last commit: e1b34f2, link - https://github.com/OlekSt/Hit-the-Slopes/commit/e1b34f25a5d35447c0c1383a293113c1e445d685.
     * No errors on validating the source code from here https://raw.githubusercontent.com/OlekSt/Hit-the-Slopes/master/static/css/style.css
