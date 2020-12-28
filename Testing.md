@@ -74,7 +74,7 @@ The following validation services were used to check the validity of the website
     * Validating the file with the last commit: e1b34f2, link - https://github.com/OlekSt/Hit-the-Slopes/commit/e1b34f25a5d35447c0c1383a293113c1e445d685.
     * No errors on validating the source code from here https://raw.githubusercontent.com/OlekSt/Hit-the-Slopes/master/static/css/style.css
     * Three errors from materialize.min.css, and numerous warnings to materialize.min.css, if validating the deployed website on heroku. 
-    * A couple of errors (leave them unfixed, cause they are not important): 
+    * A couple of inessential warnings (leave them unfixed, cause they are not important): 
         - line 139: .btn-small .waves-effect: Same color for background-color and color
         - line 344: .hr: Same color for background-color and color
     * See printscreens: [1](static/re_submission/css_validation01.jpg), [2](static/re_submission/css_validation02.jpg), [3](static/re_submission/css_validation03.jpg) 
