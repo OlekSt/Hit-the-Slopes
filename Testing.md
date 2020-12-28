@@ -31,6 +31,8 @@ This document is intended to record testing at various stages of development of 
 ### Validation services
 The following validation services were used to check the validity of the website code.
 - [W3C Markup Validation]( https://validator.w3.org/): 
+    * http://hit-the-slopes.herokuapp.com/: 
+    
     * Using individual page links for validation: No errors or warnings.
     * Using source code of each page: errors due to repeated ID of users, because one username, in multiple trips created by the user. Plus  repeated ID in See profile link to open a user's profile. 
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/):
