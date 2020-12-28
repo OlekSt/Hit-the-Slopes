@@ -88,6 +88,9 @@ The following validation services were used to check the validity of the website
 
 - Console errors check: no errors. 
 
+final checks done. 
+28.12.2020; 11.25CET
+
 ##### back to [top](#table-of-contents)
 
 
