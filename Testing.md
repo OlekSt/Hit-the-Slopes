@@ -50,6 +50,25 @@ The following validation services were used to check the validity of the website
         - Link: no errors or warnings: [print-screen](static/re_submission/html_validation05_1.jpg)
         - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation05_2.jpg)
 
+    * http://hit-the-slopes.herokuapp.com/add_trip:
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation06_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation06_2.jpg)
+
+    * http://hit-the-slopes.herokuapp.com/ski_resorts: 
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation07_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation07_2.jpg)
+
+    * http://hit-the-slopes.herokuapp.com/edit_skiresort/5f97f1856b6c4a5625b3d1bb:
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation08_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation08_2.jpg)
+
+    * http://hit-the-slopes.herokuapp.com/add_skiresort:
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation09_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation09_2.jpg)
+
+    * http://hit-the-slopes.herokuapp.com/show_index:
+        - Link: no errors or warnings: [print-screen](static/re_submission/html_validation10_1.jpg)
+        - Source code: no errors or warnings: [print-screen](static/re_submission/html_validation10_2.jpg)
     
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/):
     * Validating the file with the last commit: e1b34f2, link - https://github.com/OlekSt/Hit-the-Slopes/commit/e1b34f25a5d35447c0c1383a293113c1e445d685.
@@ -65,6 +84,8 @@ The following validation services were used to check the validity of the website
     * No errors or warnings.
     * See printscreens: [1](static/re_submission/python_validation01.jpg), [2](static/re_submission/python_validation02.jpg), [3](static/re_submission/python_validation03.jpg) 
 - [Am I responsive](http://ami.responsivedesign.is/) was used to check responsiveness of the website for various screen sizes - mobile, tab, laptop, desktop. 
+
+- Console errors check: no errors. 
 
 ##### back to [top](#table-of-contents)
 
